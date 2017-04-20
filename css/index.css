@@ -1,0 +1,31 @@
+body{background: url("../image/login_bg.png") no-repeat;background-size: cover;}
+.main{padding-top: 100px;}
+input{
+    width: 59%;margin-left: 15%;
+    height: 40px;border: none;
+    margin-top: 1px;
+    background-color: #ffffff !important;
+    padding-left: 11%;
+    font-size: 1.5em;
+}
+input:nth-child(1){background: url("../image/login1.png") 10px center no-repeat;background-size: 20px;}
+input:nth-child(2){background: url("../image/login2.png") 10px center no-repeat;background-size: 20px;}
+button{
+    width: 70%;
+    margin-left: 15%;
+    margin-top: 20px;
+    height: 35px;
+    border: none;
+    font-size: 1.5em;
+    color: #9e9c9c;
+}
+.main div{
+    font-size: 1.5em;
+    width: 70%;
+    margin-left: 15%;
+    margin-top: 10px;
+}
+.active{
+    background: #00a0e9;
+    color: #ffffff;
+}

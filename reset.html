@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <link rel="stylesheet" href="css/base.css"/>
+    <link rel="stylesheet" href="css/reset.css"/>
+    <script src="node_modules/vue/dist/vue.js"></script>
+    <title>重置密码</title>
+</head>
+<body>
+<div class="main">
+    <input type="password" placeholder="请输入新密码" v-model="new1" @keyup="fun1()"/>
+    <input type="password" placeholder="请再次输入密码" v-model="new2" @keyup="fun2()"/>
+    <p v-if="show1">————— 密码长度不足—————</p>
+    <p v-if="show2">————— 两次输入密码不一致 —————</p>
+    <button @click="turn()">下一步</button>
+</div>
+</body>
+<script>
+    new Vue({
+        el:".main",
+        data:{
+            new1:"",
+            new2:"",
+            show1:true,
+            show2:true,
+            turn: function () {
+                
+            }
+        },
+        methods:{
+            fun1: function () {
+                if(this.new1.length>5){
+                    this.show1=false
+                }else{
+                    this.show1=true
+                }
+            },
+            fun2:function (){
+                if(this.new1.length>5&&this.new2===this.new1){
+                    this.show2=false
+                    this.turn= function () {
+                        window.location.href="reset_finish.html"
+                    }
+                }else{
+                    this.show2=true
+                    this.turn= function () {
+                        
+                    }
+                }
+            }
+        }
+    })
+</script>
+</html>

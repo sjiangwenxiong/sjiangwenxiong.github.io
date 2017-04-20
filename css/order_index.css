@@ -1,0 +1,104 @@
+.header{
+    font-size: 1.4em;
+    width: 100%;
+    height: 65px;
+    background: #24232c;
+    padding-top: 10px;
+}
+.header img{
+    margin-top: -3px;
+    height: 15px;
+}
+.header>div{
+    color: white;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+select{
+    background: #24232c;
+    border: none;
+    color: white;
+    margin-top: -3px;
+}
+li{
+    color: #9e9c9c;
+    margin-top: 10px;
+    font-size: 1.1em;
+    text-align: center;
+    float: left;
+    height: 25px;
+    line-height: 25px;
+    width: 10%;
+    margin-left: 5%;
+}
+li:nth-child(1){
+    margin-left: 0;
+}
+.header>div>ul span{
+    display: block;
+    width: 100%;
+    text-align: center;
+    background: #00a0e9;
+    height: 14px;
+    line-height: 14px;
+    color: white;
+}
+.header>div>span:nth-child(3){
+    margin-left: 0;
+}
+.content{
+    font-size: 1.4em;
+    padding: 5px 10px;
+}
+.content>div{
+    margin-top: 10px;
+    width: 100%;
+    height: 161px;
+}
+.content>div:nth-child(1){
+    background: url("../image/order1.png");
+    background-size: cover;
+}
+.content input{
+    margin: 5px 10px;
+    background: #00a0e9;
+    border: none;
+    height: 20px;
+    line-height: 15px;
+    width: 20%;
+    color: white;
+}
+.content>div>div{
+    margin-top: 80px;
+}
+.content .fl{
+    margin-left: 10px;
+}
+.content .fl p:nth-child(1){
+    color: white;
+    font-size: 1.3em;
+}
+.content .fl p:nth-child(2){
+    color: #9e9c9c;
+    margin-top: 5px;
+}
+.content .fr{
+    margin-right: 10px;
+    background: #00a0e9;
+    border: none;
+    height: 30px;
+    line-height: 15px;
+    width: 16%;
+    color: white;
+}
+.content>div:nth-child(2){
+    background: url("../image/order2.png");
+    background-size: cover;
+}
+.content>div:nth-child(3){
+    background: url("../image/order3.png");
+    background-size: cover;
+}
+.bgw{
+    background: white;
+}

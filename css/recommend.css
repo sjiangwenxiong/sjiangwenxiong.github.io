@@ -1,0 +1,64 @@
+body{
+    background: url("../image/reco_bg.png") no-repeat;
+    background-size: 100%;
+}
+.main{
+    padding-top: 23px;
+    padding-left: 23px;
+    padding-right: 23px;
+    font-size: 1.4em;
+}
+.bg{
+    width: 100%;
+    background: url("../image/reco_main.png") no-repeat;
+    background-size: contain;
+}
+.bg>div:nth-child(1){
+    width: 22%;
+    margin: 0 auto;
+}
+.bg>div>img{
+    width: 100%;
+    margin-top:25px;
+}
+p{
+    color: #64605d;
+    text-align: center;
+}
+.bg>p:nth-child(2){
+    margin-top: 22px;
+}
+.bg>p:nth-child(3){
+    margin-top: 70px;
+}
+.bg>div:nth-child(4){
+    width: 26%;
+    margin: 0 auto;
+}
+.bg>div>button{
+    height: 30px;
+    border: none;
+    width: 100%;
+    color: #ffffff;
+    background: #00a0e9;
+    margin-top: 10px;
+}
+.bg>p:nth-child(5){
+    margin-top: 30px;
+}
+.bg>p:nth-child(6){
+    margin-top: 10px;
+}
+p span{
+    font-size: 2em;
+    color: #000000;
+}
+.bg>button{
+    margin-top: 15px;
+    height: 40px;
+    width: 50%;
+    margin-left: 25%;
+    border: none;
+    color: #ffffff;
+    background: #00a0e9;
+}

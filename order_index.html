@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <link rel="stylesheet" href="css/base.css"/>
+    <link rel="stylesheet" href="css/order_index.css"/>
+    <script src="node_modules/vue/dist/vue.js"></script>
+    <title>一周预约</title>
+</head>
+<body>
+<div class="main">
+    <div class="header">
+        <div>
+            <div class="clearfix">
+                <div class="fl">
+                    <img src="image/position_white.png"> 杭州市
+                </div>
+                <div class="fr">
+                    <img src="image/store_white.png"/>
+                    <select>
+                        <option>城西银泰店</option>
+                        <option>城西银泰店</option>
+                        <option>城西银泰店</option>
+                    </select>
+                    <span> 3km</span>
+                </div>
+            </div>
+            <ul>
+                <li v-for="(item,index) in week" :class="{bgw:index==n}" @click="n=index">
+                    {{item}}
+                    <span v-if="index==n">{{19+index}}</span>
+                </li>
+            </ul>
+
+        </div>
+    </div>
+    <div class="content" v-for="(value,key,index) in arr.class_order" v-if="index==n">
+        <div v-for="item in value">
+            <input type="button" :value="item.class"/>
+            <div class="clearfix">
+                <div class="fl">
+                    <p>{{item.teach}}</p>
+                    <p>时间:{{item.date}}</p>
+                </div>
+                <button class="fr" onclick="window.location.href='oder.html'">{{item.way}}</button>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<script>
+    var vm=new Vue({
+        el:".main",
+        data:{
+            week:["日","一","二","三","四","五","六"],
+            n:0,
+            arr:{class_order:{//可从后台获取，每周课程内容以及状态在class_order的week1-7中
+                week7:[
+                    {class:"周日有约",teach:"Christia",time:"11:00-12:00",way:"预约"},
+                    {class:"尊巴热舞",teach:"Christia",time:"11:00-12:00",way:"排队"},
+                    {class:"燃脂炸弹",teach:"Christia",time:"11:00-12:00",way:"预约"}
+                ],
+                week1:[
+                    {class:"周一有约",teach:"Christia",time:"11:00-12:00",way:"预约"},
+                    {class:"尊巴热舞",teach:"Christia",time:"11:00-12:00",way:"预约"},
+                    {class:"燃脂炸弹",teach:"Christia",time:"11:00-12:00",way:"预约"}
+                ],
+                week2:[
+                    {class:"周二有约",teach:"Christia",time:"11:00-12:00",way:"预约"},
+                    {class:"尊巴热舞",teach:"Christia",time:"11:00-12:00",way:"预约"},
+                    {class:"燃脂炸弹",teach:"Christia",time:"11:00-12:00",way:"预约"}
+                ],
+                week3:[
+                    {class:"周三有约",teach:"Christia",time:"11:00-12:00",way:"预约"},
+                    {class:"尊巴热舞",teach:"Christia",time:"11:00-12:00",way:"预约"},
+                    {class:"燃脂炸弹",teach:"Christia",time:"11:00-12:00",way:"预约"}
+                ],
+                week4:[
+                    {class:"周四有约",teach:"Christia",time:"11:00-12:00",way:"预约"},
+                    {class:"尊巴热舞",teach:"Christia",time:"11:00-12:00",way:"预约"},
+                    {class:"燃脂炸弹",teach:"Christia",time:"11:00-12:00",way:"预约"}
+                ],
+                week5:[
+                    {class:"周五有约",teach:"Christia",time:"11:00-12:00",way:"预约"},
+                    {class:"尊巴热舞",teach:"Christia",time:"11:00-12:00",way:"预约"},
+                    {class:"燃脂炸弹",teach:"Christia",time:"11:00-12:00",way:"预约"}
+                ],
+                week6:[
+                    {class:"周六有约",teach:"Christia",time:"11:00-12:00",way:"预约"},
+                    {class:"尊巴热舞",teach:"Christia",time:"11:00-12:00",way:"预约"},
+                    {class:"燃脂炸弹",teach:"Christia",time:"11:00-12:00",way:"预约"}
+                ]
+            }
+            }
+        }
+    })
+</script>
+</html>

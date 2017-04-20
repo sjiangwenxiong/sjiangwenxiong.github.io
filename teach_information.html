@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <link rel="stylesheet" href="css/base.css"/>
+    <link rel="stylesheet" href="css/teach_information.css"/>
+    <title>申请成为教练</title>
+</head>
+<body>
+<div class="main">
+    <div class="content">
+        <div>
+            <img src="image/teach_head.png" style="margin-left: 12px;"/>
+            <span>头像</span>
+            <div>
+                <img src="image/right.png">
+            </div>
+            <img src="image/teach.png" id="thumb1">
+            <input id="cert1" type="file" accept="image/*" capture="camera" class="file_posi" />
+        </div>
+        <div>
+            <img src="image/person.png"/>
+            <span>姓名</span>
+            <div>
+                <input type="text" placeholder="待完善"/>
+                <img src="image/right.png">
+            </div>
+        </div>
+        <div>
+            <img src="image/apply_phone.png" style="margin-left: 19px;"/>
+            <span>手机</span>
+            <div>
+                <input type="text" placeholder="待完善"/>
+                <img src="image/right.png">
+            </div>
+        </div>
+    </div>
+</div>
+<button onclick="window.location.href='teach_center.html'">申请</button>
+</body>
+<script src="node_modules/jquery/dist/jquery.min.js"></script>
+<script src="node_modules/UploadPic.js"></script>
+<script>
+    $(function(){
+        upload("cert1","thumb1");//上传证书1
+    });
+    /*
+     * id file input的id
+     * thumb 缩略图id
+     */
+    function upload(id,thumb){
+        //上传证书
+        var u = new UploadPic();
+        u.init({
+            input: document.getElementById(id),
+            callback: function (base64,fileType) {
+                $("#"+thumb).attr("src",base64);
+                $("#"+thumb).attr("filetype",fileType);
+            },
+            loading: function () {
+                //say_error("等待上传...");
+            }
+        });
+    }
+</script>
+</html>

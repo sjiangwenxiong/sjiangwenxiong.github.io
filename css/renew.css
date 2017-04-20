@@ -1,0 +1,75 @@
+.main{
+    background: #eeeeee;
+    font-size: 15px;
+    height: 568px;
+}
+.main>p{
+    background:#ffffff;
+    line-height: 40px;
+    text-align: center;
+    font-size: 14px;
+}
+.main>div{
+    width: 95%;
+    margin: 0 2.5%;
+    margin-top: 40px;
+    height: 75px;
+    background: #ffffff;
+}
+.main>div>div{
+    float: left;
+}
+.main>div img{
+    margin-top: -30px;
+    height: 85px;
+    margin-left: 11px;
+}
+.main>div p:nth-child(1){
+    margin-top: 13px;
+    margin-left: 10px;
+}
+.main>div p:nth-child(2){
+    margin-top: 5px;
+    margin-left: 10px;
+    color: #00a0e9;
+}
+.main>div input{
+    float: right;
+    margin-top: 30px;
+    margin-right: 10px;
+}
+.main>span{
+    margin-top: 23px;
+    display: block;
+    width: 100%;
+    font-size: 12px;
+    text-align: center;
+}
+.main>span span{
+    color:#00a0e9;
+}
+input{
+    background: url("../image/input.png");
+    background-size: 15px;
+    height: 15px;
+    width: 15px;
+}
+input:checked{
+    background: url("../image/checkbox.png");
+    background-size: 15px;
+}
+#app>button{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 40px;
+    background: #9acfea;
+    border: none;
+    font-size: 15px;
+    color: #ffffff;
+}
+select{
+    border: none;
+}
+.active{background: #00a0e9 !important;}
+

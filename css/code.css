@@ -1,0 +1,14 @@
+.main div{
+    width: 50%;
+    margin: 0 auto;
+}
+img{
+    margin-top: 128px;
+    width: 100%;
+}
+p{
+    margin-top: 10px;
+    font-size: 2em;
+    text-align: center;
+}
+span{color: #00a0e9;}

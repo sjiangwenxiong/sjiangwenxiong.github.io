@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <link rel="stylesheet" href="css/base.css"/>
+    <link rel="stylesheet" href="css/apply.css"/>
+    <script src="node_modules/vue/dist/vue.js"></script>
+    <title>申请成为教练</title>
+</head>
+<body>
+<div class="main">
+    <div class="content">
+        <div>
+            <img src="image/person.png"/>
+            <span>姓名</span>
+            <input type="text" v-model="t1"/>
+            <div>
+                <span v-if="t1.length<1">待完善</span>
+                <img src="image/right.png">
+            </div>
+        </div>
+        <div>
+            <img src="image/apply_phone.png" style="margin-left: 19px;"/>
+            <span>手机</span>
+            <input type="text" v-model="phone"/>
+            <div>
+                <span  v-if="phone.length<1">待完善</span>
+                <img src="image/right.png">
+            </div>
+        </div>
+        <div>
+            <img src="image/age.png" style="margin-left: 12px;"/>
+            <span>年龄</span>
+            <input type="text" v-model="t2"/>
+            <div>
+                <span v-if="t2.length<1">待完善</span>
+                <img src="image/right.png">
+            </div>
+        </div>
+    </div>
+    <div class="content">
+        <div>
+            <img src="image/store.png" style="margin-left: 12px;"/>
+            <span>授课分店</span>
+            <span></span>
+            <div>
+                <select>
+                    <option>分店列表</option>
+                    <option>拱墅店</option>
+                    <option>余杭店</option>
+                    <option>西湖店</option>
+                    <option>下城店</option>
+                </select>
+                <img src="image/right.png" style="transform:rotate(90deg)">
+            </div>
+        </div>
+        <div>
+            <img src="image/exp.png" style="margin-left: 14px;height: 18px"/>
+            <span>授课经验</span>
+            <span></span>
+            <div>
+                <select>
+                    <option>选择数字(X年)</option>
+                    <option>1</option>
+                    <option>3</option>
+                    <option>5</option>
+                    <option>10</option>
+                </select>
+                <img src="image/right.png" style="transform:rotate(90deg)">
+            </div>
+        </div>
+    </div>
+    <div class="content">
+        <div>
+            <img src="image/good_at.png" style="margin-left: 14px;height: 18px"/>
+            <span>擅长课程</span>
+            <span></span>
+            <div>
+                <img src="image/right.png">
+            </div>
+        </div>
+    </div>
+    <div>
+        <ul class="clearfix">
+            <temp v-for="(item,index) in arr.class">{{item}}</temp>
+        </ul>
+    </div>
+    <div class="content" style="margin-top: 10px">
+        <div>
+            <img src="image/other.png" style="margin-left: 14px;height: 18px"/>
+            <span>其他选项</span>
+            <span></span>
+            <div>
+                <img src="image/right.png">
+            </div>
+        </div>
+    </div>
+</div>
+<button onclick="window.location.href='teach_center.html'">申请</button>
+</body>
+<script>
+    Vue.component('temp',{
+        template:'<li :class="{active:isac}" @click="isac=!isac"><slot></slot></li>',
+        data: function () {
+            return {
+                isac:false
+            }
+        }
+    });
+    new Vue({
+        el:".main",
+        data:{
+            //擅长课程放在arr.jason的class中
+            arr:{class:["瑜伽课","瑜伽课","瑜伽课","瑜伽课","瑜伽课","瑜伽课","瑜伽课","瑜伽课","瑜伽课","瑜伽课","瑜伽课","瑜伽课"]},
+            phone:"",
+            t1:"",
+            t2:"",
+            t3:""
+        },
+        watch:{
+            phone: function (now,old) {
+                if(now.match(/[^0-9]/)!=null||now.length>11){
+                    this.phone=old
+                }
+            }
+        }
+    })
+</script>
+</html>

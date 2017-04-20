@@ -1,0 +1,27 @@
+body{background:#eeeeee;}
+.main{
+    padding:30px 10px ;
+    position: relative;
+}
+textarea{
+    font-size: 1.5em;
+    background: #ffffff;
+    width: 100%;
+}
+span{
+    color: #9e9c9c;
+    position: absolute;
+    bottom: 40px;
+    right: 20px;
+}
+button{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 40px;
+    background: #00a0e9;
+    border: none;
+    font-size: 15px;
+    color: #ffffff;
+}
+

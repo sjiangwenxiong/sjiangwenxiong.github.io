@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <link rel="stylesheet" href="css/base.css"/>
+    <link rel="stylesheet" href="css/opinion.css"/>
+    <script src="node_modules/vue/dist/vue.js"></script>
+    <title>意见反馈</title>
+</head>
+<body>
+<div class="main">
+   <textarea rows="9" v-model="str" @keyup="con()"></textarea>
+    <span>还可以输入{{limit}}个字</span>
+</div>
+<button><a href="center.html" class="cfff">提交</a></button>
+</body>
+<script>
+    new Vue({
+        el:".main",
+        data:{
+            str:"",
+            limit:140
+        },
+        methods:{
+            con: function () {
+                this.limit=140-this.str.length
+            }
+        },
+        watch:{
+            str: function (now,old) {
+                if(now.length>140){
+                    this.str=old
+                }
+            }
+        }
+    })
+</script>
+</html>

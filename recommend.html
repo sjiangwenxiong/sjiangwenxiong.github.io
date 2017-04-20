@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <link rel="stylesheet" href="css/base.css"/>
+    <link rel="stylesheet" href="css/recommend.css"/>
+    <title>推荐有奖</title>
+</head>
+<body>
+    <div class="main">
+        <div class="bg">
+            <div>
+                <img src="image/reco_head.png">
+            </div>
+            <p>邀请好友，可以获取一张5元优惠券哦！</p>
+            <p>您的推荐码</p>
+            <div>
+                <button>1234</button>
+            </div>
+            <p>先领券再购卡</p>
+            <p><span>5</span> 元</p>
+            <button onclick="window.location.href='discount.html'">查看我的优惠券</button>
+        </div>
+    </div>
+</body>
+<script>
+    var bg=document.getElementsByClassName("bg")[0];
+    var width=bg.clientWidth;
+    bg.style.height=(width*1.5)+"px";
+    console.log(bg)
+</script>
+</html>

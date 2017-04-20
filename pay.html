@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <link rel="stylesheet" href="css/base.css"/>
+    <link rel="stylesheet" href="css/pay.css"/>
+    <script src="node_modules/vue/dist/vue.js"></script>
+    <title>我的会员卡</title>
+</head>
+<body>
+<div class="main">
+    <div class="banner">
+        <img src="image/vip.png" width="100%">
+    </div>
+    <div class="content">
+        <div>
+            <span>订单名称</span>
+            <span class="fr">舞蹈月卡99.00</span>
+        </div>
+        <div>
+            <span><img :src="src" @click="che()"> 选择优惠券</span>
+            <select class="fr">
+                <option>{{con}}张可用</option>
+                <option v-for="(item,index) in arr">第{{index+1}}张</option>
+            </select>
+        </div>
+    </div>
+    <div class="sum">
+        <span>总计</span>
+        <span>￥99.00</span>
+    </div>
+    <div class="choose">
+        选择支付方式
+    </div>
+    <div class="sum" style="margin-top: 0;">
+        <span><img src="image/chat.png" height="20"> 微信支付</span>
+        <span><img src="image/true.png" height="20"></span>
+    </div>
+</div>
+<button onclick="window.location.href='center.html'">确定支付</button>
+</body>
+<script>
+    var vm=new Vue({
+        el:".main",
+        data:{
+            src:"image/ckeck.png",
+            con:0,
+            arr:[]
+        },
+        methods:{
+            che: function () {
+                if(this.con>0){
+                    this.src=this.src=='image/ckeck.png'?'image/true.png':'image/ckeck.png'
+                }
+            }
+        }
+    });
+    for(i=0;i<vm.con;i++){
+        vm.arr.push(i)
+    }
+</script>
+</html>

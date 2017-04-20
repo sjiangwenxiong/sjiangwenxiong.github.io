@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css"/>
+    <link rel="stylesheet" href="css/base.css"/>
+    <link rel="stylesheet" href="css/evaluate.css"/>
+    <script src="node_modules/vue/dist/vue.js"></script>
+    <title>评价</title>
+</head>
+<body>
+<div class="main">
+    <div class="head clearfix">
+        <div><img src="image/class.png" height="75"></div>
+        <div>
+            <p>燃脂炸弹</p>
+            <p>教练：Christia</p>
+            <p>2017/01/01 11:00-12:00</p>
+        </div>
+    </div>
+    <p><img src="image/eva.png">评价</p>
+    <temp v-for="item in arr">{{item}}:</temp>
+    <p><img src="image/explain.png">补充说明</p>
+    <div class="footer">
+        <textarea rows="7" v-model="str" @keyup="con()"></textarea>
+        <span>字数限制{{limit}}字</span>
+    </div>
+</div>
+<button onclick="window.location.href='center.html'">提交</button>
+</body>
+<script>
+Vue.component('temp',{
+   template:'\
+   <div class="eva" :value="num">\
+        <slot></slot>\
+        <span v-for="(a,index) in star" class="glyphicon glyphicon-star" :class="{blue:index<n}" @click="fun(index)"></span>\
+   </div>',
+    data: function () {
+        return {
+            num:0,
+            n:0,
+            star:[0,1,2,3,4],
+        }
+    },
+    methods:{
+        fun: function (index) {
+            this.n=index+1;
+            this.num=index+1
+        }
+    }
+});
+new Vue({
+    el:".main",
+    data:{
+        arr:["项目评分","教练评分","分店评分","课程评分"],
+        str:"",
+        limit:200
+    },
+    methods:{
+        con: function () {
+            this.limit=200-this.str.length
+        }
+    },
+    watch:{
+        str: function (now,old) {
+            console.log(now,old)
+            if(now.length>200){
+                this.str=old
+            }
+        }
+    }
+})
+</script>
+</html>

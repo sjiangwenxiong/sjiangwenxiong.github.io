@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <link rel="stylesheet" href="css/base.css"/>
+    <link rel="stylesheet" href="css/order.css"/>
+    <script src="node_modules/vue/dist/vue.js"></script>
+    <title>一周预约</title>
+</head>
+<body>
+<div class="main">
+    <img src="image/detail.png"/>
+    <div class="detail">
+        <div class="clearfix">
+            <p class="fl"><img src="image/clock.png"> 2017.01.01 11:00-12:00</p>
+            <p class="fr">任课教练</p>
+        </div>
+        <div class="clearfix">
+            <p class="fl"><img src="image/position.png"> 维多利亚教室</p>
+            <p class="fr">Christia</p>
+        </div>
+    </div>
+    <div class="detail">
+        <div class="clearfix">
+            <p style="font-size: 1.4em;color: #000;">虐练指数</p>
+        </div>
+        <div class="clearfix">
+            <p class="fl"><img src="image/star.png"></p>
+            <button class="fr">立即预约</button>
+        </div>
+    </div>
+    <div class="introduce">
+        <img src="image/intro.png"> 课程介绍
+    </div>
+    <div class="content">
+        Stray birds of summer come to my window to sing and fly away.
+        And yellow leaves of autumn, which have no songs, flutter and fall
+        there with a sign.O Troupe of little vagrants of the world,
+        leave your footprints in my words.The world puts off its mask of vastness to its lover.
+        It becomes small as one song, as one kiss of the eternal.What language is thine, O sea?
+        The language of eternal question.
+        What language is thy answer, O sky?
+        The language of eternal silence
+        We, the rustling leaves, have a voice that answers the storms,
+        but who are you so silent?"
+        I am a mere flower.
+    </div>
+    <div class="introduce">
+        <img src="image/evaluate.png"> 会员评价
+    </div>
+    <div class="list">
+        <div class="clearfix" v-for="item in eva">
+            <div class="fl">
+                <p><img src="image/name.png"> {{item.name}}</p>
+                <span>{{item.content}}</span>
+            </div>
+            <div class="fr">
+                <img :src="item.star"/>
+                <p>{{item.teach}}</p>
+                <p>{{item.time}}</p>
+            </div>
+        </div>
+
+    </div>
+    <div class="footer" @click="add()">
+        <img src="image/footer.png"/>
+    </div>
+</div>
+</body>
+<script>
+    var arr={eva:[
+        {name:"王硕",content:"累成狗累成狗累成狗累成狗累成狗累成狗累成狗累成狗累成狗。",star:"image/star.png",teach:"教练：Christia",time:"2017/01/01 11:15:30"},
+        {name:"王硕",content:"累成狗累成狗累成狗累成狗累成狗累成狗累成狗累成狗累成狗。",star:"image/star.png",teach:"教练：Christia",time:"2017/01/01 11:15:30"},
+        {name:"王硕",content:"累成狗累成狗累成狗累成狗累成狗累成狗累成狗累成狗累成狗。",star:"image/star.png",teach:"教练：Christia",time:"2017/01/01 11:15:30"},
+        {name:"王硕",content:"累成狗累成狗累成狗累成狗累成狗累成狗累成狗累成狗累成狗。",star:"image/star.png",teach:"教练：Christia",time:"2017/01/01 11:15:30"}
+    ]};
+    new Vue({
+        el:".main",
+        data:{
+            eva:[
+                arr.eva[0],
+                arr.eva[1]
+            ],
+            n:2
+        },
+        methods:{
+            add: function () {
+                if(this.n<=arr.eva.length){
+                    var n=this.n;
+                    for(i=n;i<n+2;i++){
+                        if(arr.eva[i]){
+                            this.eva.push(arr.eva[i])
+                            this.n++
+                        }else{
+                            this.eva.push({name:"没有了"});
+                            this.n++
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+    })
+</script>
+</html>

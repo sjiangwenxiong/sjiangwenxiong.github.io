@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <link rel="stylesheet" href="css/base.css"/>
+    <link rel="stylesheet" href="css/renew.css"/>
+    <script src="node_modules/vue/dist/vue.js"></script>
+    <title>购卡续卡</title>
+</head>
+<body>
+<div id="app">
+    <div class="main">
+        <p>
+            <select v-model="sel">
+                <option>选择会员卡种类</option>
+                <option>年卡</option>
+                <option>季卡</option>
+                <option>月卡</option>
+                <option>所有</option>
+            </select>
+            <img src="image/down.png" width="10">
+        </p>
+        <div v-for="item in arr.card" v-if="item.name==sel||sel=='选择会员卡种类'||sel=='所有'">
+            <div><img :src="item.img"></div>
+            <div>
+                <p>{{item.name}}</p>
+                <p>￥{{item.pri}}</p>
+            </div>
+            <input type="radio" name="buy"/>
+        </div>
+    <span>
+        <input type="checkbox" @click="chg()">
+        我已阅读并同意
+        <span onclick="window.location.href='protocol.html'">《轻舞飞扬运会员入会协议》</span>
+    </span>
+    </div>
+    <button :class="{active:bol}" @click="fun()">立即购买</button>
+</div>
+</body>
+<script>
+    new Vue({
+        el:"#app",
+        data:{
+            bol:false,
+            sel:"选择会员卡种类",
+            arr:{card:[
+                {name:"年卡",pri:"99.00",img:"image/vip1.png"},
+                {name:"季卡",pri:"99.00",img:"image/vip2.png"},
+                {name:"月卡",pri:"99.00",img:"image/vip3.png"},
+            ]}
+        },
+        methods:{
+            fun: function () {
+
+            },
+            chg: function () {
+                this.bol=!this.bol;
+                if(this.bol==true){
+                    this.fun= function () {
+                        window.location.href="pay.html"
+                    }
+                }else{
+                    this.fun= function () {
+
+                    }
+                }
+            }
+        },
+        watch:{
+            sel: function (a,b) {
+                console.log(a,b)
+            }
+        }
+    })
+</script>
+</html>

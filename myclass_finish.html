@@ -1,0 +1,301 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="format-detection" content="telephone=no"/>
+    <link rel="stylesheet" type="text/css" href="node_modules/scroll/scrollbar.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <link rel="stylesheet" href="css/base.css"/>
+    <link rel="stylesheet" href="css/myclass.css"/>
+    <script src="node_modules/scroll/iscroll.js"></script>
+    <title>我的课程</title>
+    <script type="text/javascript">
+
+        var myScroll,
+                pullDownEl, pullDownOffset,
+                pullUpEl, pullUpOffset,
+                generatedCount=0,t=0,b= 0;
+        var arr={teach_class:[
+            {img:"image/class.png",name:"燃脂炸弹1",teach:"Christia",time:"3/19 12:00-13:00"},
+            {img:"image/class.png",name:"燃脂炸弹2",teach:"Christia",time:"3/19 12:00-13:00"},
+            {img:"image/class.png",name:"燃脂炸弹3",teach:"Christia",time:"3/19 12:00-13:00"},
+            {img:"image/class.png",name:"燃脂炸弹4",teach:"Christia",time:"3/19 12:00-13:00"},
+            {img:"image/class.png",name:"燃脂炸弹5",teach:"Christia",time:"3/19 12:00-13:00"},
+            {img:"image/class.png",name:"燃脂炸弹6",teach:"Christia",time:"3/19 12:00-13:00"},
+            {img:"image/class.png",name:"燃脂炸弹7",teach:"Christia",time:"3/19 12:00-13:00"},
+            {img:"image/class.png",name:"燃脂炸弹8",teach:"Christia",time:"3/19 12:00-13:00"},
+        ]};
+        /**
+         * 滚动翻页 （自定义实现此方法）
+         * myScroll.refresh();		// 数据加载完成后，调用界面更新方法
+         */
+        function pullUpAction () {
+            setTimeout(function () {	// <-- Simulate network congestion, remove setTimeout from production!
+                var el
+                el = document.querySelector('.content');
+                if(t<arr.teach_class.length){
+                    for (i=t; i<t+3; i++) {
+                        if(i<arr.teach_class.length){
+                            var div = document.createElement('div');
+                            div.innerHTML = ' <div>\
+                                    <img src="'+arr.teach_class[i].img+'" />\
+                                    </div>\
+                                    <div>\
+                                    <div>\
+                                    <span>'+arr.teach_class[i].name+'</span>\
+                                    <button class="fr">评价</button>\
+                                    </div>\
+                                    <div>\
+                                    <p>教练：'+arr.teach_class[i].teach+'</p>\
+                            <p>'+arr.teach_class[i].time+'</p>\
+                            </div>\
+                            </div>';
+                            el.appendChild(div)
+                        }else{
+                            var span = document.getElementById('pullUp');
+                            span.innerHTML = '没有更多了';
+                            break;
+                        }
+                    }
+                }else{
+                    var span = document.getElementById('pullUp');
+                    span.innerHTML = '没有更多了';
+                }
+                t=t+3;
+                myScroll.refresh();		// 数据加载完成后，调用界面更新方法 Remember to refresh when contents are loaded (ie: on ajax completion)
+            }, 1000);	// <-- Simulate network congestion, remove setTimeout from production!
+        }
+
+        /**
+         * 初始化iScroll控件
+         */
+        function loaded() {
+            pullUpEl = document.getElementById('pullUp');
+            pullUpOffset = pullUpEl.offsetHeight;
+
+            myScroll = new iScroll('wrapper', {
+                scrollbarClass: 'myScrollbar', /* 重要样式 */
+                useTransition: false, /* 此属性不知用意，本人从true改为false */
+                onRefresh: function () {
+                    if (pullUpEl.className.match('loading')) {
+                        pullUpEl.className = '';
+                        pullUpEl.querySelector('.pullUpLabel').innerHTML = '上拉加载更多...';
+                    }
+                },
+                onScrollMove: function () {
+//                console.log(this)
+                    if (this.y < (this.maxScrollY - 50) && !pullUpEl.className.match('flip')) {
+                        pullUpEl.className = 'flip';
+                        pullUpEl.querySelector('.pullUpLabel').innerHTML = '松手开始更新...';
+                        this.maxScrollY = this.maxScrollY;
+                    } else if (this.y > (this.maxScrollY + 50) && pullUpEl.className.match('flip')) {
+                        pullUpEl.className = '';
+                        pullUpEl.querySelector('.pullUpLabel').innerHTML = '上拉加载更多...';
+                        this.maxScrollY = pullUpOffset;
+                    }
+                },
+                onScrollEnd: function () {
+                    if (pullUpEl.className.match('flip')) {
+                        pullUpEl.className = 'loading';
+                        pullUpEl.querySelector('.pullUpLabel').innerHTML = '加载中...';
+                        pullUpAction();	// Execute custom function (ajax call?)
+                    }
+                }
+            });
+
+            setTimeout(function () { document.getElementById('wrapper').style.left = '0'; }, 800);
+        }
+
+        //初始化绑定iScroll控件
+        document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
+        document.addEventListener('DOMContentLoaded', loaded, false);
+
+    </script>
+
+    <style type="text/css" media="all">
+        body,ul,li {
+            padding:0;
+            margin:0;
+        }
+
+        body {
+            font-size:12px;
+            -webkit-user-select:none;
+            -webkit-text-size-adjust:none;
+            font-family:helvetica;
+        }
+
+        #header {
+            /*position:absolute;*/
+            top:0; left:0;
+            width:100%;
+            /*height:85px;*/
+            /*line-height:45px;
+            background-image:-webkit-gradient(linear, 0 0, 0 100%, color-stop(0, #fe96c9), color-stop(0.05, #d51875), color-stop(1, #7b0a2e));
+            background-image:-moz-linear-gradient(top, #fe96c9, #d51875 5%, #7b0a2e);
+            background-image:-o-linear-gradient(top, #fe96c9, #d51875 5%, #7b0a2e);
+            padding:0;
+            color:#eee;
+            font-size:20px;
+            text-align:center;*/
+        }
+
+        /*#header a {
+            color:#f3f3f3;
+            text-decoration:none;
+            font-weight:bold;
+            text-shadow:0 -1px 0 rgba(0,0,0,0.5);
+        }*/
+
+        #footer {
+            position:absolute;
+            bottom:0; left:0;
+            width:100%;
+            height:48px;
+            background-image:-webkit-gradient(linear, 0 0, 0 100%, color-stop(0, #999), color-stop(0.02, #666), color-stop(1, #222));
+            background-image:-moz-linear-gradient(top, #999, #666 2%, #222);
+            background-image:-o-linear-gradient(top, #999, #666 2%, #222);
+            padding:0;
+            border-top:1px solid #444;
+        }
+
+        #wrapper {
+            position:absolute; z-index:1;
+            top:0px; bottom:0px; left:0;
+            width:100%;
+            overflow:auto;
+        }
+
+        #scroller {
+            position:relative;
+            /*	-webkit-touch-callout:none;*/
+            -webkit-tap-highlight-color:rgba(0,0,0,0);
+
+            float:left;
+            width:100%;
+            padding:0;
+        }
+
+        /**
+         *
+         * 下拉样式 Pull down styles
+         *
+         */
+        #pullDown, #pullUp {
+            background:#fff;
+            height:20px;
+            line-height:20px;
+            padding:5px 10px;
+            border-bottom:1px solid #ccc;
+            font-weight:bold;
+            font-size:14px;
+            color:#888;
+        }
+        #pullDown .pullDownIcon, #pullUp .pullUpIcon  {
+            display:block; float:left;
+            width:20px; height:20px;
+            background:url(node_modules/scroll/pull-icon@2x.png) 0 0 no-repeat;
+            -webkit-background-size:20px 40px; background-size:20px 40px;
+            -webkit-transition-property:-webkit-transform;
+            -webkit-transition-duration:250ms;
+        }
+        #pullDown .pullDownIcon {
+            -webkit-transform:rotate(0deg) translateZ(0);
+        }
+        #pullUp .pullUpIcon  {
+            -webkit-transform:rotate(-180deg) translateZ(0);
+        }
+
+        #pullDown.flip .pullDownIcon {
+            -webkit-transform:rotate(-180deg) translateZ(0);
+        }
+
+        #pullUp.flip .pullUpIcon {
+            -webkit-transform:rotate(0deg) translateZ(0);
+        }
+
+        #pullDown.loading .pullDownIcon, #pullUp.loading .pullUpIcon {
+            background-position:0 100%;
+            -webkit-transform:rotate(0deg) translateZ(0);
+            -webkit-transition-duration:0ms;
+
+            -webkit-animation-name:loading;
+            -webkit-animation-duration:2s;
+            -webkit-animation-iteration-count:infinite;
+            -webkit-animation-timing-function:linear;
+        }
+
+        @-webkit-keyframes loading {
+            from { -webkit-transform:rotate(0deg) translateZ(0); }
+            to { -webkit-transform:rotate(360deg) translateZ(0); }
+        }
+
+    </style>
+</head>
+<body>
+<div id="wrapper">
+    <div id="scroller">
+        <div class="main">
+            <img src="image/myclass.png">
+            <ul>
+                <li class="active">已预约</li>
+                <li>已完成</li>
+                <li>已排队</li>
+                <li style="border: none;">已旷课</li>
+            </ul>
+            <div class="content">
+                <div>
+                    <div>
+                        <img src="image/class.png" />
+                    </div>
+                    <div>
+                        <div>
+                            <span>燃脂炸弹</span>
+                            <button class="fr" onclick="window.location.href='evaluate.html'">评价</button>
+                        </div>
+                        <div>
+                            <p>教练：Christia</p>
+                            <p>2017/01/01 11:00-12:00</p>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div>
+                        <img src="image/class.png" />
+                    </div>
+                    <div>
+                        <div>
+                            <span>燃脂炸弹</span>
+                            <button class="fr">评价</button>
+                        </div>
+                        <div>
+                            <p>教练：Christia</p>
+                            <p>2017/01/01 11:00-12:00</p>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div>
+                        <img src="image/class.png" />
+                    </div>
+                    <div>
+                        <div>
+                            <span>燃脂炸弹</span>
+                            <button class="fr">评价</button>
+                        </div>
+                        <div>
+                            <p>教练：Christia</p>
+                            <p>2017/01/01 11:00-12:00</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="pullUp">
+            <span class="pullUpIcon"></span><span class="pullUpLabel">上拉加载更多...</span>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

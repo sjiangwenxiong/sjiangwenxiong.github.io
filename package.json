@@ -1,0 +1,11 @@
+{
+  "name": "fly",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "dchapter",
+  "license": "MIT",
+  "dependencies": {
+    "jquery": "^3.2.1",
+    "vue": "^2.2.6"
+  }
+}

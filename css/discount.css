@@ -1,0 +1,58 @@
+body{background: #eeeeee;}
+.main{padding-top: 30px;}
+.main>div:nth-child(1){
+    position: relative;
+    width: 250px;
+    height: 125px;
+    margin: 0 auto;
+    background: url("../image/disc_use.png");
+    background-size: 100%;
+    padding: 5px 10px;
+}
+.main>div>p:nth-child(1){
+    color: #ffffff;
+}
+.main>div>p:nth-child(2){
+    color: #ffffff;
+    float: right;
+    margin-top: 10px;
+}
+.fl{
+    margin-left: 35px;
+    color: #ffffff;
+    margin-top: 30px;
+    font-size: 2.2em;
+}
+.fl span{
+    font-size: 1.5em;
+}
+.fr{
+    color: #ffffff;
+    margin-top: 5px;
+}
+.fr p:nth-child(1){
+    margin-top: 5px;
+    font-size: 1.4em;
+    font-weight: bold;
+}
+.fr p:nth-child(2){
+    margin-top: 5px;
+}
+.main>div>p:nth-child(5){
+    width: 250px;
+    text-align: center;
+    font-size: 1.4em;
+    position: absolute;
+    bottom: 5px;
+    color: #00a0e9;
+}
+.main>div:nth-child(2){
+    position: relative;
+    width: 250px;
+    height: 125px;
+    margin: 0 auto;
+    background: url("../image/disc_used.png");
+    background-size: 100%;
+    padding: 5px 10px;
+    margin-top: 10px;
+}

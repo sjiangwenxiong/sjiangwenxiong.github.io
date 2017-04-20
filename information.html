@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <link rel="stylesheet" href="css/base.css"/>
+    <link rel="stylesheet" href="css/information.css"/>
+    <script src="node_modules/vue/dist/vue.js"></script>
+    <title>个人中心</title>
+</head>
+<body>
+<div class="main">
+    <div class="banner">
+        <div class="head">
+            <img src="image/head.png"/>
+        </div>
+        <div>
+            <div>
+                <img id="thumb1">
+            </div>
+        </div>
+        <input id="cert1" type="file" accept="image/*" capture="camera" class="file_posi" />
+    </div>
+    <div class="content">
+        <div>
+            <img src="image/person.png"/>
+            <input type="text" value="王蕾"/>
+            <img src="image/right.png">
+        </div>
+        <div>
+            <img src="image/phone.png"/>
+            <input type="text" v-model="phone"/>
+            <img src="image/right.png">
+        </div>
+    </div>
+</div>
+<button><a href="center.html" class="cfff">保存</a></button>
+</body>
+<script src="node_modules/jquery/dist/jquery.min.js"></script>
+<script src="node_modules/UploadPic.js"></script>
+<script>
+    $(function(){
+        upload("cert1","thumb1");//上传证书1
+    });
+    /*
+     * id file input的id
+     * thumb 缩略图id
+     */
+    function upload(id,thumb){
+        //上传证书
+        var u = new UploadPic();
+        u.init({
+            input: document.getElementById(id),
+            callback: function (base64,fileType) {
+                $("#"+thumb).attr("src",base64);
+                $("#"+thumb).attr("filetype",fileType);
+            },
+            loading: function () {
+                //say_error("等待上传...");
+            }
+        });
+    }
+    var vm=new Vue({
+        el:".main",
+        data:{
+            phone:18811112222
+        },
+        methods:{
+            fun: function () {
+                console.log(this)
+            }
+        },
+            watch:{
+        phone: function (now,old) {
+            console.log(now);
+            if(now.match(/[^0-9]/)!=null||now.length>11){
+                this.phone=old
+            }
+        }
+    }
+    });
+</script>
+</html>

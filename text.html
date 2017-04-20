@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="node_modules/jquery/dist/jquery.min.js"></script>
+</head>
+<style>
+    /*字数限制*/
+    /*div{
+        position: absolute;
+        top: 80px;
+        left: 200px;
+        color: grey;
+    }*/
+</style>
+<body>
+<!--验证码-->
+<!--<div class="code">发送验证码</div>-->
+
+<!--字数限制以及字数倒计时-->
+<!--<textarea cols="40" rows="6" maxlength="200">
+</textarea>
+<div>字数限制200字</div>-->
+
+<!--2次密码一致的判断-->
+<input type="password"/><br><br>
+<input type="password"/>
+</body>
+<script>
+    //验证码
+    /*$(".code").click(function () {
+        var n=60;
+        $(this).html("距离失效还有"+n+"秒")//$(".code")
+        var go1= function () {
+            console.log(1);
+            if(n>0){
+                n--;
+                $(".code").html("距离失效还有"+n+"秒")//$(".code")
+            }else{
+                clearInterval(timer);
+                timer=null;
+                n=60;
+                $(".code").html("重新发送验证码")
+            }
+
+        };
+        var timer=null;
+        timer=setInterval(go1,1000)
+
+    })*/
+
+    //字数限制以及字数倒计时
+    /*$("textarea").keyup(function () {
+        console.log($(this).val().length);
+// $("textarea")
+        var n=$(this).val().length
+        $("div").html("字数限制"+(200-n)+"字")
+    })*/
+
+//    2次密码一致的判断
+$("input").keyup(function () {
+//    console.log(1)
+    var pass1=$("input").eq(0).val();
+    var pass2=$("input").eq(1).val();
+    console.log(pass1,pass2)
+    if(pass1==pass2){
+        alert(1)
+    }else{
+
+    }
+})
+</script>
+</html>
