@@ -1,0 +1,170 @@
+/* CSS Document */
+/* 首页 */
+/* 导航 */
+.main{ position:relative;}
+.nav{width:100%;height:45px;background:url(img/dian.png); position:absolute;}
+.nav1{height:20px;width:23%;background:url(img/home.png) no-repeat;background-size:20px;margin-top:12px;
+      line-height:20px;}
+.nav2{width:23%;height:20px;background:url(img/center.png) no-repeat left;background-size:15px;margin:12px 10%;
+      line-height:20px;}
+/* body */
+.main1{width:85%;height:45px;margin-top:50px;line-height:45px;}
+.select{width:20%;height:48px;line-height:45px;background:url(img/xia.png) no-repeat #fff3cf 85% center;background-size:        22px;margin:0px 15px;}
+.input1{height:40px;width:40%;border:none;}
+.main2{width:85%;height:45px;margin-top:15px;line-height:45px;}
+/* footer */
+.footer{height:130px;margin-top:60px;background:url(img/button.png) no-repeat center;background-size:120px;line-height:130px;width:100%;color:#fff;}
+		
+		
+/* 个人中心 */
+/* banner */
+.center_banner{background:url(img/center_banner.png);background-size:100%;height:275px;}
+.center_banner_div{width:120px;margin:0 auto;}
+.center_banner_touxiang{width:120px;}
+.phone{background:url(img/phone.png) no-repeat;background-size:16px;margin-left:17%;padding-left:25px;display:inline-block;margin-top:22px;width:83%;}
+.choujiang{width:60px;margin-top:-35px;margin-right:25%;}
+/* body */
+.center_body{width:80px;height:90px;margin-bottom:15px;}
+.td1{border-right:1px solid #83456b;border-bottom:1px solid #83456b;}
+.td4{border-left:1px solid #83456b;border-top:1px solid #83456b;}
+
+
+/* 抽奖 */
+/* banner */
+.choujiang_banner{width:100%;}
+/* body */
+.choujiang_title{width:115px;height:45px;line-height:45px;color:#fff;margin:15px auto;}
+.choujiang_table{width:90%;margin-left:5%;}
+
+
+/* 客户服务 */
+.customer{width:100%;height:185px;}
+/* banner */
+.customer_banner{width:100%;height:100px;position:relative;}
+.chaxianbaby{width:120px;position:absolute;margin:0 -120px;top:50px;}
+/* body */
+.qrcode{width:145px;height:145px;}
+/* footer */
+.customer_footl{height:130px;margin-top:35px;background:url(img/button2.png) no-repeat center;background-size:120px;line-height:130px;}
+.customer_footr{height:130px;margin-top:35px;background:url(img/button.png) no-repeat center;background-size:120px;line-height:130px;}
+
+
+/* 报价结果列表 */
+/* title */
+.ortable{width:90%;height:45px;margin-left:5%;background:#83456b;}
+.ortable2{width:90%;height:35px;margin-left:5%;border-bottom:1px solid #b85c7d;}
+/* footer */
+.footer_offer_no{height:130px;margin-top:210px;background:url(img/button.png) no-repeat center;background-size:120px;line-height:130px;width:100%;color:#fff;}
+.footer_offer{height:130px;margin-top:190px;background:url(img/button.png) no-repeat center;background-size:120px;line-height:130px;width:100%;color:#fff;}
+
+
+/* 报价详情(and no) */
+/* title */
+.about_offer_title{width:115px;height:45px;line-height:45px;margin:20px auto;}
+/* main */
+.about_offer_main{height:35px;border-bottom:1px solid #b85c7d;line-height:35px;}
+.about_offer_main2{height:35px;line-height:35px;background:#502951;}
+/* footer */
+.footer_about_l{height:130px;margin-top:35px;background:url(img/button2.png) no-repeat center;background-size:110px;line-height:130px;width:35%;color:#fff;}
+.footer_about_r{height:130px;margin-top:35px;background:url(img/button.png) no-repeat center;background-size:110px;line-height:130px;width:35%;color:#fff;}
+
+
+/* 我的订单 */
+/* title */
+.myorder_title{width:90%;margin-left:5%;background:#83456b;}
+/* main */
+.myorder_table{width:90%;margin-left:5%;}
+
+
+/* 确认订单 */
+/* title */
+.firmorder_title{width:115px;height:45px;line-height:45px;color:#fff;margin:20px auto;}
+/* main */
+.firmorder_main{height:35px;border-bottom:1px solid #b85c7d;line-height:35px;color:#fff;}
+.firmorder_main2{height:35px;line-height:35px;color:#fff;background:#502951;}
+/* footer */
+.footer_firmorder{height:130px;margin-top:25px;background:url(img/button.png) no-repeat center;background-size:120px;line-height:130px;width:100%;color:#fff;}
+
+
+/* 订单详情 */
+/* title */
+.aboutorder_title{width:115px;height:45px;line-height:45px;color:#fff;margin:20px auto;}
+/* main */
+.aboutorder_main{border-bottom:1px solid #b85c7d;height:34px;line-height:34px;color:#fff;}
+.ao_main_son{display:inline-block;}
+.aoselect{width:80px;height:34px;background:url(img/xia.png) no-repeat #fff3cf 90% center;background-size:18px;color:#b85c7d;}
+.aboutorder_main_b{border-bottom:1px solid #b85c7d;height:70px;color:#fff;}
+.ao_main_son_bl{display:inline-block;line-height:70px;}
+.ao_main_son_b2{display:inline-block;}
+/* footer */
+.footer_aboutorder{height:130px;margin-top:25px;background:url(img/button.png) no-repeat center;background-size:120px;line-height:130px;width:100%;color:#fff;}
+
+
+/* 我的车辆(and no) */
+/* title */
+.cao_body{position:relative;}
+.mycar_table{width:90%;height:45px;margin-left:5%;background:#83456b;}
+/* main */
+.mycar_table_main{width:80%;height:45px;margin-left:10%;border-bottom:1px solid #83456b;}
+.carandoffer{width:80px;position:absolute;top:130px;}
+/* footer */
+.footer_mycar{height:130px;margin-top:210px;background:url(img/button.png) no-repeat center;background-size:120px;line-height:130px;width:100%;color:#fff;}
+
+
+/* 个人信息 */
+/* banner */
+.infor_banner{height:175px;position:relative;}
+.infor_bannert{height:100px;background:#b85c7d;}
+.infor_banner_pic{width:120px;position:absolute;margin:0 -60px;top:45px;} 
+/* main */
+.infor_main{width:85%;height:45px;margin-top:15px;line-height:45px;}
+.infor_input{height:40px;width:40%;border:none;}
+.infor_select{width:24%;height:48px;line-height:45px;background:url(img/xia.png) no-repeat #fff3cf 85% center;background-size:        17px;color:#b85c7d;}
+/* footer */
+.infor_footer{height:130px;margin-top:35px;background:url(img/button.png) no-repeat center;background-size:120px;line-height:130px;width:100%;color:#fff;}
+
+
+/* 基本投保方案 */
+/* tltle */
+.plan_title{border:1px solid #b85c7d;height:45px;}
+.plan_titlein{height:45px;line-height:45px;display:inline-block;width:32%;}
+/* main */
+.plan_main{height:45px;line-height:45px;display:inline-block;}
+.plan_mainl{display:inline-block;}
+.plan_select{width:35%;height:48px;line-height:45px;background:url(img/xia2.png) no-repeat 95% center;background-size:        22px;border:none;}
+/* footer */
+.plan_footer{height:130px;margin-top:90px;background:url(img/button.png) no-repeat center;background-size:120px;line-height:130px;width:100%;color:#fff;}
+
+
+/* 全面投保方案 */
+/* tltle */
+.plan_footer_overall{height:130px;margin-top:30px;background:url(img/button.png) no-repeat center;background-size:120px;line-height:130px;width:100%;color:#fff;} 
+
+
+/* 添加车辆（填写） */
+/* tltle */
+.add_title{border:1px solid #b85c7d;height:45px;}
+.add_titlein{height:45px;line-height:45px;display:inline-block;width:50%;}
+/* tltle */
+.add_main{width:85%;height:45px;margin-top:15px;line-height:45px;}
+.add_input{height:40px;width:40%;border:none;}
+.add_main_title{display:inline-block;}
+.add_select{width:60%;height:48px;line-height:45px;background:url(img/xia2.png) no-repeat 95% center;background-size:        22px;border:none;}
+/* footer */
+.add_footer{height:130px;margin-top:25px;background:url(img/button.png) no-repeat center;background-size:120px;line-height:130px;width:100%;color:#fff;}
+
+
+/* 添加车辆（上传信息） */
+.add_main2{width:65%;height:45px;margin-top:15px;line-height:45px;display:inline-block;}
+.add_file{height:45px;width:18%;border:none;display:inline-block;}
+
+
+/* footer */
+.main{}
+.sub_footer{height:210px;margin-top:80px;position:relative;}
+.sub_footerl{height:145px;margin-top:50px;}
+.sub_footer_pic{height:110px;}
+.sub_pic1{height:50px;}
+.sub_pic2{height:80px;margin-top:15px;}
+.sub_footerr{height:145px;margin-top:50px;}
+.sub_footer_button{margin:0 -65px;width:120px;position:absolute;top:-70px;}
