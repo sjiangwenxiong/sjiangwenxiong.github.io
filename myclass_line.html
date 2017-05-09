@@ -3,19 +3,37 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="format-detection" content="telephone=no"/>
-    <link rel="stylesheet" type="text/css" href="css/scrollbar.css">
+    <link rel="stylesheet" type="text/css" href="node_modules/scroll/scrollbar.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <link rel="stylesheet" href="css/base.css"/>
     <link rel="stylesheet" href="css/myclass.css"/>
-    <script src="js/iscroll.js"></script>
+    <script src="node_modules/scroll/iscroll.js"></script>
     <title>我的课程</title>
     <script type="text/javascript">
-
         var myScroll,
                 pullDownEl, pullDownOffset,
                 pullUpEl, pullUpOffset,
-                generatedCount=0,t=0,b= 0;
-        var arr={teach_class:[
+                generatedCount=0,t=0,b= 0,arr=[];
+
+            var xhr = getXhr();
+            xhr.open("post","MySQL_select_ajax.php");
+            xhr.send();
+            xhr.onreadystatechange = function(){
+                if(xhr.readyState==4 && xhr.status == 200){
+//                    console.log(eval(xhr.responseText));
+                    arr=eval(xhr.responseText);
+                }
+            }
+        function getXhr(){
+            var xhr = null;
+            if(window.XMLHttpRequest){
+                xhr = new XMLHttpRequest();
+            }else{ // IE
+                xhr = new ActiveXObject("Microsoft.XMLHttp");
+            }
+            return xhr;
+        }
+        /*var arr={teach_class:[
             {img:"image/class.png",name:"燃脂炸弹1",teach:"Christia",time:"3/19 12:00-13:00"},
             {img:"image/class.png",name:"燃脂炸弹2",teach:"Christia",time:"3/19 12:00-13:00"},
             {img:"image/class.png",name:"燃脂炸弹3",teach:"Christia",time:"3/19 12:00-13:00"},
@@ -24,32 +42,56 @@
             {img:"image/class.png",name:"燃脂炸弹6",teach:"Christia",time:"3/19 12:00-13:00"},
             {img:"image/class.png",name:"燃脂炸弹7",teach:"Christia",time:"3/19 12:00-13:00"},
             {img:"image/class.png",name:"燃脂炸弹8",teach:"Christia",time:"3/19 12:00-13:00"},
-        ]};
+        ]};*/
         /**
          * 滚动翻页 （自定义实现此方法）
          * myScroll.refresh();		// 数据加载完成后，调用界面更新方法
          */
+        var del=function(btn,a){
+            btn.parentNode.parentNode.parentNode.remove()
+                var xhr = getXhr();
+                xhr.open("post","MySQL_delete.php");
+                xhr.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+                xhr.send("id="+a);
+                xhr.onreadystatechange = function(){
+                    if(xhr.readyState==4 && xhr.status == 200){
+                        console.log(xhr.responseText)
+                    }
+                };
+            function getXhr(){
+                var xhr = null;
+                if(window.XMLHttpRequest){//IE8 及其他浏览器
+                    xhr = new XMLHttpRequest();
+                }else{ // IE
+                    xhr = new ActiveXObject("Microsoft.XMLHttp");
+                }
+                return xhr;
+            }
+            };
+
         function pullUpAction () {
             setTimeout(function () {	// <-- Simulate network congestion, remove setTimeout from production!
                 var el
                 el = document.querySelector('.content');
-                if(t<arr.teach_class.length){
+                if(t<arr.length){
                     for (i=t; i<t+3; i++) {
-                        if(i<arr.teach_class.length){
+                        if(i<arr.length){
+                            var n=arr[i].id
                             var div = document.createElement('div');
                             div.innerHTML = ' <div>\
-                                    <img src="'+arr.teach_class[i].img+'" />\
+                                    <img src="'+arr[i].img+'" />\
                                     </div>\
                                     <div>\
                                     <div>\
-                                    <span>'+arr.teach_class[i].name+'</span>\
-                                    <button class="fr">取消排队</button>\
+                                    <span>'+arr[i].name+'</span>\
+                                    <button class="fr" onclick="del(this,value)">取消排队</button>\
                                     </div>\
                                     <div>\
-                                    <p>教练：'+arr.teach_class[i].teach+'</p>\
-                            <p>'+arr.teach_class[i].time+'</p>\
+                                    <p>教练：'+arr[i].teach+'</p>\
+                            <p>'+arr[i].time+'</p>\
                             </div>\
                             </div>';
+                            div.getElementsByTagName('button')[0].value=n;
                             el.appendChild(div)
                         }else{
                             var span = document.getElementById('pullUp');
@@ -161,7 +203,7 @@
 
         #wrapper {
             position:absolute; z-index:1;
-            top:0px; bottom:0px; left:0;
+            top:0; bottom:0; left:0;
             width:100%;
             overflow:auto;
         }
@@ -194,7 +236,7 @@
         #pullDown .pullDownIcon, #pullUp .pullUpIcon  {
             display:block; float:left;
             width:20px; height:20px;
-            background:url(image/pull-icon@2x.png) 0 0 no-repeat;
+            background:url(node_modules/scroll/pull-icon@2x.png) 0 0 no-repeat;
             -webkit-background-size:20px 40px; background-size:20px 40px;
             -webkit-transition-property:-webkit-transform;
             -webkit-transition-duration:250ms;
