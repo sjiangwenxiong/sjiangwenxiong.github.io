@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <link rel="stylesheet" href="css/base.css"/>
+    <link rel="stylesheet" href="css/index.css"/>
+    <script src="js/vue.js"></script>
+    <title>登录</title>
+</head>
+<body>
+<div class="main">
+    <input type="text" placeholder="请输入手机号码" v-model="phone" @keyup="show()"/>
+    <input type="password" placeholder="请输入密码" v-model="password" @keyup="show()"/>
+    <button :class="{active:bol}" @click="fun()">登录</button>
+    <div>
+        <a class="fl cfff" href="register.html">立即注册</a>
+        <a class="fr cfff" href="reset.html">忘记密码</a>
+    </div>
+</div>
+</body>
+<script>
+    new Vue({
+        el:".main",
+        data:{
+            phone:"",
+            password:"",
+            bol:false
+        },
+                methods:{
+                    show: function () {
+                        if(this.phone.length==11&&this.password.length>5){
+                            this.bol=true;
+                            this.fun= function () {
+                                window.location.href="center.html"
+                            }
+                        }else{
+                            this.bol=false
+                            this.fun= function () {
+
+                            }
+                        }
+            },
+            fun: function () {
+                
+            }
+        },
+        watch:{
+            phone: function (now,old) {
+                this.password="";
+                if(now.match(/[^0-9]/)!=null||now.length>11){
+                    this.phone=old
+                }
+            }
+        }
+    })
+</script>
+</html>
