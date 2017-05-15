@@ -4,8 +4,128 @@
     <meta charset="UTF-8">
     <title></title>
 </head>
+<style>
+    .d {
+        width: 1200px;
+        margin: 30px auto 0;
+        position: relative;
+    }
+
+    .imgleft {
+        padding: 10px;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 320px;
+        height: 180px;
+    }
+
+    .wordleft {
+        text-align: left;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 10px;
+        position: absolute;
+        left: 390px;
+        top: 150px;
+        width: 700px;
+        height: 180px;
+    }
+
+    .d p{color: #868686;}
+
+    .wordleft p:last-child{
+        cursor: pointer;
+    }
+
+
+    .imgright {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 10px;
+        position: absolute;
+        left: 390px;
+        top: 600px;
+        width: 260px;
+        text-align: right;
+    }
+
+    .wordright {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 10px;
+        position: absolute;
+        left: 0;
+        top: 600px;
+        width: 320px;
+        height: 180px;
+    }
+
+    .circleTop {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 20px;
+        height: 20px;
+        background: url("img/step.jpg") 4px -8px no-repeat;
+        left: 340px;
+        background-size: 30px;
+        position: absolute;
+        top: 250px;
+    }
+
+    .circleBottom {
+        width: 20px;
+        height: 20px;
+        background: url("img/step.jpg") -14px -2px no-repeat;
+        left: 363px;
+        background-size: 30px;
+        position: absolute;
+        top: 750px;
+    }
+
+    .line {
+        height: 900px;
+        width: 3px;
+        background-color: green;
+        position: absolute;
+        left: 360px;
+        top: 250px;
+    }
+</style>
 <body>
-<button onclick="window.location.href='chexian/index.html'">车险</button>
-<button onclick="window.location.href='fly_vue/index.html'">轻舞飞扬</button>
+<div>
+    <div class="d">
+        <div class="imgleft">
+            <iframe src="fly_vue/index.html" width="320px" height="500px"></iframe>
+        </div>
+        <div class="wordleft">
+            <!--<h1>健身会所公众号轻舞飞扬</h1>
+            <p>技术核心：vue，ajax+php</p>
+            <p>本人负责：静态页面的布局、js效果的实现、下拉加载、点击加载等简易后台效果</p>
+            <p onclick="window.location.href='fly_vue/index.html'">(点击前往个人主页查看详情)</p>-->
+        </div>
+        <div class="wordright">
+            <!--<h1>企业官网可可佳</h1>
+            <p>技术核心：vue、vue-cli+webpack、vue-route</p>
+            <p></p>-->
+        </div>
+        <div class="imgright">
+            <iframe src="kkj_dist/index.html" width="800px" height="500px" id="ifm" name="ifm"></iframe>
+        </div>
+        <div class="line"></div>
+        <div class="circleTop"></div>
+        <div class="circleBottom"></div>
+    </div>
+</div>
 </body>
+<script>
+        /*window.onload=function(){
+            var body=window.frames["ifm"].document.getElementsByTagName('body')[0];
+            body.style.overflowX='hidden'
+        };*/
+</script>
 </html>
