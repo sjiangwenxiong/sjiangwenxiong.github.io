@@ -1,0 +1,7 @@
+/* CSS Document */
+
+.head{background:#3e464d;height:30px;padding-top:10px;margin-bottom:20px;}
+.head_l{line-height:20px;width:65px;margin:0 auto;}
+.head_r{line-height:20px;width:65px;margin:0 auto;}
+select{background:#3e464d;border:none;color:#fff;width:65px;background:url(../img/san.png) no-repeat 70%;background-size:8px;}
+.content{height:50px;line-height:50px;padding:0 5%;background:#3e464d;color:#fff;}

@@ -1,0 +1,7 @@
+/* CSS Document */
+
+.case{width:90%;margin:0 5%;}
+.case1{height:45px;line-height:45px;border-bottom:1px dashed #A4A4A4}
+.bottom{width:100%;margin-top:40px;}
+.bottom1{height:75px;width:75px;background:#58AEEB url(../img/phone.png) center center no-repeat;background-size:25px;border-radius:50px;margin-bottom:5px;margin-left:20%;box-shadow:1px 2px 7px black;}
+.bottom2{height:75px;width:75px;background:#58AEEB url(../img/mail.png) center center no-repeat;background-size:25px;border-radius:50px;box-shadow:1px 2px 7px black;margin-bottom:5px;margin-right:20%;}

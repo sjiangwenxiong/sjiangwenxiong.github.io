@@ -1,0 +1,5 @@
+/* CSS Document */
+
+.case{height:45px;line-height:45px;border-bottom:1px dashed #A4A4A4}
+.footer{width:80%;height:27px;background:url(../img/send.png) no-repeat; padding-top:13px;margin-bottom:25px;}
+.footer span{ display:block;width:60px;margin:0 auto;}

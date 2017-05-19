@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <meta name="viewport"  content="initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
+    <!--<script type="text/javascript" src="https://unpkg.com/vue@2.2.6/dist/vue.js"></script>-->
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/vue.js"></script>
+    <script src="js/menu.js"  charset="gbk"></script>
+    <script src="js/score_all.js"  charset="gbk"></script>
+</head>
+<body>
+<div id="box">
+    <div class="header">
+        <div class="header_0"><p  class="header_pic"></p></div>
+        <div class="header_1 header_info">
+            <div class="brand"></div>
+            <span>粥品香坊（大运村）</span>
+            <ul>
+                <li>蜂鸟专送 / 38分钟送达</li>
+                <li><em></em>在线支付满28减5，满50减10</li>
+            </ul>
+        </div>
+        <p class="notice"></p>
+        <div class="notice_text">
+            <em class="notice_adv"></em>
+            <span>粥品香坊其烹饪粥料的秘方源于中国千年古法，在融合现代制作工艺...</span></div>
+    </div>
+        <main id="main">
+            <!--"商品","评价","商家" -->
+            <div class="shop_tab">
+                <div  v-for="(tab,i) in shop_tabs"  v-on:click="toggle(i,tab.view)":class="{red:shop_active==i}">{{tab.type}}</div>
+            </div>
+            <!--"热销榜","新品来袭","特色粥品","精选热菜","。。。。-->
+            <component :is="currentView" v-bind:msg="menu"></component>
+        </main>
+</div>
+</body>
+<!-- vue监听滚动事件 -->
+
+<script  charset="gbk">
+    //全局组件
+    var main1 =  Vue.component('main-goods', {
+        props:['msg'],
+        template: '<div class="foods_tab">\
+                    <ul><li  v-for="(value,li_index) in arr" v-on:click="toggle(li_index)"   :class="{bgf:li_active==li_index}"><span>{{value}}</span></li></ul>\
+                    <section class="goods" >\
+                      <dl  v-for="(value,index) in new_type"><dt>{{value}}</dt>\
+                         <dd v-for="(item,index) in menu" v-if="item.type==(value)">\
+                            <span><img v-bind:src=\'"img/shop/0"+item.id+".jpg"\' width="100%"/></span>\
+                            <div><h3>{{item.name}}</h3>\
+                                <p><span>月售<em>{{item.sales}}</em>份</span><span>好评率<em>{{item.comment}}</em>%</span></p>\
+                                <strong><a>&yen;</a>{{item.price}}</strong>\
+                                <div class="num fr"><em class="add" v-on:click="add(index,item.name,item.price,item.count)" ></em><span  v-if="item.count>0">{{item.count}}</span> <em class="minus" v-if="item.count>0" v-on:click="minus(index)" ></em></div>\
+                            </div>\
+                        </dd>\
+                      </dl>\
+                     </section>\
+                         <!-- 购物车-->\
+                   <div class="Shopping_Cart">\
+                      <div  class="fl car_0" v-on:click="cart_Mask()" >\
+                        <ol class="List_Shopping" v-show="Shopping_list">\
+                          <p class="List_title" v-for="i in info">{{ i.message }}</p>\
+                          <li  v-for="i in msg" v-if="i.count>0">{{i.name}}<p  class="fr num"><em class="add"></em><span>{{i.count}}</span><em class="minus" ></em></p><p class="fr" ><strong>&yen;{{i.price}}</strong></p></li>\
+                       </ol>\
+                  <div v-bind:class="modal_Mask"><div v-bind:class="cartView_mask"></div></div>\
+                           <span class="cart_icon" v-bind:class="class_icon"></span><a class="car_num" v-if="number>0">{{number}}</a>\
+                  <div  class="cart_price"><span class="money">&yen; <a>{{price}}</a></span><span class="D73">配送费 &yen;4</span></div>\
+                 </div>\
+                 <div class="fr car_1">\
+                       <span  v-if="60>price>0" class="">还差&yen;<a>{{60-parseInt(price)}}</a>元起送</span><span v-else-if="price>60" class="balance">去结算</span><span v-else class="">&yen;<a>60</a>元起送</span>\
+                 </div>\
+              </div>\
+           </div>',
+
+        data: function () {
+            return {
+                menu: menu,
+                li_active: 0,
+                li_index: "",
+                item: "",
+                new_type: new_type,
+                arr: ["热销榜", "新品来袭", "特色粥品", "精选热菜", "爽口凉菜", "年糕,炒饭", "面条,米线", "杭式小点", "汤羹", "饮料"],
+                class_icon: {
+                    'cart_img01': true,
+                    'cart_img00': false
+                },
+//                遮罩层
+                modal_Mask: "",
+                cartView_mask: "",
+//                购物车列表
+                Shopping_list: false,
+                info: [
+                    {message: '购物车'}
+                ],
+          /*          name:[],
+                    price:[],*/
+                }
+        },
+        computed: {
+            price: function () {
+                var price = 0;
+                for (var i = 0; i < this.menu.length; i++) {
+                    price += this.menu[i].count * this.menu[i].price;
+                }
+                price = Math.round(price * 100) / 100;
+                return price;
+            },
+            number: function () {
+                var number = 0;
+                for (var i = 0; i < this.menu.length; i++) {
+                    number += this.menu[i].count;
+                }
+                if (number > 0) {
+                    this.class_icon['cart_img01'] = false;
+                    this.class_icon['cart_img00'] = true;
+                } else {
+                    this.class_icon['cart_img01'] = true;
+                    this.class_icon['cart_img00'] = false;
+                }
+                return number;
+            }
+        },
+        methods: {
+            toggle: function (li_index) {
+                this.li_active = li_index;
+            },
+            add: function (index,name,price,count) {
+                if (this.menu[index].count < 10) {
+                    this.menu[index].count++;
+                }
+                console.log(name);
+                console.log(price);
+                console.log(this.menu[index].count);
+                if(count == 0){
+                ym.list.push({"name":name,"price":price,"count":count})
+                }
+                console.log(ym.list)
+            },
+            minus: function (index) {
+                this.menu[index].count--;
+            },
+            cart_Mask: function () {
+                console.log(ym.list);
+                if (this.number > 0) {
+                    if (this.modal_Mask == "" && this.cartView_mask == "") {
+                        this.modal_Mask = "modal_Mask";
+                        this.cartView_mask = "cartView_mask";
+                        this.Shopping_list = true;
+                    }
+                    else if (event.target.tagName == 'DIV') {
+//                   alert(event.target.tagName)
+                        this.modal_Mask = "";
+                        this.cartView_mask = "";
+                        this.Shopping_list = false;
+
+                       }
+                  }
+              }
+            }
+
+    });
+    var main2 =  Vue.component('main-evaluate', {
+        template: '<div class="score_all">\
+                    <section class="score">\
+                        <ol class="fl score_comprehensive">\
+                        <li>3.9</li>\
+                        <li>综合评分</li>\
+                        <li>高于周边商家69.2%</li>\
+                        </ol>\
+                        <ol class="fl  score_Alone">\
+                        <li>服务态度<span class="star"></span><span class="star"></span><span class="star"></span><span class="gray_star"></span></li>\
+                        <li>菜品评价<span class="star"></span><span class="star"></span><span class="star"></span><span class="gray_star"></span></li>\
+                        <li>送达时间<span>44分钟</span></li>\
+                        </ol>\
+                    </section><div class="line_wide"></div>\
+                    <section>\
+                      <div class="index-tagBlock"><ul><li v-for="(value,i) in info" v-on:click="toggle_li(i)"  v-bind:class="{active_bg:active_index==i,active_glay:active_index2==i}">{{value}}</li></ul></div>\
+                      <div class="comment-block-container" v-for="(item,index) in score_all"><img class="index-comment-img" v-bind:src="\'img/Head/0\'+item.header_img+\'.jpg\'" width="100%"/>\
+                      <ul><li>{{item.name}}</li><li><span class="star"></span><span class="star"></span><span class="star"></span><span class="gray_star"></span></li>\
+                      <li>{{item.evaluate}}</li></ul>\
+                      </div>\
+                    </section>\
+                  </div>',
+        data: function (){
+            return {
+                active_index: 0,
+                active_index2:-1,
+                score_all:score_all,
+                info:["全部","满意","不满意","有图","物美价廉","分量足","送货快","服务不错","味道好","食材新鲜","包装精美"],
+            }
+        },
+        methods: {
+            toggle_li:function(bgColor_index){
+                this.active_index2= -1;
+                this.active_index= bgColor_index;
+                if(bgColor_index ==2){
+                    this.active_index2= bgColor_index;
+                }
+            }
+        }
+
+    });
+    var main3 =  Vue.component('main-business', {
+        template: '<div class="business_info"><div class="business_name">\
+                  <div class="fl"><h3>粥品香坊（大运村）</h3><p><span class="star"></span><span class="star"></span><span class="star"></span><span class="gray_star"></span><span class="score_num">(661)</span><em>月售690单</em></p></div>\
+                  <div class="fr collection_heart" v-on:click="collection_toggle()"><img  v-bind:src="\'img/Collection0\'+active_heart+\'.jpg\'" /><p>{{active_text}}</p></div></div>\
+                  <ul class="business_score"><li><span>起送价</span><p>20<span>元</span></p></li><li><span>商家配送</span><p>4<span>元</span></p></li><li><span>平均配送时间</span><p>39<span>分钟</span></p></li></ul>\
+                  <div class="business_notice"><div class="line_wide"></div><h3>公告与活动</h3><p>粥品香坊其烹饪粥料的秘方源于中国千年古法，在融和现代制作工艺，由世界烹饪大师屈浩先生领衔研发。坚守纯天然、0添加的良心品质深的消费者青睐，发展至今成为粥类引领品牌。是2008年奥运会和2013年园博会指定餐饮服务商。</p>\
+                 <ul><li>在线支付满28减5,满50减10</li><li>单人精彩赛</li><li>清肺雪梨汤8折抢购</li><li>特价饮品八折抢购</li><li>单人特色套餐</li><li>该商家支持开发票,请在下单时填写好发票抬头</li></ul><div class="line_wide"></div>\
+                 <div class="business_view"><h3>商家实景</h3><div><img src="img/business_view01.jpg"/><img src="img/business_view02.jpg"/></div></div><div class="line_wide"></div>\
+                 <h3>商家信息</h3>\
+                  <ul><li>该商家支持开发票，请在下单时填写好发票抬头</li><li>品类：其他菜系、包子粥店</li><li>地址：北京市昌平区回龙观西大街龙观置业大厦底商B座102单元1340</li><li>营业时间：10:00 - 20:30</li></ul>\
+                </div></div>',
+        data:function(){
+            return {
+                active_heart: 0,
+                active_text: "已收藏"
+            }
+        },
+        methods:{
+            collection_toggle:function(){
+                this.active_heart ==1?this.active_heart=0:this.active_heart=1;
+                this.active_text =="已收藏"?this.active_text="收藏":this.active_text="已收藏";
+            }
+        }
+
+    });
+    var ym =   new Vue({
+        el: '#box',
+        data: function () {
+            return {
+                menu: menu,
+                currentView: 'main-goods',
+                shop_active: 0,
+                //shop_tab:["商品","评价","商家"],
+                shop_tabs: [
+                    {type: '商品', view: 'main-goods'},
+                    {type: '评价', view: 'main-evaluate'},
+                    {type: '商家', view: 'main-business'}
+                ],
+                list:[],
+                scroll: ''
+            }
+        },
+        methods: {
+            toggle: function (i, v) {
+                this.shop_active = i,
+                this.currentView = v
+            },
+//           vue监听滚动事件
+            menu: function () {
+                this.scroll = document.body.scroll
+            }
+            },
+        // vue监听滚动事件
+        mounted:function() {
+            window.addEventListener('scroll', this.menu)
+        },
+    })
+
+</script>
+</html>

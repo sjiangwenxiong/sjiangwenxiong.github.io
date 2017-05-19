@@ -1,0 +1,31 @@
+var score_all = [
+    {
+         header_img:0,
+               name:"GaGa",
+           evaluate:"油条冷冻包装里来的，烧饼那么点东西要5块钱。"
+    },{
+         header_img:1,
+               name:"匿名用户",
+           evaluate:""
+    },{
+         header_img:2,
+               name:"匿名用户",
+           evaluate:"油条凉了,并且没有酱。75分钟才到,很慢。送餐员态度不错,但毕竟好晚了啊。"
+    },{
+         header_img:3,
+               name:"匿名用户",
+           evaluate:"快递很辛苦，地址填错了，快递小哥很爽快很及时送到，谢谢。"
+    },{
+         header_img:4,
+               name:"匿名用户",
+           evaluate:""
+    },{
+         header_img:5,
+               name:"匿名用户",
+           evaluate:"米饭馊了～～上面的还好，吃到下面一点馊味很重，扔了！估计放假都是前几天剩的米饭。"
+    },{
+         header_img:6,
+               name:"匿名用户",
+           evaluate:""
+    }
+];

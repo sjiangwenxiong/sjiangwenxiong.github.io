@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>我的vue购物车</title>
+    <!--<link rel="stylesheet" href="css/bootstrap.min.css">-->
+    <meta name="viewport" id="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/vue.js"></script>
+    <script src="js/data.js"  charset="gbk"></script>
+</head>
+<body>
+<div class="footer">
+ <template>
+     <div class="title">
+         <span  v-for="item in info">{{ item.message }}</span>
+     </div>
+     <div class="item"   v-for="(item,index) in data">
+         <span >{{item.name}}</span>
+        <div class="num">
+            <em class="add" v-on:click="add(index)"  ></em>   <span>{{item.count}}</span>  <em class="minus" v-on:click="minus(index)"></em>
+        </div>
+         <span>&yen;{{item.price}}</span>
+     </div>
+     <div class="cart">
+         <div  class="fl car_0">
+             <a class="car_num" v-if="number>0">{{number}}</a>
+
+             <span class="money">&yen;<a>{{price}}</a></span><em></em><span class="D73">另需配送费&yen;4元</span>
+         </div>
+         <div class="fr car_1">
+             <span  v-if="60>price>0" class="goods">还差&yen;<a>{{60-price}}</a>元起送</span>
+             <span v-else-if="price>60" class="balance">去结算</span>
+             <span v-else class="goods">&yen;<a>60</a>元起送</span>
+         </div>
+     </div>
+ </template>
+
+
+</div>
+</body>
+<script  charset="gbk">
+   var a = new Vue({
+        el:'.footer',
+        data:{
+           data:data,
+            info: [
+                {message: '购物车'},
+                {message: '清空' }
+            ]
+        },
+        computed:{
+            price:function () {
+                var price = 0;
+                for(var i=0;i<this.data.length;i++){
+                    var self = this.data[i];
+                    price += self.count * self.price;
+                }
+                return price;
+            },
+           number:function(){
+               var number = 0;
+               for(var i=0;i<this.data.length;i++){
+                   var self = this.data[i];
+                   number += self.count;
+               }
+               return number;
+           }
+        },
+        methods:{
+            add:function (index) {
+                var self = this.data[index];
+                if(self.count >10){
+                    return false;
+                }
+                self.count++;
+            },
+            minus:function(index){
+                var self = this.data[index];
+                if(self.count <= 1){
+                    this.data.splice(index,1);
+                }
+                self.count--;
+            }
+
+        }
+    })
+</script>
+</html>

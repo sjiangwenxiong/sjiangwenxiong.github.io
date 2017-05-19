@@ -1,0 +1,59 @@
+/* CSS Document */
+/* 首页 */
+/* head */
+.nav_top{height:36px;}
+.main li{height:20px;line-height:20px;margin-top:8px;}
+.nav_top_r li{width:80px;}
+.nav_top_r li ul{position:absolute;display:none;}
+.search{border:2px solid #D6123E;}
+.span_search a:hover{color:#F60;}
+.select{background:url(../img/head_xia.png) no-repeat right center;}
+.headm{width:267px;height:60px;background:url(../img/headbg.png) no-repeat;}
+.nav_bt{line-height:45px;}
+.nav_bt:hover{background:#A60426;}
+/* banner */
+.banner{height:500px;background:url(../img/banner.png) no-repeat;}
+.banner_l1{height:37px;padding-top:12px;}
+.banner_m{width:700px;height:320px;}
+.banner_m1{width:660px;height:40px;line-height:40px;margin-left:20px;}
+.banner_m2{width:580px;height:27px;padding-left:80px;margin-left:20px;}
+.banner_b{width:240px;height:500px;}
+/* 1F */
+.nav_1fl{height:40px;line-height:40px;}
+.hover_1f{height:39px;width:65px;border:1px solid white;border-bottom:1px solid #F680E4;}
+.hover_1f:hover{border-top:2px solid #F680E4;border-left:1px solid #F680E4;border-right:1px solid #F680E4;border-bottom:1px solid #ffffff;}
+.div1F{width:400px;height:360px;background:url(../img/1F1.png) no-repeat;padding-top:90px;border-top:1px solid #F680E4;margin-top:1px;}
+.span1F{width:110px;height:100px;background:#FF4F4B;line-height:40px;color:#ffffff;padding-top:10px;margin-left:260px;}
+.F1_table{width:800px;height:450px;}
+.hover_2f{height:39px;width:65px;border:1px solid white;border-bottom:1px solid #07D0BB;}
+.hover_2f:hover{border-top:2px solid #07D0BB;border-left:1px solid #07D0BB;border-right:1px solid #07D0BB;border-bottom:1px solid #ffffff;}
+.div2F{width:400px;height:360px;background:url(../img/1F1.png) no-repeat;padding-top:90px;border-top:1px solid #3FCAED;margin-top:1px;}
+.hover_3f{height:39px;width:65px;border:1px solid white;border-bottom:1px solid #3FCAED;}
+.hover_3f:hover{border-top:2px solid #3FCAED;border-left:1px solid #3FCAED;border-right:1px solid #3FCAED;border-bottom:1px solid #ffffff;}
+.div3F{width:399px;height:359px;background:url(../img/3F1.png) no-repeat;padding-top:90px;border-top:1px solid #3FCAED;margin-top:1px;border-left:1px solid #dddddd;border-bottom:1px solid #dddddd;}
+/* Footer */
+.foot_span{display:inline-block;height:30px;line-height:30px;margin-top:10px;}
+
+
+/* 个人中心 */
+/* main */
+.user_ml{width:210px;height:820px;}
+.user_nav{width:210px;height:630px;border:1px solid #dddddd;margin-top:10px;}
+.user_mr{width:965px;height:700px;border:1px solid #dddddd;}
+
+/* 列表 */
+/* main */
+.list_nav{width:210px;height:280px;border:1px solid #dddddd;margin-top:10px;}
+.list_mr{width:965px;height:740px;border:1px solid #dddddd;}
+.list_nav span:hover{color:#db566a;font-weight:bold;}
+.list_nav_span:hover{color:#db566a;font-weight:bold;}
+.list_button{line-height:25px;border:1px solid #999999;color:#999999;margin-top:30px;margin-right:10px;}
+.list_button2{line-height:25px;color:#999999;margin-top:30px;margin-right:10px;}
+.list_button:hover{background:#e77174;color:#ffffff;}
+
+/* 详情 */
+/* main */
+.detail_banner{width:1175px;height:430px;background:#f7fefe;padding:10px;border:1px solid #d6dddd;}
+.detail_span{border:2px solid white;display:inline-block;}
+.detail_span img{width: 50px;}
+.detail_span:hover{border:2px solid red;}

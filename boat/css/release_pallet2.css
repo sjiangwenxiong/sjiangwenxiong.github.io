@@ -1,0 +1,27 @@
+/* CSS Document */
+
+.head{height:35px;width:80%;margin:15px 10% 0 10%;}
+.head span{display:block;color:#ffffff;height:35px;line-height:35px;}
+.head1{height:35px;background:url(../img/input_bg.png);}
+.head1 input{background-color:#2B2E31;border:none;color:#959798;margin-top:10px;width:160px;margin-left:8px;}
+.header{width:100%;margin-top:15px;}
+.header1{width:10%;}
+.header1 img{padding-top:8px;margin-left:25%;}
+.header2{color:#ffffff;width:20%;}
+.header3{width:60%;height:35px;background:url(../img/input_bg.png);margin-right:10%;}
+.header3 input{background-color:#2B2E31;border:none;color:#959798;margin:10px 0 0 5px;}
+.header4{height:25px;line-height:25px;width:25px;background:#58AEEB url(../img/shi.png) center center no-repeat;border-radius:4px;margin:5px 5px 0 0;background-size:10px;}
+.header5{width:23%;height:35px;background:url(../img/input_bg.png);line-height:35px;}
+.header5 input{background-color:#2B2E31;border:none;color:#959798;margin:10px 0 0 5px;width:80%;}
+.cantent{width:100%;margin:15px 10% 0 0;}
+textarea{background-color:#2B2E31;border:none;color:#959798;height:60px;width:100%;}
+.cantent1{width:10%;}
+.cantent1 img{padding-top:8px;margin-left:25%;}
+.cantent2{display:block;color:#ffffff;font-size:14px;width:20%;}
+.cantent2 span{display:block;padding-top:10px;}
+.cantent3{width:60%;height:35px;background:url(../img/input_bg.png);}
+.cantent3 input{background-color:#2B2E31;border:none;color:#959798;margin:10px 0 0 5px;width:70px;}
+.cantent4{padding:8px 2px 0 0;}
+.cantent5{color:#959798;font-size:13px;height:35px;line-height:35px;padding-left:10px;width:10%;}
+.bottom{width:80%;margin:70px 10% 0 10%;}
+.bottom input{height:40px;width:100%;background:url(../img/send.png);color:white;font-size:15px;border:none;}

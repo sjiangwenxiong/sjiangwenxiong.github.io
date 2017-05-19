@@ -1,0 +1,10 @@
+/* CSS Document */
+
+.content_left1{height:45px;width:45px;background:#444C52 url(../img/ren.png) center center no-repeat;background-size:15px;}
+.content_right{height:45px;width:80%;background:#2D3034;line-height:45px;}
+span{color:#8B8C8E;font-size:15px;margin-left:15px;}
+input{border:none;background-color:#2D3034;}
+.content_left2{height:45px;width:45px;background:#444C52 url(../img/suo.png) center center no-repeat;background-size:15px;}
+.bottom{width:80%;height:40px;background-color:#58AEEB;margin:30px 10% 0 10%;color:white;font-size:15px;line-height:45px; box-shadow:1px 1px 4px black;}
+.bottom_nav{width:80%;height:20px;margin:20px 10% 0 10%;}
+.bottom_nav a{color:white;font-size:13px;letter-spacing:1px;}

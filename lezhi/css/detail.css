@@ -1,0 +1,103 @@
+/*body {
+	font: 12px "microsoft yahei", Arial, Helvetica, sans-serif;
+	color:#666;
+	margin:0px;
+	padding:0px;
+}*/
+ul,li,p,h1,h2,h3,h4,h5,h6,dl,dt,dd {
+	margin:0px;
+	padding:0px;
+	border:none;
+	list-style:none;
+}
+
+/**************V02****************/
+#preview{
+	width:352px;
+	padding-bottom:10px;
+	float:left;
+	overflow:hidden;
+}
+#preview div.iew{
+	width:352px;
+	height:54px;
+	overflow:hidden;
+}
+#preview a.backward{
+	float:left;
+	width:17px;
+	height:54px;
+	background:url(../img/iconlist_1.png) no-repeat 0 -139px;
+}
+#preview a.backward_disabled{
+	float:left;
+	width:17px;
+	height:54px;
+	background:url(../img/iconlist_1.png) no-repeat -68px -139px;
+}
+
+#preview #icon_list{
+	float:left;
+	position: absolute;
+	left:0px;
+}
+#preview a.forward{
+	float:right;
+	width:17px;
+	height:54px;
+	background:url(../img/iconlist_1.png) no-repeat -17px -139px;
+}#preview a.forward_disabled{
+	float:right;
+	width:17px;
+	height:54px;
+	background:url(../img/iconlist_1.png) no-repeat -85px -139px;
+}
+/*/!******产品图标列表*******!/*/
+#preview #icon_list{
+	width:434px;
+	height:54px;
+	margin:0px 4px;
+}
+#preview #icon_list li{
+	float:left;
+	width:62px;
+	text-align:center;
+}
+#preview #icon_list li img{
+	width:50px;
+	height:50px;
+	border:1px solid #ddd;
+	padding:1px;
+}
+#preview #icon_list li img:hover{
+	border:2px solid #e4393c;
+	padding:0px;
+}
+#superMask{
+	width:347px; height:347px;
+	position: absolute;
+	left: 0; top:0;
+}
+#largeDiv{
+	/*	width:500px;height:500px;
+        position: absolute;
+        left: 360px; top:10px;
+        background-repeat: no-repeat;
+        background-size: cover;*/
+	width:523px;height:523px;
+	position: absolute;
+	left: 360px; top:10px;
+	background-repeat: no-repeat;
+	background-size: 1200px !important;
+}
+#mask{
+	width: 150px;
+	height: 150px;
+	position: absolute;
+	left: 0;
+	top: 0;
+	background-color: #454545;
+	opacity: 0.5;
+	cursor: move;
+	display: none;
+}

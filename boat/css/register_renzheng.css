@@ -1,0 +1,16 @@
+/* CSS Document */
+
+.head{background:#474B4E;height:30px;padding-top:10px;box-shadow:1px 2px 4px black;margin-bottom:20px;}
+.head_l{line-height:20px;width:65px;margin:0 auto;}
+.head_r{line-height:20px;width:65px;margin:0 auto;}
+.content_left1{height:45px;width:45px;background:#444C52 url(../img/shouji.png) center center no-repeat;background-size:15px;}
+.content_right1{height:45px;width:80%;background:#2D3034 url(../img/get.png) no-repeat right center;background-size:70px;line-height:45px;}
+span{color:#8B8C8E;margin-left:15px;}
+.content_left2{height:45px;width:45px;background:#444C52 url(../img/si.png) center center no-repeat;background-size:15px;}
+.content_right2{height:45px;width:80%;line-height:45px;}
+.content_left3{height:45px;width:45px;background:#444C52 url(../img/lock.png) center center no-repeat;background-size:15px;}
+.content_right3{height:45px;width:80%;line-height:45px;}
+.content_left4{height:45px;width:45px;background:#444C52 url(../img/renren.png) center center no-repeat;background-size:15px;}
+.content_left5{height:45px;width:45px;background:#444C52 url(../img/sb.png) center center no-repeat;background-size:15px;}
+input{border:none;background-color:#2D3034;width:30%;}
+.bottom{width:80%;height:40px;background-color:#58AEEB;margin:30px 10% 0 10%;color:white;font-size:15px;line-height:45px; box-shadow:1px 1px 4px black;}

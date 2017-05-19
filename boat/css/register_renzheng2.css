@@ -1,0 +1,19 @@
+/* CSS Document */
+
+.head{background:#474B4E;height:30px;padding-top:10px;box-shadow:1px 2px 4px black;margin-bottom:20px;}
+.head_l{line-height:20px;width:65px;margin:0 auto;}
+.head_r{line-height:20px;width:65px;margin:0 auto;}
+.content_left1{height:45px;width:45px;background:#444C52 url(../img/telphone.png) center center no-repeat;background-size:15px;}
+.content_right1{height:45px;width:80%;line-height:45px;}
+span{color:#8B8C8E;margin-left:15px;}
+.content_left2{height:45px;width:45px;background:#444C52 url(../img/chuanzhen.png) center center no-repeat;background-size:15px;}
+.content_left3{height:45px;width:45px;background:#444C52 url(../img/di.png) center center no-repeat;background-size:15px;}
+input{border:none;background-color:#2D3034;width:30%;}
+.content_left4{height:45px;width:45px;background:#444C52 url(../img/tutu.png) center center no-repeat;background-size:15px;}
+.content_left5{height:45px;width:45px;background:#444C52 url(../img/zhizhao.png) center center no-repeat;background-size:15px;}
+.content_right2{height:45px;width:70%;line-height:45px;background:url(../img/camera.png) no-repeat right;background-size:16px;}
+span{color:#8B8C8E;margin-left:15px;}
+.pic{position:absolute;right:-23%;}
+.foot1{height:30px;line-height:30px;background:#444C52;}
+textarea{width:80%;margin-left:10%;height:115px;background:#2D3034;border:none;}
+.bottom{width:80%;height:40px;background-color:#58AEEB;margin:30px 10% 0 10%;color:white;font-size:15px;line-height:45px; box-shadow:1px 1px 4px black;}

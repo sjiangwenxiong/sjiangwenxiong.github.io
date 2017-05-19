@@ -1,0 +1,8 @@
+/* CSS Document */
+
+.banner{width:90%;height:140px;background-color:#474E54;margin:15px 5% 0 5%;}
+.banner_left p{height:30px;}
+.banner_left{padding-left:5%;letter-spacing:3px;width:125px;height:140px;}
+.banner_right p{color:#FF7200;font-size:13px;padding-top:20px;margin-left:30%;}
+.button{height:30px;width:100px;background:url(../img/chakanxiangqing.png)no-repeat;background-size:100px;margin-top:20px;padding-top:8px;padding-left:25px;position:relative;}
+.dat{position:absolute;top:58px;left:-55px;}

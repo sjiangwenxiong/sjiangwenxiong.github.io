@@ -1,0 +1,14 @@
+/* CSS Document */
+.head{width:90%;height:35px;line-height:35px;background:#474B4E;padding:5px 5% 0 5%;}
+.head_r{width:85px;height:28px;line-height:28px;background:url(../img/bid.png) no-repeat;color:#ffffff;}
+.banner{width:90%;height:140px;background-color:#474E54;margin:15px 5% 0 5%;}
+.banner_left p{height:30px;}
+.banner_left{padding-left:5%;letter-spacing:3px;width:125px;height:140px;}
+.banner_right p{color:#FF7200;font-size:13px;padding-top:20px;margin-left:30%;}
+.check{margin:10px 10px 0 0;width:20px;height:20px;border-radius:5px;background:#2D3034 url(../img/gou.png) no-repeat center;background-size:15px;}
+.check:focus{background:#2D3034;}
+.button{height:30px;width:100px;background:url(../img/chakanxiangqing.png)no-repeat;background-size:100px;margin-top:20px;padding-top:8px;padding-left:25px;position:relative;}
+.dat{position:absolute;top:61px;left:-55px;}
+.footer{width:80%;height:27px;background:url(../img/send.png) no-repeat; padding-top:13px;}
+.footer span{ display:block;width:120px;margin:0 auto;}
+.bottom{width:85px;padding-top:25px;height:30px;color:#8D8F90;}

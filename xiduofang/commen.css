@@ -1,0 +1,39 @@
+/* CSS Document */
+/* time:2016/11/9 */
+/* address:um */
+/* author:姜文雄 */
+
+/* 头部 */
+.main{width:1000px;}
+.nav{float:right;margin-top:70px;width:745px;height:45px;
+     line-height:40px;color:white;background-image:
+	 linear-gradient(to bottom,black 39px,#333333 6px);}
+.nav1{display:inline-block;width:90px;height:45px;}
+.nav1:hover{background-image:url(img/hover-bg.png);}
+/* banner */
+.banner{width:1000px;background:#1c1c1c;color:grey;
+        position:relative;}
+.banner-r{background:black;width:300px;height:350px;}
+.pst1{position:absolute;left:867px;top:-7px;}
+/* about */
+.about{width:1000px;}
+.aboutl{width:490px;height:210px;background:#1c1c1c;}
+.aboutr{width:490px;height:210px;background:#1c1c1c;}
+.ml30 li{list-style:url(img/dian.png);line-height:25px;}
+.list2{margin-top:-130px;line-height:25px;color:white;}
+/* case */
+.case{width:1000px;height:280px;background:#1c1c1c;
+      margin-top:230px;color:white;position:relative;}
+.tip1{margin-right:-85px;}
+.case1{width:198px;height:180px;background:black;}
+.pst2{position:absolute;left:-6px;top:-6px;}
+/* dressing and theme */
+.drandph{width:1000px;height:270px;color:white;font-size:11px;}
+.dr{width:325px;height:270px;background:#1c1c1c;}
+.ph{width:610px;height:230px;background:#1c1c1c;padding:20px;}
+.ph a{color:#E12D2E;text-decoration:underline;}
+/* footer */
+.footer{width:960px;height:90px;background:#1c1c1c;padding:20px;
+        color:white;position:relative;}
+.pst3{position:absolute;left:-3px;top:77px;}
+.pst4{position:absolute;left:952px;top:77px;}

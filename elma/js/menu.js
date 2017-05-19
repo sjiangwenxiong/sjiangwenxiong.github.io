@@ -1,0 +1,177 @@
+
+var menu = [
+    {
+        type:"热销榜",
+        name:'皮蛋瘦肉粥包子套餐',
+        price:24,
+        id:0,
+        count:0,
+        sales:1132,
+        comment:100
+    },{
+        type:"热销榜",
+        name:'肉松鸡蛋饼',
+        price:10.88,
+        id:1,
+        count:0,
+        sales:1938,
+        comment:100
+    },{
+        type:"热销榜",
+        name:'白粥',
+        price:5.9,
+        id:3,
+        count:0,
+        sales:942,
+        comment:98
+    },{
+        type:"热销榜",
+        name:'咸鸭蛋',
+        price:4,
+        id:5,
+        count:0,
+        sales:768,
+        comment:96
+    },{
+        type:"新品来袭",
+        name:'牛肉饼',
+        price:7,
+        id:4,
+        count:0,
+        sales:879,
+        comment:97
+    },{
+        type:"新品来袭",
+        name:'招牌煎饺',
+        price:12.88,
+        id:2,
+        count:0,
+        sales:1572,
+        comment:96
+    },{
+        type:"特色粥品",
+        name:'黄金南瓜粥',
+        price:12.9,
+        id:6,
+        count:0,
+        sales:522,
+        comment:97
+    },{
+        type:"特色粥品",
+        name:'香菇瘦肉粥',
+        price:16,
+        id:7,
+        count:0,
+        sales:90,
+        comment:86
+    },{
+        type:"特色粥品",
+        name:'香菇蔬菜虾仁粥',
+        price:20,
+        id:8,
+        count:0,
+        sales:31,
+        comment:25
+    },{
+        type:"特色粥品",
+        name:'菠菜猪肝粥',
+        price:18.9,
+        id:9,
+        count:0,
+        sales:84,
+        comment:90
+    },{
+        type:"特色粥品",
+        name:'干贝虾仁粥',
+        price:21.9,
+        id:10,
+        count:0,
+        sales:88,
+        comment:54
+    },{
+        type:"特色粥品",
+        name:'生滚鱼片粥',
+        price:20,
+        id:11,
+        count:0,
+        sales:45,
+        comment:100
+    },{
+        type:"特色粥品",
+        name:'山药虾仁粥',
+        price:21.9,
+        id:12,
+        count:0,
+        sales:77,
+        comment:100
+    },{
+        type:"特色粥品",
+        name:'养颜乌鸡粥',
+        price:19.9,
+        id:13,
+        count:0,
+        sales:30,
+        comment:100
+    },{
+        type:"特色粥品",
+        name:'紫薯粥',
+        price:12.9,
+        id:14,
+        count:0,
+        sales:192,
+        comment:97
+    },{
+        type:"杭式小点",
+        name:'红糖发糕',
+        price:5,
+        id:15,
+        count:0,
+        sales:369,
+        comment:92
+    },{
+        type:"杭式小点",
+        name:'放心油条',
+        price:5,
+        id:16,
+        count:0,
+        sales:725,
+        comment:91
+    },{
+        type:"杭式小点",
+        name:'自制春卷',
+        price:6,
+        id:17,
+        count:0,
+        sales:518,
+        comment:90
+    },{
+        type:"杭式小点",
+        name:'酒香米糕',
+        price:7,
+        id:18,
+        count:0,
+        sales:116,
+        comment:100
+    }
+
+];
+var data_type = [];
+var arr = [];
+var new_type = [];
+for(var key in menu) {
+   data_type.push(menu[key].type)
+}
+
+//console.log(data_type)
+for(var i=0;i<data_type.length;i++){
+    if(arr[data_type[i]] === undefined){
+        arr[data_type[i]] = 1
+    }else{
+        arr[data_type[i]]++;
+    }
+}
+//console.log(arr);
+for(var key in arr) {
+    new_type.push(key)
+}
+//console.log(new_type);

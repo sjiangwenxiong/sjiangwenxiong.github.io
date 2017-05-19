@@ -1,0 +1,19 @@
+/* CSS Document */
+.home{height:240px;width:100%;background-color:#42494E;}
+.head{padding-top:15px;padding-right:4%;}
+.head1 img{border-radius:60px;border:4px solid white;margin-top:30px;margin-left:7%;}
+.head2{margin-top:-45px;padding-left:30%;}
+.head3{height:15px;width:15px;background-color:#CB5214;border-radius:50%;line-height:15px;color:#F5DED3;margin-left:10px;margin-right:5px;}
+.case{width:100%;padding:40px 0 0 6%;}
+.case p{margin-top:10px;color:white;font-size:12px;}
+.content{height:135px;width:100%;background-color:#444B52;margin-top:15px;}
+.content1, .content2, .content3{width:90%;margin-left:5%;padding-right:5%;border-top:1px solid #5A6268;height:30px;padding-top:15px;}
+.content1{border:none;}
+.bottom{width:90%;margin:85px 5% 0 5%;height:120px;}
+.bottom1{height:70px;width:70px;background:#58AEEB url(../img/home.png) center center no-repeat;background-size:25px;border-radius:50px;text-align:center;box-shadow:0 2px 4px black;}
+.bottom2{height:70px;width:70px;background:#58AEEB url(../img/pencil.png) center center no-repeat;background-size:25px;border-radius:50px;text-align:center;box-shadow:0 2px 4px black;}
+.bottom3{height:70px;width:70px;background:#EE6937 url(../img/tuichu.png) center center no-repeat;background-size:25px;border-radius:50px;text-align:center;box-shadow:0 2px 4px black;}
+.bottom .a{display:inline-block;text-align:center;}
+.bottom .bottom1 span{display:block;padding-top:90px;color:#cdcecf;}
+.bottom .bottom2 span{display:inline-block;padding-top:90px;color:#cdcecf;width:80px;margin-left:-5px;}
+.bottom .bottom3 span{display:block;padding-top:90px;color:#cdcecf;}

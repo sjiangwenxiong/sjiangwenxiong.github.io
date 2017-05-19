@@ -1,0 +1,21 @@
+﻿/* CSS Document */
+/*head */
+.content{width:96%;height:70px;background-color:#434A51;margin:10px 2% 0 2%;color:#C6C8CB;}
+.content span{display:inline-block;margin-top:15px;}
+.content span p{color:white;font-size:16px;margin-bottom:15px;}
+/*bottom*/
+.bottom_nav{width:96%;margin:10px 2% 0 2%;}
+.bottom_nav1 .nav1{height:166px;;width:100%;background:#49C8E4 url(../img/chuan.png) 95% 90% no-repeat;background-size:100px;}
+.bottom_nav1 .nav1 p{display:block;padding:30px 0 0 14%;color:#ffffff;font-weight:bold;font-size:18px; letter-spacing:3px;}
+
+.bottom_nav1 .nav2{height:166px;;width:100%;background:#29C46A url(../img/chuanlogo.png) 95% 90% no-repeat;background-size:100px;margin-top:10px;}
+.bottom_nav1 .nav2 p{display:block;padding:30px 0 0 14%;color:#ffffff;font-weight:bold;font-size:18px; letter-spacing:3px;}
+
+.bottom_nav2 .nav1{height:109px;width:100%;background:#29C46A url(../img/peitao.png) 10% center no-repeat;background-size:50px;}
+.bottom_nav2 .nav1 p{padding:45px 0 0 45%;color:#ffffff;font-weight:bold;font-size:17px; letter-spacing:3px;}
+
+.bottom_nav2 .nav2{height:109px;width:100%;background:#E46849 url(../img/zhineng.png) 10% center no-repeat;background-size:50px;margin-top:7.5px;}
+.bottom_nav2 .nav2 p{padding:45px 0 0 45%;color:#ffffff;font-weight:bold;font-size:17px; letter-spacing:3px;}
+
+.bottom_nav2 .nav3{height:109px;width:100%;background:#39B6D2 url(../img/male.png) 10% center no-repeat;background-size:50px;margin-top:7.5px;}
+.bottom_nav2 .nav3 p{padding:45px 0 0 45%;color:#ffffff;font-weight:bold;font-size:17px; letter-spacing:3px;}

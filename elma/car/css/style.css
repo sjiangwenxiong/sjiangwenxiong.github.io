@@ -1,0 +1,88 @@
+@charset "utf-8";
+*{margin:0;padding:0;}
+body{
+
+    background:url(../img/E-_Vue.png);
+    -webkit-background-size: cover;
+}
+/*浮动*/
+.fl{float:left;}
+.fr{float:right;}
+/*footer*/
+.footer{
+    height:305.5px;
+    position: fixed;
+    bottom: 0;left:0;right:0;
+    background: #fff;
+}
+.footer .title{
+    height:40px;background:#f3f5f7;
+    border-bottom:2px solid rgba(7,17,27,0.1);
+}
+.footer .title :first-child{
+  font-size: 14px;font-weight: 100;color:rgb(7,17,27);  line-height:40px;padding-left: 13px;float:left;
+}
+.footer .title :last-child{
+    font-size: 12px;color:rgb(0,160,220);  line-height:40px;padding-right: 13px;float:right;
+}
+.footer .item{
+   height:47px;
+    border-bottom: 1px solid rgba(7,17,27,0.1);
+}
+.footer .item span:first-child{
+  font-size: 14px;color:rgb(7,17,27);  line-height:48px; padding-left: 13px;
+}
+.footer .item :first-child+div{
+    font-size: 14px;color:rgb(147,153,159);  font-weight: 700; padding-left: 12px;
+    padding-right:13px;float:right;  padding-top: 15px;
+}
+.num span{
+    display: inline-block;width:24px;text-align:center;float:right;
+}
+.footer .item :last-child{
+    font-size: 14px;color:rgb(240,20,20);  line-height:48px; font-weight: 700;float:right;
+}
+.num em{
+    display: inline-block; width:20px;height:20px;  background-size: cover;
+    float:right;
+}
+.minus{
+    background:url(../img/minus.png) no-repeat  center;
+}
+.add{
+    background:url(../img/add.png) no-repeat  center;
+}
+/*购物车*/
+.cart{height:58px;width:100%;
+    background:url(../img/car_02.png) no-repeat  center;
+    background-size: cover; position: fixed;bottom: 0;left: 0;right:0;
+}
+.cart .car_0{
+    line-height: 60px;padding-left:20%;  width:44%;
+}
+.cart .money{
+    color:rgb(255,255,255); font-size: 16px;
+
+}
+.cart .money+em{
+display: inline-block;width:2px;height:24px;margin:0 12px;
+    background: url(../img/shu.png);
+}
+.D73{
+    color:#6D7379; font-size: 12px;
+}
+.car_1{
+  width:36%; height:48px;background: #2D363E; font-size: 13px;
+  font-weight: 800;position: fixed;bottom:0;right:0;line-height: 48px;
+    text-align: center;
+}
+.car_0{
+ position: relative;
+}
+.car_num{
+    position: absolute;height:20px;left:20%;
+    background: #F01414;color:#fff; border-radius: 20px;
+    line-height: 20px; text-align: center;  padding:0 4%;
+}
+.car_1 .goods{color:#979A9C;}
+.car_1 .balance{color:#fff;}

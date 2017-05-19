@@ -1,0 +1,79 @@
+@charset "utf-8";
+/*
+ *base.css <网站的公用样式表>
+ *AUTHOR:TANGFEI
+ *DATE:2015-07-07
+ *VESION:1.0
+**/
+
+/*去除所有标签内的外和内边距*/
+*{margin:0px;padding:0px;}
+body {
+	background:#333333;
+	font-family: "Segoe UI","Lucida Grande",Helvetica,Arial,"Microsoft YaHei",FreeSans,Arimo,"Droid Sans","wenquanyi micro hei","Hiragino Sans GB","Hiragino Sans GB W3",FontAwesome,sans-serif;
+	font-size:13px;
+	text-align: center; /*为了解决ie5.5下面的居中问题*/
+}
+
+/*网站的可视宽度*/
+.container {
+	width: 980px;
+	margin: 0 auto;
+	text-align:left;
+}
+
+/*重置标签的一些样式*/
+a{text-decoration:none;}
+li{list-style:none;}
+
+/*浮动*/
+.fl{float:left; display:block;}
+.fr{float:right; display:block;}
+/*清除浮动*/
+.clearfix{*zoom:1;} /*解决ie6/7下面的浮动塌陷问题*/
+.clearfix:before,.clearfix:after {display:table; line-height:0; content:"";} /*display:table;解决其他下面的浮动塌陷问题,line-height是将添加的内容高度设为0；*/
+.clearfix:after{clear:both;}/*清楚浮动*/
+
+/*a标签的样式*/
+a{color:white;}
+a:hover{color:#E12D2E;}
+
+.text-right{text-align:right;}
+.text-left{text-align:left;}
+
+/*去除边框*/
+img{border:none;}
+
+
+/*基本样式*/
+.wd1000{width:1000px;}
+.m5{margin:5px;}
+.m10{margin:10px;}
+.m20{margin:20px;}
+.mt5{margin-top:5px;}
+.pt5{margin-top:-5px;}
+.pAll5{padding:5px;}
+.mt10{margin-top:10px;}
+.mt15{margin-top:15px;}
+.mt18{margin-top:18px;}
+.mt20{margin-top:20px;}
+.mt25{margin-top:25px;}
+.mt30{margin-top:30px;}
+.mt50{margin-top:50px;}
+
+.mr5{margin-right:5px;}
+.mr10{margin-right:10px;}
+.mr15{margin-right:15px;}
+.mr20{margin-right:20px;}
+.mr25{margin-right:25px;}
+.mr30{margin-right:30px;}
+
+.ml5{margin-left:5px;}
+.ml10{margin-left:10px;}
+.ml15{margin-left:15px;}
+.ml20{margin-left:20px;}
+.ml25{margin-left:25px;}
+.ml30{margin-left:30px;}
+
+
+.mb20{margin-bottom:20px;}
