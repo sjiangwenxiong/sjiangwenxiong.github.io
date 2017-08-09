@@ -1,0 +1,154 @@
+/**
+ * Created by Administrator on 2016/11/25.
+ */
+export default [{
+  "imgUrl": "http://imge.kugou.com/soft/collection/400/20150908/20150908160948449958.jpg",
+  "title": "感恩在最美的时光里遇见你",
+  "countPlay": "441113",
+  "location": "/plist/info/26271"
+}, {
+  "imgUrl": "http://imge.kugou.com/soft/collection/400/20161122/20161122165340285214.jpg",
+  "title": "岁月沉淀：华语流行经典作",
+  "countPlay": "1109277",
+  "location": "/plist/info/120538"
+}, {
+  "imgUrl": "http://imge.kugou.com/soft/collection/400/20161122/20161122174819999306.jpg",
+  "title": "冷门却好听到爆的百首中文歌",
+  "countPlay": "530790",
+  "location": "/plist/info/120544"
+}, {
+  "imgUrl": "http://imge.kugou.com/soft/collection/400/20160115/20160115172201655192.jpg",
+  "title": "听一首温暖的歌度过寒冬",
+  "countPlay": "430188",
+  "location": "/plist/info/57437"
+}, {
+  "imgUrl": "http://imge.kugou.com/soft/collection/400/20161122/20161122145230687637.jpg",
+  "title": "无聊时就想听首歌",
+  "countPlay": "108978",
+  "location": "/plist/info/120520"
+}, {
+  "imgUrl": "http://imge.kugou.com/soft/collection/400/20161122/20161122150435965452.jpg",
+  "title": "唱出单身狗的自白",
+  "countPlay": "108679",
+  "location": "/plist/info/120521"
+}, {
+  "imgUrl": "http://imge.kugou.com/soft/collection/400/20160105/20160105162333320245.jpg",
+  "title": "愿有人能看透你的逞强",
+  "countPlay": "2849660",
+  "location": "/plist/info/57167"
+}, {
+  "imgUrl": "http://imge.kugou.com/soft/collection/400/20161122/20161122150745484138.jpg",
+  "title": "一曲看尽青春",
+  "countPlay": "115335",
+  "location": "/plist/info/120522"
+}, {
+  "imgUrl": "http://imge.kugou.com/soft/collection/400/20161121/20161121164811437577.jpg",
+  "title": "听他们的歌，回忆自己的故事",
+  "countPlay": "2933813",
+  "location": "/plist/info/120415"
+}, {
+  "imgUrl": "http://imge.kugou.com/soft/collection/400/20161121/20161121165117994939.jpg",
+  "title": "每个人心里都有一首粤语歌",
+  "countPlay": "1211142",
+  "location": "/plist/info/120401"
+}, {
+  "imgUrl": "http://imge.kugou.com/soft/collection/400/20161120/20161120220501691377.jpg",
+  "title": "蒙面唱将猜猜猜 合辑",
+  "countPlay": "78808797",
+  "location": "/plist/info/118538"
+}, {
+  "imgUrl": "http://imge.kugou.com/soft/collection/400/20161116/20161116173905755169.jpg",
+  "title": "游戏必备金曲  刺激神经",
+  "countPlay": "3368606",
+  "location": "/plist/info/120384"
+}, {
+  "imgUrl": "http://imge.kugou.com/soft/collection/400/20161111/20161111175917778676.jpg",
+  "title": "史上公认的最好听中文歌",
+  "countPlay": "415878023",
+  "location": "/plist/info/26430"
+}, {
+  "imgUrl": "http://imge.kugou.com/soft/collection/400/20150915/20150915160743918113.jpg",
+  "title": "岁月留声经典永恒",
+  "countPlay": "64480348",
+  "location": "/plist/info/26463"
+}, {
+  "imgUrl": "http://imge.kugou.com/soft/collection/400/20151214/20151214173810801626.jpg",
+  "title": "高中时期MP3里的中文歌",
+  "countPlay": "24252548",
+  "location": "/plist/info/24016"
+}, {
+  "imgUrl": "http://imge.kugou.com/soft/collection/400/20161116/20161116163515817650.jpg",
+  "title": "一入宫墙深幽梦，浅唱红尘几人归",
+  "countPlay": "994636",
+  "location": "/plist/info/120379"
+}, {
+  "imgUrl": "http://imge.kugou.com/soft/collection/400/20160330/20160330064557966943.jpg",
+  "title": "经典老歌，致我们的八零时代。",
+  "countPlay": "63391800",
+  "location": "/plist/info/71331"
+}, {
+  "imgUrl": "http://imge.kugou.com/soft/collection/400/20160815/20160815172034892414.jpg",
+  "title": "你一定听过的网络歌曲",
+  "countPlay": "139438312",
+  "location": "/plist/info/117723"
+}, {
+  "imgUrl": "http://imge.kugou.com/soft/collection/400/20161111/20161111145412472649.jpg",
+  "title": "必藏的一人一首成名曲",
+  "countPlay": "10589707",
+  "location": "/plist/info/120222"
+}, {
+  "imgUrl": "http://imge.kugou.com/soft/collection/400/20161115/20161115142119907099.jpg",
+  "title": "那些留在记忆中的成名曲",
+  "countPlay": "7513736",
+  "location": "/plist/info/120316"
+}, {
+  "imgUrl": "http://imge.kugou.com/soft/collection/400/20151022/20151022152131674440.jpg",
+  "title": "有故事的人最爱听的歌",
+  "countPlay": "7097815",
+  "location": "/plist/info/31216"
+}, {
+  "imgUrl": "http://imge.kugou.com/soft/collection/400/20161118/20161118151233224842.jpg",
+  "title": "有故事的你一定听懂了这些歌",
+  "countPlay": "2673280",
+  "location": "/plist/info/120451"
+}, {
+  "imgUrl": "http://imge.kugou.com/soft/collection/400/20160705/20160705154844115410.jpg",
+  "title": "一听就爱上的华语歌",
+  "countPlay": "19360292",
+  "location": "/plist/info/116459"
+}, {
+  "imgUrl": "http://imge.kugou.com/soft/collection/400/20160715/20160715111506749152.jpg",
+  "title": "近百首必听的英文歌",
+  "countPlay": "138257068",
+  "location": "/plist/info/116821"
+}, {
+  "imgUrl": "http://imge.kugou.com/soft/collection/400/20161021/20161021145220906006.jpg",
+  "title": "用歌曲谱一曲校园爱情",
+  "countPlay": "4932023",
+  "location": "/plist/info/119425"
+}, {
+  "imgUrl": "http://imge.kugou.com/soft/collection/400/20141213/20141213151720232844.jpg",
+  "title": "最爱经典粤语老歌",
+  "countPlay": "259637237",
+  "location": "/plist/info/22722"
+}, {
+  "imgUrl": "http://imge.kugou.com/soft/collection/400/20150615/20150615111830703597.jpg",
+  "title": "90后的集体回忆",
+  "countPlay": "209311495",
+  "location": "/plist/info/21055"
+}, {
+  "imgUrl": "http://imge.kugou.com/soft/collection/400/20161021/20161021154012118725.jpg",
+  "title": "值得珍藏的经典华语老歌",
+  "countPlay": "21707315",
+  "location": "/plist/info/119451"
+}, {
+  "imgUrl": "http://imge.kugou.com/soft/collection/400/20160912/20160912170551922735.jpg",
+  "title": "向来情深 奈何缘浅",
+  "countPlay": "11006059",
+  "location": "/plist/info/118381"
+}, {
+  "imgUrl": "http://imge.kugou.com/soft/collection/400/20160606/20160606143053966726.jpg",
+  "title": "学生党最爱的校园热歌",
+  "countPlay": "44282763",
+  "location": "/plist/info/115771"
+}]
