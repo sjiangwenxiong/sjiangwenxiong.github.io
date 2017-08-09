@@ -1,9 +1,6 @@
 <template>
   <div class="logo-container">
     <a class="head-logo" @click="backer()"></a>
-    <div class="head-download">
-      <a href="http://pan.baidu.com/s/1eSMb7e6">下载酷狗</a>
-    </div>
     <div class="head-search">
       <img src="http://m.kugou.com/v3/static/images/index/search.png">
     </div>
@@ -35,7 +32,7 @@
       width: 7.286rem;
       height: 1.67857rem;
       display: inline-block;
-      background: url("http://m.kugou.com/v3/static/images/index/logo.png") no-repeat;
+      background: url("../assets/logo.png") no-repeat;
       background-size: 100%;
       vertical-align: middle;
       margin-left: .7143rem;
