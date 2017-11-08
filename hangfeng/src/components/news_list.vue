@@ -1,13 +1,15 @@
 <template>
-  <div class="news">
-    <!-- {{mydata}} -->
+  <div class="news" v-if="mydata.title">
     <div class="list">
-      <div v-for="(item,index) in mydata.data.slice(currentIndex*6,currentIndex*6+6)" class="clearfix">
-        <div class="img"><img :src="item.img" width="100%"></div>
+      <div v-for="(item,index) in mydata.list.slice(currentIndex*6,currentIndex*6+6)" class="clearfix">
+        <div class="img"><img :src="item.cover" width="100%"></div>
         <div class="detail">
-          <div><span>{{item.title}}</span><span>{{item.time}}</span></div>
-          <p>{{item.desc}}</p>
-          <div @click="go(index)">查看更多</div>
+          <div>
+            <span>{{item.name}}</span>
+            <span>{{item.created_at.split(" ")[0]}}</span>
+          </div>
+          <p>{{item.slug}}</p>
+          <div @click="go(item)">{{$parent.lang=='en'?'View More':'查看更多'}}</div>
         </div>
       </div>
     </div>
@@ -25,7 +27,6 @@
 
 <script>
 export default {
-  props:["data"],
   data () {
     return {
       mydata:[],
@@ -36,7 +37,6 @@ export default {
   },
   created(){
     this.update()
-    this.createPage()
     $(".page span").mouseover(function(){
       $(".news").removeClass("ani")
     })
@@ -47,10 +47,10 @@ export default {
     }
   },
   methods:{
-    go(index){
-      var id=this.newsIndex
-      var i=index+this.currentIndex*6
-      this.$router.push("/newsDetail?id="+id+"&index="+i)
+    go(item){
+      sessionStorage.id="2"+this.newsIndex
+      sessionStorage.title=this.mydata.categories[this.newsIndex].title
+      this.$router.push("/newsDetail?id="+item.id)
     },
     prevPage(){
       if(this.currentIndex>0){
@@ -83,14 +83,19 @@ export default {
       var path=this.$router.history.current.path
       var id=path.slice(path.length-1)
       this.$parent.navIndex=id
-      this.mydata=this.data[id]
+      // this.mydata=this.data[id]
       this.newsIndex=id
+      var that=this
+      $.ajax({url:"http://cn.hangfeng.mandokg.com/api/v1/news?category_id=2"+id,success:function(result){
+          that.mydata=result
+          that.createPage()
+      }})
       this.currentIndex=0
       this.ani()
     },
     createPage(){
       var page=[]
-      var length=parseInt((this.mydata.data.length-1)/6)+1
+      var length=parseInt((this.mydata.list.length-1)/6)+1
       page.length=length
       this.pageArray=page
     }

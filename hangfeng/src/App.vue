@@ -5,7 +5,7 @@
         <img src="./assets/img/logo.png" width="100%">
       </div>
       <div class="detail">
-        <div v-for="(item,index) in data.nav"
+        <div v-for="(item,index) in nav"
              @mouseenter="show(item,index)"
              @mouseleave="hide()">
           <span :class="{active:index==navIndex,fontBlack:!isWhite}" 
@@ -15,7 +15,7 @@
           </span>
           <ul v-if="item.detail" :ref="'ul'+index">
             <li v-for="(items,sonIndex) in item.detail" @click="chgRouter(index,sonIndex)">
-              {{items}}
+              {{items.title}}
             </li>
           </ul>
         </div>
@@ -32,38 +32,49 @@
       </div>
     </div>
     <transition name="slide-fade">
-      <div class="clapnav" v-if="!isFold">
-        <div v-for="(item,index) in data.nav">
+      <div class="clapnav" v-if="!isFold" @touchmove.stop.prevent="">
+        <div v-for="(item,index) in nav">
           <span :class="{active:index==navIndex}" 
                 @click="selectNav(item,index)"
                 v-html="item.title"
                 >
           </span>
           <ul v-if="item.detail" :ref="'foldul'+index" class="clapul">
-            <li v-for="(items,sonIndex) in item.detail" @click="chgRouter(index,sonIndex)">{{items}}</li>
+            <li v-for="(items,sonIndex) in item.detail" @click="chgRouter(index,sonIndex)">{{items.title}}</li>
           </ul>
+        </div>
+        <div class="lang" style="position:fixed;bottom:5vw;;width:100%;">
+          <span v-for="(item,index) in lang" 
+                :class="{active:index==langIndex}"
+                @click="chgLang(index)"
+                style="font-size:1vw;padding:2px 0;margin:0 2vw;">
+          {{item}}
+          </span>
         </div>
       </div>
     </transition>
-    <router-view :data="data" :currentIndex="currentIndex" ref="router"/>
-    <div class="footer">
+    <router-view :currentIndex="currentIndex" ref="router" :lang="showingLang"/>
+    <div class="footer" v-if="showFoot">
       <div class="nav">
-        <span v-for="(item,index) in data.footer.nav" @click="chgNav(index)">{{item}}</span>
+        <span v-for="(item,index) in nav" @click="chgNav(index)">{{item.title}}</span>
       </div>
-      <p>{{data.footer.msg}}</p>
+      <p>版权所有© 2006-2016 LEADIN  沪ICP备10205459号</p>
     </div>
   </div>
 </template>
 
 <script>
 import $ from './assets/js/jquery-1.11.3.js'
+import jq from 'jquery'
 import './assets/css/base.css'
 import data_cn from './api/normal_data_cn'
 import data_en from './api/normal_data_en'
+import jsonp from 'jsonp'
 export default {
   name: 'app',
   data(){
     return {
+      nav:{},
       data:data_cn,
       lang:["中文","ENGLISH"],
       navIndex:0,
@@ -71,8 +82,25 @@ export default {
       clapImg:require('./assets/img/clap.png'),
       isFold:true,
       isWhite:true,
-      currentIndex:0
+      currentIndex:0,
+      showingLang:"cn",
+      showFoot:false
     }
+  },
+  created(){
+    this.showingLang=sessionStorage.lang?sessionStorage.lang:"cn"
+    if(this.showingLang=='cn'){
+      this.langIndex=0
+    }else{
+      this.langIndex=1
+    }
+    var that=this
+    jq.ajax({url:"http://"+that.showingLang+".hangfeng.mandokg.com/api/v1/system_info",success:function(result){
+       that.nav=result.nav
+       document.head.querySelector("title").innerHTML=result.meta.meta_title
+       jq("head").prepend(jq("<meta name='meta_keywords' content='"+result.meta.meta_keywords+"'>"))
+       jq("head").prepend(jq("<meta name='meta_description' content='"+result.meta.meta_description+"'>"))
+    }})
   },
   methods:{
     selectNav(item,index){
@@ -120,13 +148,11 @@ export default {
       }
     },
     chgLang(index){
-      console.log(this.$refs.abc)
       this.langIndex=index
-      if(index==0){
-        this.data=data_cn
-      }else{
-        this.data=data_en
-      }
+      this.showingLang=this.showingLang=='cn'?'en':'cn'
+      sessionStorage.lang=this.showingLang
+      this.$router.push("/")
+      location.reload()
     },
     chgNav(index){
       this.navIndex=index
@@ -165,7 +191,7 @@ export default {
                 // this.$refs.foldul1[0].style.display=="block"?"none":"block"
           this.$refs.foldul1[0].style.height=
                 this.$refs.foldul1[0].style.height=='24vh'?'0px':'24vh'
-          if(this.$refs.foldul2[0].style.height=='34vh'){
+          if(this.$refs.foldul2[0].style.height=='30vh'){
             this.$refs.foldul2[0].style.height='0px'
           }
           if(this.$refs.foldul3[0].style.height=='20vh'){
@@ -175,7 +201,7 @@ export default {
           // this.$refs.foldul2[0].style.display=
           //       this.$refs.foldul2[0].style.display=="block"?"none":"block"
           this.$refs.foldul2[0].style.height=
-                this.$refs.foldul2[0].style.height=='34vh'?'0px':'34vh'
+                this.$refs.foldul2[0].style.height=='30vh'?'0px':'30vh'
           if(this.$refs.foldul1[0].style.height=='24vh'){
             this.$refs.foldul1[0].style.height='0px'
           }
@@ -185,7 +211,7 @@ export default {
         }else{
           this.$refs.foldul3[0].style.height=
                 this.$refs.foldul3[0].style.height=='20vh'?'0px':'20vh'
-          if(this.$refs.foldul2[0].style.height=='34vh'){
+          if(this.$refs.foldul2[0].style.height=='30vh'){
             this.$refs.foldul2[0].style.height='0px'
           }
           if(this.$refs.foldul1[0].style.height=='24vh'){
@@ -421,12 +447,12 @@ export default {
 }
 .footer .nav span{
   display: inline-block;
-  margin-top: 2vw;
-  width: 6vw;
+  margin-top: 1vw;
+  padding: 0 1vw;
   cursor: pointer;
 }
 .footer p{
-  margin-top: 2.5vw;
+  margin-top: .5vw;
 }
 @media screen and (max-width:1200px){
   #app>.nav>.logo{
@@ -437,7 +463,7 @@ export default {
     width: 8vw;
   }
   .footer p{
-    margin-top: 1.3vw;
+    margin-top: 1vw;
   }
 }
 @media screen and (max-width:990px){
@@ -455,11 +481,11 @@ export default {
   }
   .footer .nav span{
     display: inline-block;
-    margin-top: .5vw;
+    margin-top: 1vw;
     width: 10vw;
   }
   .footer p{
-    margin-top: .8vw;
+    margin-top: .5vw;
   }
 }
 @media screen and (max-width:767px){
@@ -485,7 +511,7 @@ export default {
   }
   #app .clapnav{
     display: block;
-    position: absolute;
+    position: fixed;
     top: 0;
     height: 85vh;
     width: 100%;
@@ -521,12 +547,12 @@ export default {
     margin-right: 3vw;
   }
   .footer .nav span{
-    margin-top: 2vw;
+    margin-top: 1vw;
     width: auto;
-    padding: 0 2vw;
+    padding: 0 1vw;
   }
   .footer p{
-    margin-top: 2vw;
+    margin-top: .5vw;
   }
 }
 </style>

@@ -1,5 +1,5 @@
 <template>
-  <div class="about">
+  <div class="about" v-if="mydata.title">
     <div class="banner">
       <p v-for="item in mydata.title">{{item}}</p>
     </div>
@@ -7,9 +7,8 @@
       <div>
         <div><img src="../assets/img/about.jpg" width="100%"></div>
         <div>
-          <div>{{mydata.intro[0]}}</div>
-          <p>{{mydata.intro[1]}}</p>
-          <p>{{mydata.intro[2]}}</p>
+          <div v-html="title"></div>
+          <p v-for="item in desc">{{item}}</p>
         </div>
         <p style="clear:both;"></p>
       </div>
@@ -21,29 +20,44 @@
         <span v-for="(item,index) in mydata.router.nav" 
               :class="{active:index==navIndex}"
               @click="chgIndex(index)">
-          {{item}}
+          {{item.title}}
         </span>
       </div>
-      <router-view :data="mydata.router.data"/>
-    </div>
+      <router-view :data="mydata.router.data" :lang="lang"/>
+    </div>  
   </div>
 </template>
 
 <script>
 export default {
-  props:['data'],
+  props:["lang"],
   data () {
     return {
-      about_data:this.data.about,
       mydata:{},
-      navIndex:0
+      navIndex:0,
+      title:"",
+      desc:[]
     }
   },
   created(){
     this.$parent.isWhite=false
     this.$parent.navIndex=1
-    this.mydata=this.about_data.index
+    var that=this
+    $.ajax({url:"http://"+this.lang+".hangfeng.mandokg.com/api/v1/about",success:function(result){
+      that.mydata=result
+      that.title=result.intro[0]
+      var arr=result.intro[1].split("<")
+      that.desc.push(arr[1].slice(2))
+      that.desc.push(arr[3].slice(2))
+      that.$nextTick(function(){
+        this.$parent.showFoot=true
+      })
+    }})
+    
   },
+  // mounted(){
+  //   this.$parent.showFoot=true
+  // },
   methods:{
     chgIndex(index){
       this.navIndex=index
@@ -59,6 +73,9 @@ export default {
         this.$router.push("/about/dev")
       }
     }
+  },
+  destroyed(){
+    this.$parent.showFoot=false
   }
 }
 </script>

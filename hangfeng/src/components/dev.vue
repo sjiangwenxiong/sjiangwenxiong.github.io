@@ -2,7 +2,7 @@
   <div class="dev">
     <div class="main">
       <div>{{mydata[0]}}</div>
-      <p>{{mydata[1]}}</p>
+      <p>{{mydata[1].split("<")[1].slice(2)}}</p>
     </div>
   </div>
 </template>
@@ -17,7 +17,6 @@ export default {
   },
   created(){
     this.$parent.navIndex=4
-    console.log(this.$router)
   },
 }
 </script>

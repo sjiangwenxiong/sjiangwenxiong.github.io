@@ -1,8 +1,7 @@
 <template>
-  <div class="about">
+  <div class="about" v-if="mydata.title">
     <div class="banner">
-      <p>JOIN US</p>
-      <p>聚焦行业焦点，了解航丰最新资讯，掌握行业动态</p>
+      <p v-for="item in mydata.title">{{item}}</p>
     </div>
     <div class="desc">
       <div>
@@ -30,12 +29,13 @@
         <div>{{item.place}}</div>
         <div><i @click="activeIndex=index"></i></div>
         <div class="detail">
-          <div v-for="list in item.detail">
+          <!-- <div v-for="list in item.detail">
             <div>{{list.type}}</div>
             <p v-for="items in list.list">
-              {{items.name}} : {{items.msg}}
+              {{items.name}} : {{items.slug}}
             </p>
-          </div>
+          </div> -->
+          <div v-html="item.slug"></div>
         </div>
       </div>
     </div>
@@ -44,25 +44,56 @@
 
 <script>
 export default {
-  props:['data'],
+  props:["lang"],
   data () {
     return {
-      mydata:this.data.join,
+      mydata:{},
       activeIndex:0
     }
   },
   created(){
     this.$parent.isWhite=false
     this.$parent.navIndex=4
+    var that=this
+    $.ajax({url:"http://"+this.lang+".hangfeng.mandokg.com/api/v1/join",success:function(result){
+       that.mydata=result
+       that.$nextTick(function(){
+          this.$parent.showFoot=true
+          if(this.lang=='en'&&document.body.clientWidth<767){
+            $(".list").addClass("listen")
+          }
+       })
+    }})
   },
   methods:{
   
+  },
+  destroyed(){
+    this.$parent.showFoot=false
   }
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+.listen>div>div{
+  margin-left: 0 !important;
+}
+.listen>div>div:nth-child(1){
+  width: 21% !important;
+}
+.listen>div>div:nth-child(2){
+  width: 28% !important;
+}
+.listen>div>div:nth-child(3){
+  width: 22% !important;
+}
+.listen>div>div:nth-child(4){
+  width: 6em;
+}
+.listen>div>div:nth-child(4) i{
+  margin-left: 2em !important;
+}
 .desc>div:nth-child(1){
   animation: fadeInRight .5s 0s both;
 }
@@ -181,6 +212,7 @@ export default {
   background-image: url(../assets/img/down.jpg);
   background-repeat: no-repeat;
   background-position: center;
+  background-size: 1em;
   cursor: pointer;
 }
 .list>div>.detail{
@@ -289,6 +321,9 @@ export default {
   }
   .detail p{
     line-height: 5vw !important;
+  }
+  .list i{
+    height: 8vw !important;
   }
 }
 </style>

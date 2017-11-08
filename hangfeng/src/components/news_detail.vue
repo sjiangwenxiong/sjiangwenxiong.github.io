@@ -7,46 +7,46 @@
     <div class="mian">
       <div>
         当前位置 : 
-        <span @click="$router.push('/')">首页</span>-<span @click="$router.push('/news/'+id)">{{mydata[id].name}}</span>
+        <span @click="$router.push('/')">首页</span>-<span @click="$router.push('/news/'+id)">{{title}}</span>
       </div>
-      <p>{{showingData.title}}</p>
-      <p>发布时间 ：{{showingData.time}}</p>
-      <div v-for="item in showingData.content">
-        <p v-if="item.type=='text'">{{item.detail}}</p>
-        <img v-else :src="item.detail" width="100%">
+      <p>{{mydata.name}}</p>
+      <p>发布时间 ：{{mydata.created_at}}</p>
+      <div v-html="mydata.slug">
+        <!-- <p v-if="item.type=='text'">{{item.detail}}</p> -->
+        <!-- <img v-else :src="item.detail" width="100%"> -->
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import newsList from '../api/news.js'
 export default {
-  props:['data'],
+  props:["lang"],
   data () {
     return {
-      mydata:newsList,
-      id:0,
-      index:0,
-      showingData:{}
+      mydata:"",
+      id:sessionStorage.id,
+      title:sessionStorage.title
     }
   },
   created(){
     this.$parent.isWhite=false
     this.$parent.navIndex=3
-    var id,index;
+    var id;
     var path=this.$router.history.current.fullPath
     var i=path.indexOf("?")
     var data=path.slice(i+1)
-    var arr=data.split("&")
-    eval(arr[0])
-    eval(arr[1])
-    this.id=id
-    this.index=index
-    this.showingData=this.mydata[id].data[index]
+    eval(data)
+    var that=this
+    $.ajax({url:"http://"+this.lang+".hangfeng.mandokg.com/api/v1/news/"+id,success:function(result){
+        that.mydata=result
+        that.$nextTick(function(){
+          this.$parent.showFoot=true
+        })
+    }})
   },
-  methods:{
-    
+  destroyed(){
+    this.$parent.showFoot=false
   }
 }
 </script>
@@ -124,11 +124,11 @@ export default {
     font-size: 1vw;
   }
   .mian>p:nth-child(2){
-    font-size: 4.5vw;
+    font-size: 5.5vw;
     margin-top: 5vw;
   }
-  .mian>div>p{
-    font-size: .7vw;
+  .mian>div:nth-child(4){
+    font-size: 4vw;
     color: #333;
     text-indent:2em;
     line-height: 4.5vw;

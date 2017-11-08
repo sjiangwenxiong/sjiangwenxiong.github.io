@@ -1,14 +1,14 @@
 <template>
-  <div class="detail clearfix" v-if="detailData.detail">
-    <div :style="'background-image:url('+detailData.detail.imgList[imgIndex]+')'"></div>
+  <div class="detail clearfix" v-if="detailData"> 
+    <div :style="'background-image:url('+detailData.img[imgIndex]+')'"></div>
     <div>
       <ul>
-        <li v-for="(value,key) in detailData.detail" v-if="key!='imgList'">
-          <span>{{key}} : {{value}}</span>
+        <li v-for="value in arr">
+          <span>{{value}}</span>
         </li>
       </ul>
       <div class="list">
-        <div v-for="(item,index) in detailData.detail.imgList" 
+        <div v-for="(item,index) in detailData.img" 
              :style="'background-image:url('+item+')'"
              class="detail-img"
              @mouseenter="chgImg(index)">
@@ -29,10 +29,11 @@ export default {
   data () {
     return {
       curentIndex:this.index,
-      detailData:this.data[this.productIndex].item[this.typeIndex].list[this.index],
+      detailData:this.data[this.productIndex].item[this.typeIndex].products[this.index],
       prev:false,
       next:false,
-      imgIndex:0
+      imgIndex:0,
+      arr:[]
     }
   },
   created(){
@@ -40,8 +41,26 @@ export default {
     if(this.curentIndex-1>=0){
       this.prev=true
     }
-    if(this.curentIndex+1<this.data[this.productIndex].item[this.typeIndex].list.length){
+    if(this.curentIndex+1<this.data[this.productIndex].item[this.typeIndex].products.length){
       this.next=true
+    }
+    if(this.detailData){
+      this.arr=this.detailData.detail.split("\r\n")
+    }
+  },
+  watch:{
+    curentIndex(value){
+      console.log(value)
+      if(value-1>=0){
+        this.prev=true
+      }else{
+        this.prev=false
+      }
+      if(value+1<this.data[this.productIndex].item[this.typeIndex].products.length){
+        this.next=true
+      }else{
+        this.next=false
+      }
     }
   },
   methods:{
@@ -51,13 +70,13 @@ export default {
     toprev(){
       if(this.curentIndex-1>=0){
         this.curentIndex--
-        this.detailData=this.data[this.productIndex].item[this.typeIndex].list[this.curentIndex]
+        this.detailData=this.data[this.productIndex].item[this.typeIndex].products[this.curentIndex]
       }
     },
     tonext(){
-      if(this.curentIndex+1<this.data[this.productIndex].item[this.typeIndex].list.length){
+      if(this.curentIndex+1<this.data[this.productIndex].item[this.typeIndex].products.length){
         this.curentIndex++
-        this.detailData=this.data[this.productIndex].item[this.typeIndex].list[this.curentIndex]
+        this.detailData=this.data[this.productIndex].item[this.typeIndex].products[this.curentIndex]
       }
     }
   },

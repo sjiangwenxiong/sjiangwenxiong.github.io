@@ -43,7 +43,7 @@ export default {
   animation: fadeInUp .5s 0s both;
 }
 .partner>p{
-  font-size: 4.8vw;
+  font-size: 1.5vw;
   font-weight: normal;
   padding: .3vw 0;
 }
@@ -138,6 +138,9 @@ export default {
     height:auto;
     background-size: contain;
     background-position: center;
+  }
+  .partner p{
+    font-size: 4.8vw;
   }
   .more{
     padding: 1.6vw 1.6vw;
