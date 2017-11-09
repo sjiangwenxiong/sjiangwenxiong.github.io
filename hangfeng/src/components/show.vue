@@ -7,8 +7,8 @@
         </div>
       </div>
     </div>
-    <div class="swiper-button-prev"></div>
-    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev" @click="prev"></div>
+    <div class="swiper-button-next" @click="next"></div>
   </div>
 </template>
 
@@ -50,6 +50,16 @@ export default {
         nextButton:'.swiper-button-next'
       })
     }
+  },
+  methods:{
+    prev(){
+      $(".swiper-button-prev").addClass("prev")
+      $(".swiper-button-next").removeClass("next")
+    },
+    next(){
+      $(".swiper-button-next").addClass("next")
+      $(".swiper-button-prev").removeClass("prev")
+    }
   }
 }
 </script>
@@ -74,12 +84,18 @@ export default {
   overflow: hidden;
 }
 .swiper-button-prev{
-  background-image: url(../assets/img/prev.png);
+  background-image: url(../assets/img/prev.jpg);
   left: 18vw;
 }
+.prev{
+  background-image: url(../assets/img/prev.png) !important;
+}
 .swiper-button-next{
-  background-image: url(../assets/img/next.png);
+  background-image: url(../assets/img/next.jpg);
   right: 18vw;
+}
+.next{
+  background-image: url(../assets/img/next.png) !important;
 }
 @media screen and (max-width:990px){
   .swiper-container{
@@ -91,20 +107,28 @@ export default {
   }
   .swiper-button-prev{
     left: 4vw;
+    transform:scale(0.8);
   }
   .swiper-button-next{
+    transform:scale(0.8);
     right: 4vw;
   }
 }
 @media screen and (max-width:767px){
+  .swiper-container{
+    width: 75vw;
+  }
   .swiper-slide{
     height: 50vw;
   }
   .swiper-button-prev{
-    left: 10vw;
+    left: 3vw;
   }
   .swiper-button-next{
-    right: 10vw;
+    right: 3vw;
+  }
+  .swiper-slide img{
+    width: 100%;
   }
 }
 </style>

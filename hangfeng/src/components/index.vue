@@ -2,7 +2,7 @@
   <div class="index">
     <div class="swiper-container">
       <div class="swiper-wrapper">
-        <div class="swiper-slide" v-for="(item,index) in mydata" :id="'banner'+index">
+        <div class="swiper-slide first-ani" v-for="(item,index) in mydata" :id="'banner'+index">
           <div class="swiper-img" :style="'background-image:url('+item.img+');'">
             <p class="empty"></p>
             <div class="name" style="">{{item.name}}</div>
@@ -27,34 +27,66 @@
 import '../assets/css/swiper.css'
 import swiper from '../assets/js/swiper.js'
 export default {
-  props:['data'],
-  name: 'HelloWorld',
+  props:["lang"],
   data () {
     return {
-      mydata: this.data.index
+      mydata: [],
+      banner:"",
     }
   },
   created(){
+    this.$parent.navIndex=0
     this.$parent.isWhite=true
-  },
-  mounted(){
-    this.banner = new swiper('.swiper-container',{
-      speed:400,
-      mode : 'vertical', 
-      resistance:'100%',
-      mousewheelControl : true,
-      watchSlidesProgress : true,
-      watchSlidesVisibility : true,
-      pagination: '.swiper-pagination',
-      paginationClickable: true,
-      loop:true,
-      // autoplay: 2000,
-      autoplayDisableOnInteraction : false,
-      onFirstInit:function(){
-        console.log($('.swiper-img'))
-        $('.swiper-img').addClass('ani-slide');
-      }
-    })
+    var that=this
+    $.ajax({url:"http://"+that.lang+".hangfeng.mandokg.com/api/v1/home",success:function(result){
+       that.mydata=result 
+       setTimeout(()=>{
+        $(".first-ani").removeClass("first-ani")
+        that.banner = new swiper('.swiper-container',{
+          speed:400,
+          mode : 'vertical', 
+          resistance:'100%',
+          mousewheelControl : true,
+          watchSlidesProgress : true,
+          watchSlidesVisibility : true,
+          pagination: '.swiper-pagination',
+          paginationClickable: true,
+          loop:true,
+          // autoplay: 2000,
+          autoplayDisableOnInteraction : false,
+          onFirstInit:function(){
+            $('.swiper-img').addClass('ani-slide');
+          }
+        })
+        if(that.lang=='en'){
+          $(".swiper-img .more>div").css("paddingLeft","1.1vh")
+          $(".swiper-img .empty").css("height","24vh")
+          if(document.body.clientWidth<767){
+            $(".swiper-img .more>div").css("width","13vh")
+            $(".swiper-img .more img").css("right","4.5vh")
+          }
+        }
+      },0)
+    }})
+  // },
+  // mounted(){
+  //   this.banner = new swiper('.swiper-container',{
+  //     speed:400,
+  //     mode : 'vertical', 
+  //     resistance:'100%',
+  //     mousewheelControl : true,
+  //     watchSlidesProgress : true,
+  //     watchSlidesVisibility : true,
+  //     pagination: '.swiper-pagination',
+  //     paginationClickable: true,
+  //     loop:true,
+  //     // autoplay: 2000,
+  //     autoplayDisableOnInteraction : false,
+  //     onFirstInit:function(){
+  //       console.log($('.swiper-img'))
+  //       $('.swiper-img').addClass('ani-slide');
+  //     }
+  //   })
     /*this.banner.wrapperTransitionEnd(function () {//闅愯棌鏂规硶
       $('.ani-slide').removeClass('ani-slide')
       $('.swiper-slide').eq(mySwiper.activeIndex).addClass('ani-slide')
@@ -65,6 +97,15 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style>
+.swiper-slide>div>div:nth-child(2){
+    opacity: 0;
+}
+.swiper-slide>div>div{
+    opacity: 0;
+}
+.swiper-slide>div>p{
+    opacity: 0;
+}
 .swiper-slide-active>div>div:nth-child(2){
     -webkit-animation: fadeInUp 1s 0.3s both;
     animation: fadeInDown 1s 0.3s both;
@@ -78,6 +119,20 @@ export default {
     opacity: 1;
     -webkit-animation: fadeInDown 1s .5s both;
     animation: fadeInDown 1s 1s both;
+}
+.first-ani>div>div:nth-child(2){
+    -webkit-animation: fadeInUp 1s 0.3s both;
+    animation: fadeInDown 1.1s 0.3s both;
+}
+.first-ani>div>div{
+    opacity: 1;
+    -webkit-animation: fadeInDown 1s 1s both;
+    animation: fadeInUp 1.1s 1s both;
+}
+.first-ani>div>p{
+    opacity: 1;
+    -webkit-animation: fadeInDown 1s .5s both;
+    animation: fadeInDown 1.1s 1s both;
 }
 .index{
   width: 100%;
@@ -245,9 +300,25 @@ export default {
 
 
 @media screen and (max-width:990px){
-  #banner1 .desc{
-    letter-spacing: 2px !important;
-    margin-left: 40vw !important;
+  .index #banner1>.swiper-img>.desc{
+    letter-spacing: 2px;
+    margin-left: 20vw;
+  }
+}
+@media screen and (max-width:990px){
+  .index .swiper-img .name{
+    font-size: 7.4vh !important;
+  }
+  .index .swiper-img .desc{
+    font-size: 3.7vh !important;
+    font-family: 站酷高端黑;
+  }
+  .index .swiper-img .en{
+    font-size: 2.2vh !important;
+  }
+  .index #banner1>.swiper-img>.desc{
+    letter-spacing: 0px;
+    margin-left: 10vw;
   }
 }
 </style>

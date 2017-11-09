@@ -1,14 +1,14 @@
 <template>
-  <div class="detail clearfix" v-if="detailData.detail">
-    <div :style="'background-image:url('+detailData.detail.imgList[imgIndex]+')'"></div>
+  <div class="detail clearfix" v-if="detailData">
+    <div :style="'background-image:url('+detailData[curentIndex].img[imgIndex]+')'"></div>
     <div>
       <ul>
-        <li v-for="(value,key) in detailData.detail" v-if="key!='imgList'">
-          <span>{{key}} : {{value}}</span>
+        <li v-for="value in arr">
+          <span>{{value.split("\"")[1]}}：</span><span>{{value.split("\"")[3]}}</span>
         </li>
       </ul>
       <div class="list">
-        <div v-for="(item,index) in detailData.detail.imgList" 
+        <div v-for="(item,index) in detailData[curentIndex].img" 
              :style="'background-image:url('+item+')'"
              class="detail-img"
              @mouseenter="chgImg(index)">
@@ -25,23 +25,47 @@
 
 <script>
 export default {
-  props:["data","productIndex","typeIndex","index"],
+  props:["data","productIndex","typeIndex","index","allList","isAll"],
   data () {
     return {
       curentIndex:this.index,
-      detailData:this.data[this.productIndex].item[this.typeIndex].list[this.index],
+      detailData:[],
       prev:false,
       next:false,
-      imgIndex:0
+      imgIndex:0,
+      arr:[]
     }
   },
   created(){
+    if(this.isAll){
+      this.detailData=this.allList
+    }else{
+      this.detailData=this.data[this.productIndex].item[this.typeIndex].products
+    }
     this.$parent.isShow=false
     if(this.curentIndex-1>=0){
       this.prev=true
     }
-    if(this.curentIndex+1<this.data[this.productIndex].item[this.typeIndex].list.length){
+    if(this.curentIndex+1<this.detailData.length){
       this.next=true
+    }
+    if(this.detailData){
+      this.arr=this.detailData[this.curentIndex].detail.split("\r\n")
+    }
+  },
+  watch:{
+    curentIndex(value){
+      console.log(value)
+      if(value-1>=0){
+        this.prev=true
+      }else{
+        this.prev=false
+      }
+      if(value+1<this.detailData.length){
+        this.next=true
+      }else{
+        this.next=false
+      }
     }
   },
   methods:{
@@ -51,13 +75,11 @@ export default {
     toprev(){
       if(this.curentIndex-1>=0){
         this.curentIndex--
-        this.detailData=this.data[this.productIndex].item[this.typeIndex].list[this.curentIndex]
       }
     },
     tonext(){
-      if(this.curentIndex+1<this.data[this.productIndex].item[this.typeIndex].list.length){
+      if(this.curentIndex+1<this.detailData.length){
         this.curentIndex++
-        this.detailData=this.data[this.productIndex].item[this.typeIndex].list[this.curentIndex]
       }
     }
   },
@@ -173,6 +195,10 @@ export default {
   }
   ul{
     margin-left: 0 !important;
+  }
+  .detail ul li span{
+    color: #333;
+    font-size: 4vw;
   }
 }
 </style>

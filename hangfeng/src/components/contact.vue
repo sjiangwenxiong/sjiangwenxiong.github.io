@@ -1,15 +1,14 @@
 <template>
   <div class="about">
     <div class="banner">
-      <p>CONTACT US</p>
-      <p>聚焦行业焦点，了解航丰最新资讯，掌握行业动态</p>
+      <p v-for="item in mydata.title">{{item}}</p>
     </div>
     <div class="main">
       <div class="msg">
         <div>
           <div>{{mydata.name}}</div>
-          <p v-for="item in mydata.list">
-            {{item.type}}：{{item.msg}}
+          <p v-for="item in mydata.contact">
+            {{item.title}}：{{item.value}}
           </p>
         </div>
       </div>
@@ -22,18 +21,25 @@
 
 <script>
 export default {
-  props:['data'],
+  props:["lang"],
   data () {
     return {
-      mydata:this.data.contact
+      mydata:{}
     }
   },
   created(){
     this.$parent.isWhite=false
     this.$parent.navIndex=5
+    var that=this
+    $.ajax({url:"http://"+this.lang+".hangfeng.mandokg.com/api/v1/contact",success:function(result){
+       that.mydata=result
+       that.$nextTick(function(){
+          this.$parent.showFoot=true
+       })
+    }})
   },
-  methods:{
-    
+  destroyed(){
+    this.$parent.showFoot=false
   }
 }
 </script>
@@ -68,7 +74,7 @@ export default {
 .main{
   width: 60%;
   max-width: 1200px;
-  margin: 4vw auto 0;
+  margin: 4vw auto 4vw;
   height: 23vw;
   display: flex;
   justify-content:space-between;
@@ -123,7 +129,7 @@ export default {
   }
   .banner p:nth-child(2){
     margin-top: 2vw;
-    font-size: 1vw;
+    font-size: 3.5vw;
   }
   .main{
     width: 90%;

@@ -2,15 +2,15 @@
   <div class="culture">
     <div class="main">
       <div>
-        <p>{{mydata.left[0]}}</p>
+        <p>{{mydata.left.text[0]}}</p>
         <div></div>
-        <span>{{mydata.left[1]}}</span>
-        <span>{{mydata.left[2]}}</span>
+        <span>{{mydata.left.text[1]}}</span>
+        <span>{{mydata.left.text[2]}}</span>
       </div>
       <div>
-        <p>{{mydata.right[0]}}</p>
+        <p>{{mydata.right.text[0]}}</p>
         <div></div>
-        <span>{{mydata.right[1]}}</span>
+        <span>{{mydata.right.text[1]}}</span>
       </div>
       <p style="clear:both;"></p>
     </div>
@@ -27,6 +27,9 @@ export default {
   },
   created(){
     this.$parent.navIndex=3
+    if(this.$parent.$parent.lang=='en'&&document.body.clientWidth<767){
+      console.log(1)
+    }
   },
 }
 </script>
@@ -128,6 +131,9 @@ export default {
     margin-bottom: 13vw;
     width: 10vw;
     height: .4vw;
+  }
+  .main>div span{
+    font-size: 3.5vw;
   }
 }
 </style>

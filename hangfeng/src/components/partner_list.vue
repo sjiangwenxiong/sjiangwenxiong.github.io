@@ -1,5 +1,5 @@
 <template>
-  <div class="partner_list">
+  <div class="partner_list" v-if="mydata.title">
     <div class="banner">
       <div>
         <p v-for="item in mydata.title">{{item}}</p>
@@ -7,15 +7,16 @@
     </div>
     <div class="router">
       <div>
-        <span v-for="(item,index) in mydata.nav" 
+        <span v-for="(item,index) in mydata.list" 
               :class="{active:index==navIndex}"
               @click="chgIndex(index)">
-          {{item}}
+          {{item.title}}
         </span>
       </div>
     </div>
     <div class="list">
-      <div v-for="item in area" :style="'background-image:url('+item.img+')'">
+      <div v-for="item in mydata.list[navIndex].cooperations" 
+           :style="'background-image:url('+item.logo+')'">
         <div @mouseenter="show" @mouseleave="hide">{{item.name}}</div>
       </div>
     </div>
@@ -24,22 +25,29 @@
 
 <script>
 export default {
-  props:['data'],
+  props:["lang"],
   data () {
     return {
-      mydata:this.data.partner_list,
+      mydata:{},
       navIndex:0,
-      area:this.data.partner_list.logoList[0]
+      // area:this.data.partner_list.logoList[0]
     }
   },
   created(){
     this.$parent.isWhite=false
     this.$parent.navIndex=1
+    var that=this
+      $.ajax({url:"http://"+that.lang+".hangfeng.mandokg.com/api/v1/cooperation",success:function(result){
+          that.mydata=result
+          that.$nextTick(function(){
+            this.$parent.showFoot=true
+          })
+      }})
+    this.$parent.isb=true
   },
   methods:{
     chgIndex(index){
       this.navIndex=index
-      this.area=this.mydata.logoList[index]
     },
     show(e){
       e.toElement.style.opacity=1
@@ -47,6 +55,10 @@ export default {
     hide(e){
       e.srcElement.style.opacity=0
     }
+  },
+  destroyed(){
+    this.$parent.showFoot=false
+    this.$parent.isb=false
   }
 }
 </script>
@@ -136,7 +148,7 @@ export default {
   }
   .banner p:nth-child(2){
     margin-top: 2vw;
-    font-size: 1vw;
+    font-size: 3.5vw;
   }
   .router>div span{
     font-size: 3.5vw;

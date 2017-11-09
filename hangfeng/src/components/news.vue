@@ -1,49 +1,56 @@
 <template>
-  <div class="about">
+  <div class="about" v-if="mydata.title">
     <div class="banner">
-      <p>NEWS</p>
-      <p>聚焦行业焦点，了解航丰最新资讯，掌握行业动态</p>
+      <p v-for="item in mydata.title">{{item}}</p>
     </div>
     <div class="router">
       <div>
-        <span v-for="(item,index) in mydata" 
+        <span v-for="(item,index) in mydata.categories" 
               :class="{active:index==navIndex}"
               @click="chgIndex(index,item)"
               @mouseenter="readyAni">
-          {{item.name}}
+          {{item.title}}
         </span>
       </div>
       <transition name="fade1">
-      <router-view :data="mydata"/>
+        <router-view :lang="lang"/>
       </transition>
     </div>
   </div>
 </template>
 
 <script>
-import newsList from '../api/news.js'
 export default {
-  props:['data'],
+  props:["lang"],
   data () {
     return {
-      mydata:newsList,
-      navIndex:0
+      mydata:{},
+      navIndex:0,
+      showingList:[]
     }
   },
   created(){
     this.$parent.isWhite=false
     this.$parent.navIndex=3
+    var that=this
+    $.ajax({url:"http://"+this.lang+".hangfeng.mandokg.com/api/v1/news",success:function(result){
+       that.mydata=result
+       that.showingList=result.list[0]
+    }})
+    // this.$parent.isb=true
   },
   methods:{
     chgIndex(index,item){
       this.navIndex=index
       this.$router.push("/news/"+item.id)
       this.$children[0].update()
-      // location.reload()
     },
     readyAni(){
       $(".news").removeClass("ani")
     }
+  },
+  destroyed(){
+    this.$parent.showFoot=false
   }
 }
 </script>
@@ -121,7 +128,7 @@ export default {
   }
   .banner p:nth-child(2){
     margin-top: 2vw;
-    font-size: 1vw;
+    font-size: 3.5vw;
   }
   .router>div:nth-child(1){
     font-size: 5.5vw;
