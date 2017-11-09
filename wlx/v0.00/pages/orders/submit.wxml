@@ -1,0 +1,8 @@
+<!--submit.wxml-->
+<view class="content">
+    <view class="code">
+        <image src="/assets/submit.png" class="img"></image>
+        <text class="name">提交订单成功</text>
+        <text class="name2">您的订单已提交成功，店家会尽快处理~</text>        
+    </view>
+</view>

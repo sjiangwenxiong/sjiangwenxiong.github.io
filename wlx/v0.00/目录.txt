@@ -1,0 +1,33 @@
+/pages/mine                我的.jpg
+/pages/balance             结算.jpg
+/pages/shopdetails         商品详情.jpg
+/pages/manageadd           收货地址.jpg
+/pages/shop                商家.jpg
+/pages/myorder             我的订单.jpg
+/pages/mydata              我的资料.jpg
+/pages/orderdetails        订单详情.jpg
+/pages/user/topup          充值.jpg
+/pages/intergal            积分明细.jpg
+/pages/user/addaddress     新增收货地址.jpg
+/pages/user/editaddress    编辑收货地址.jpg
+/pages/user/submit         订单提交.jpg
+
+//地址
+"pages/address/manageadd",
+"pages/address/addaddress",
+"pages/address/editaddress",
+//充值中心
+"pages/recharge/topup",
+"pages/recharge/balance",
+"pages/recharge/submit",
+//店铺首页
+"pages/shop/shop", 
+"pages/shop/shopdetails",
+
+//订单
+"pages/orders/myorder",
+"pages/orders/orderdetails",
+//个人中心
+"pages/user/mine", 
+"pages/user/mydata", 
+"pages/user/integral", 

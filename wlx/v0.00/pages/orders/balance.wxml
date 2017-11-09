@@ -1,0 +1,65 @@
+<!--balance.wxml-->
+<view class="ad_popError" wx:if="{{popErrorMsg}}">{{popErrorMsg}}</view>
+<view class='container'>
+    <view class='main1' bindtap="changeArrderss">
+        <view class='msg'>
+            <image src='/assets/location.png' class='location'></image>
+            <image src='/assets/add_btn_rt.png' class='rt_btn'></image>
+            <view class='list1'>
+                <text>{{address.receiver}}</text>
+                <text>{{address.phone}}</text>
+            </view>
+            <view class='list2'>
+                <text>{{address.areas}}</text>
+                <text>{{address.details}}</text>
+            </view>
+        </view>
+        <image src='/assets/line.png' class='btm_line'></image>
+    </view>
+    <view class='line'></view>
+        <picker mode="multiSelector" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange" value="{{multiIndex}}" range="{{multiArray}}">
+         <view class='time section'>
+              <image src='/assets/time.png' class='time_img'></image>
+                <view name="send_time">
+                 <text>{{sendDate}}</text> 
+                    <!-- {{multiArray[0][multiIndex[0]]}} {{multiArray[1][multiIndex[1]]}}  -->
+                </view>
+                <image src='/assets/add_btn_rt.png' class='time_btn'></image>
+          </view>
+            
+        </picker>
+    <view class="log" wx:for="{{cartArray}}" wx:key="key" wx:for-item="cart" wx:for-index="index">
+        <view class="log__bd" >
+            <image class="log__image" src="{{cart.image ? cart.options.image : '/assets/goods.png'}}"></image>
+            <view class="order">
+                <text class="order__number" data-Id="{{cart.options.product_id}}" data-parentId="{{cart.options.shelf_id}}">{{cart.name}}</text>
+                <view class=''>
+                    <text class="order__datetime">¥{{cart.price}}.00</text>
+                    <text class="order__count">x {{cart.qty}} </text>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class='line'></view>
+    <view class='integral' wx:if="{{isShow == 1 && payIndex == 1}}">
+        <image src="/assets/check_on.png" class='intergal_img'></image>
+        <text>可用{{orderArr.inte}}积分减免{{orderArr.money}}元（可用积分{{orderArr.myInte}}）</text>
+        <text class='money'>小计<text class='on'>¥{{totalAmount}}</text></text>
+    </view>
+    <picker bindchange="bindPickerChange" value="{{payIndex}}" range="{{payNames}}">
+         <view class='pay_way'>
+        <text>支付方式</text>
+        <view class='right picker'>
+            <text>{{payNames[payIndex]}}</text>
+            <image src='/assets/add_btn_rt.png'></image>
+        </view>
+    </view>
+    </picker>
+   
+    <input type='text' placeholder="备注 / 发票" class='remark' name="remarks" bindinput="addText">{{remarks}}</input>
+</view>
+<view class='foot'>
+            <text class='sale'>优惠¥{{isShow == 1 && payIndex == 1 ?  orderArr.money+'.00' : '0.00'}}</text>
+            <text class='paid'>实付<text class='on'>¥{{payIndex != 1 ? totalPrice : (isShow == 1 ? totalAmount : totalPrice)}}</text></text>
+            <button class='present' form-type='sumbit' bindtap="orderSubmit">提交订单</button>
+</view>

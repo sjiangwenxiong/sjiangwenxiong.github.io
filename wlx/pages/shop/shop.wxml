@@ -1,0 +1,49 @@
+<!--shop.wxml-->
+<view class='container'>
+        <view class='shop_logo'>
+            <image src='{{logo}}'></image>
+        </view>
+        <view class='main1'>
+            <view class='font-hide'>
+                    <image src='{{shopInfo.shopname}}' class='msg_icon'></image>
+                    <text class='msg'>新客户首购桶装水需付桶押金30元每个，不用可退。</text>
+            </view>    
+              <view class='shop_img'>
+                <block  wx:for="{{images}}" wx:for-index="key" wx:key="key" wx:for-item="pic">
+                    <image src='{{pic}}'></image>
+                </block>
+              </view>  
+        </view>
+        <view class='main2'>
+            <view class='list'>
+                <view class='time'>
+                    <text class='list_lf'>开店时间</text>
+                    <text class='list_rt'>{{shopInfo.opentimes}}</text>
+                </view>
+                <view class='time'>
+                    <text class='list_lf'>配送时间</text>
+                    <text class='list_rt'>{{shopInfo.sendtimes}}</text>
+                </view>                 
+                <view class='add'>
+                    <text class='list_lf'>地址</text>
+                    <text class='list_rt'>{{shopInfo.address}}</text>
+                </view>                
+                <view class='tel'>
+                    <text class='list_lf'>电话</text>
+                    <text class='list_rt'>{{shopInfo.tel}}</text>
+                </view>                
+            </view>
+            <view class='list pdbtm'>
+                <view class='title'>配送信息</view>
+                <text class='msg'>{{shopInfo.sendmess}}</text>
+            </view>
+            <view class='list pdbtm'>
+                <view class='title'>活动信息</view>
+                <text class='msg'>{{shopInfo.activity}}</text>
+            </view>
+            <view class='list pdbtm'>
+                <view class='title'>商家服务</view>
+                <text class='msg'>{{shopInfo.service}}</text>
+            </view>
+        </view>
+</view>

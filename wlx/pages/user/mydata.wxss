@@ -1,0 +1,41 @@
+page{
+    background-color:#efefef;
+}
+.container{
+    margin-top:30rpx;
+    background-color: #fff;
+}
+.head{
+    margin:0 24rpx 0 50rpx;
+    height: 140rpx;
+    line-height: 140rpx;
+    border-top:1px solid #e5e9eb;
+    border-bottom:1px solid #e5e9eb;
+}
+.head_word, .name_word{
+    font-size:28rpx;
+    color:#333;
+}
+.head_rt, .name_rt{
+    display: inline-block;
+    float: right;
+}
+.head_img{
+    vertical-align: middle;
+    border-radius: 50%;
+    width: 114rpx;
+    height: 114rpx;
+}
+.head_img2{
+    margin-left:28rpx;
+    vertical-align: middle;
+    width: 14rpx;
+    height: 25rpx;
+}
+.name{
+    margin:0 24rpx 0 50rpx;
+    height: 140rpx;
+    line-height: 140rpx;
+    border-bottom:1px solid #e5e9eb;
+
+}

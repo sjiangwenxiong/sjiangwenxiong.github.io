@@ -1,0 +1,97 @@
+.main1{
+    margin:14rpx 25rpx 13rpx 25rpx;
+}
+.main1 .list{
+    display: flex;
+    align-items:center;
+    height: 87rpx;
+    background-color: #f2f2f2;
+    padding:0 30rpx;
+    margin-top:20rpx;
+}
+.main1 .list label{
+    padding-right:30rpx;
+    color:#aaa;
+    font-size:28rpx;
+    width:4em;
+    display: inline-block;
+    text-align: left;
+}
+.main1 .list text{
+    font-size:28rpx;
+    color:#333;
+}
+.main2{
+    margin-left:25rpx;
+}
+.pr25{
+    padding-right:25rpx;
+}
+.title{
+    line-height: 64rpx;
+    display: flex;
+    align-items:center;
+    font-size:30rpx;
+    color:#333;
+}
+.msg106{
+    line-height: 106rpx;
+    display: flex;
+    align-items:center;
+    font-size:24rpx;
+    color:#333;
+}
+.msg94{
+    line-height: 94rpx;
+    display: flex;
+    align-items:center;
+    font-size:24rpx;
+    color:#333;
+    border-bottom: 1px solid #ededed;
+}
+.msg64{
+    line-height: 64rpx;
+    display: flex;
+    align-items:center;
+    font-size:24rpx;
+    color:#333;
+}
+.productorder__title{
+    flex: 6;
+}
+.line{
+    background-color:#ededed;
+    height:1rpx;
+}
+.underline{
+    border-bottom: 1px solid #ededed;
+}
+.productorder__quantity{
+    flex: 2;
+    text-align: right;
+    color:#aaa;
+}
+.productorder__money{
+    flex: 2;
+    text-align: right;
+}
+.productorder__money.on{
+    color:#ec6a2c;
+    font-size:30rpx;
+}
+.productorder__img{
+    width: 39rpx;
+    height:36rpx;
+}
+.productorder__way{
+    font-size:30rpx;
+    color:#333;
+    margin-left:20rpx;
+}
+.productorder__remark{
+    flex:3;
+}
+.productorder__msg{
+    flex:7;
+    text-align: right;
+}

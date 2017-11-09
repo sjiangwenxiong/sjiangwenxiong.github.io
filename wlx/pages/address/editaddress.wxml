@@ -1,0 +1,21 @@
+<!--editaddress.wxml-->
+<form bindsubmit="formSubmit" bindreset="formReset">
+<view class="container">
+    
+    <!-- <picker mode="region" name='areas' bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}">
+        <view class="picker" >
+          {{region[0]}} {{region[1]}} {{region[2]}}
+        </view>
+    </picker> -->
+    <view catchtap="chooseLocation" class='container_img'>
+        <text>选取地址</text>
+        <image src="/assets/add.png" class='order_img1'></image>
+    </view>
+    <text  class="container_img" name='areas'>地区：{{address}}</text> 
+    <input  name='details' value="{{ addrInfo.details}}" placeholder='请输入详细地址' ></input>
+    <input  name='receiver' value="{{ addrInfo.receiver}}" placeholder='收货人姓名'></input>
+    <input  name='phone' value="{{ addrInfo.phone}}" placeholder='请输入手机号码' type='number' ></input>
+  </view>
+  <button class="main_btn" formType="submit">保存</button>
+</form>
+

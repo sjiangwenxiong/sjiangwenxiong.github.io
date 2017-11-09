@@ -1,0 +1,200 @@
+<!--index.wxml-->
+<view class='app'>
+
+  <view class='header'>
+    <view class='content-wrapper'>
+      <view class="avatar">
+        <image src="/assets/logo.png"></image>
+      </view>
+      <view class='content'>
+        <view bindtap="powerDrawer" data-statu="open">
+          <view class='title'>
+            <text>{{shopInfo.name}}</text>
+            <image class='icon_rt' src='/assets/add_btn_rt.png'></image>
+          </view>
+          <view class='description '>
+            <image class='icon_lf' src='/assets/horn.png'></image>
+            <text>{{short_notice}}</text>
+          </view>
+        </view>
+        <view class='support' bindtap="callmeTap">
+          <image src='/assets/tel2.png' class='icon_tel'></image>
+          <text>{{shopInfo.tel}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class='tab'>
+    <!-- <navigator class="tab-item" url="../shop/index">  -->
+    <view class="tab-item">
+      <a href="#!/goods" class="active">商品</a>
+    </view>
+    <navigator class="tab-item" url="../shop/shop">
+      <a href="#!/goods" class="">商家</a>
+    </navigator>
+    <navigator class="tab-item" url="../user/mine">
+      <a href="#!/goods" class="">我的</a>
+    </navigator>
+  </view>
+  <view class="goods">
+    <view class="menu-wrapper">
+      <scroll-view scroll-y="true">
+        <view class="menu-item border-1px" wx:for="{{goods}}" wx:key="key" bindtap="selectMenu" data-item-index="{{index}}">
+          <view class="text">
+            {{item.name}}
+          </view>
+        </view>
+      </scroll-view>
+    </view>
+    <scroll-view scroll-y="true" scroll-into-view="{{toView}}" class="foods-wrapper">
+      <view class="food-list food-list-hook" wx:for="{{goods}}" wx:key="key" wx:for-index="parentIndex">
+        <view id="order{{parentIndex}}" class="title">
+          {{item.name}}
+          <text class="desc_title">{{item.description}}</text>
+        </view>
+        <navigator class="food-item" wx:for="{{item.food}}" wx:key="key" wx:for-item="food" data-food="{{food}}" bindtap="selectFoods" url="../shop/shopdetails?id={{food.id}}">
+          <view class="icon">
+            <image src="{{food.image}}" style="width: 145rpx;height: 145rpx"></image>
+          </view>
+          <view class="content">
+            <view class="name">{{food.name}}</view>
+            <view class="desc">{{food.description}}</view>
+            <view class="extra">
+              <text class="count">已售 {{food.sellCount}} 份</text>
+            </view>
+            <view class="price">
+              <view class="now">￥{{food.cateCount > 1? food.cate[0].price +'起' : food.price}}</view>
+              <view class="old" wx:if="{{food.oldPrice}}">￥{{food.oldPrice}}</view>
+            </view>
+
+            <!--cartControl-->
+            <view class="cartControl-wrapper">
+              <view class="cartControl" wx:if="{{showTime}}">
+                <view name="fade" >
+                  <view class="cart-decrease" wx:if="{{food.Count > 0}}"
+                  data-parentId="{{food.id}}" 
+                  data-Id="{{food.cate[0].cate_id}}" 
+                  catchtap="{{food.cateCount >1 ?'toggleList':'decreaseCart'}}" 
+                  data-cate="{{food.cateCount}}">
+                    <view class="inner iconfont icon-jian" style="font-size:24px;color:{{food.cateCount > 1?'#868686':'#00A0DC'}};" hover-stop-propagation="true"></view>
+                  </view>
+                  <view class="cart-count" wx:if="{{food.Count > 0 }}">{{food.Count}}</view>
+                  <view class=" iconfont icon-jia move" style="color:#00A0DC;top:{{food.position.top}}px;right:{{food.position.right}}px;" wx:if="{{food.position.top>0}}" hover-stop-propagation="true"></view>
+                  <view class="iconfont icon-jia cart-add" style="color:#00A0DC;" data-item-index="{{index}}" data-parentIndex="{{parentIndex}}" data-parentId="{{food.id}}" data-Id="{{food.cate[0].cate_id}}" catchtap="{{food.cateCount >1 ?'carpowerDrawer':'addCart'}}" data-statu="open" hover-stop-propagation="true"></view>
+                </view>
+              </view>
+            </view>
+          </view>
+        </navigator>
+      </view>
+      <view class='food-list' style='height:35px;'></view>
+    </scroll-view>
+    <view name="fade">
+      <view class="list-mask" wx:if="{{listShow}}" bindtap="hideList"></view>
+    </view>
+  </view>
+  <view>
+    <view>
+      <view class="shopCart" wx:if="{{showTime}}">
+        <view class="content" >
+          <view class="content-left" bindtap="toggleList">
+            <view class="logo-wrapper {{totalPrice > 0?'active':''}}">
+              <view class="logo highlight">
+                <view class="iconfont icon-gouwuche highlight"></view>
+              </view>
+              <view class="num" wx:if="{{totalCount> 0}}">{{totalCount}}</view>
+            </view>
+            <view class="price highlight">{{totalPrice>0?'￥'+totalPrice:'未选购商品'}}</view>
+          </view>
+          <view class="content-right" catchtap="pay">
+            <view class="pay {{showTime && totalPrice> 0?'not-enough':'enough'}}">
+              {{payDesc}}
+            </view>
+          </view>
+        </view>
+        <!-- 购物车 --start-->
+        <view class="shopcart-list" style="display:{{cartShow}}">
+          <view class='shopcart-mask' bindtap="toggleList"></view>
+          <view class="list-header">
+            <view class="cart-title">购物车</view>
+            <text class="empty" bindtap="empty">清空</text>
+          </view>
+          <view class="list-content">
+            <view class="shopcart-food" wx:for="{{cartArray}}" wx:key="key" wx:if="{{item.qty >0}}">
+              <text class="name">{{item.name}}</text>
+              <view class="price">
+                <span>￥{{item.subtotal}}</span>
+              </view>
+              <view class="cartControl-wrapper" style="bottom:10px;">
+                <view class="cartControl" style="width:80px;">
+                  <view name="fade">
+                    <view class="cart-decrease" style="display:inline-block;" data-parentId="{{item.options.shelf_id}}" data-Id="{{item.options.product_id}}" catchtap="decreaseCart">
+                      <view class="inner iconfont icon-jian" style="font-size:24px;color:#00A0DC;"></view>
+                    </view>
+                    <view class="cart-count" style="display:inline-block;width:32px;text-align:center;font-size:14px;">
+                      {{item.qty}}
+                    </view>
+                    <view class="iconfont icon-jia cart-add " style="font-size:24px;color:#00A0DC; padding:0;" data-parentId="{{item.options.shelf_id}}" data-Id="{{item.options.product_id}}" catchtap="addCart"></view>
+                  </view>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+        <!-- 购物车--end -->
+      </view>
+      <view wx:if="{{!showTime}}" class="shopStop">
+        <text class='stoptitle'>商家休息中</text>
+      </view>
+    </view>
+  </view>
+</view>
+
+<!--mask-->
+<view class="drawer_screen" bindtap="powerDrawer" data-statu="close" wx:if="{{showModalStatus}}"></view>
+
+<!--content-->
+<!--使用animation属性指定需要执行的动画-->
+<view animation="{{animationData}}" class="drawer_box" wx:if="{{showModalStatus}}">
+
+  <!--drawer content-->
+  <image class='drawer_logo' src='{{shopInfo.logo}}'></image>
+  <view class='drawer_title'>{{shopInfo.name}}</view>
+  <view class='drawer_msg'>
+    <text>起送 ¥0</text>
+    <text>配送 ¥0</text>
+    <text>120分钟</text>
+  </view>
+  <view class='drawer_line'></view>
+  
+  <view class='drawer_notice'>
+    <image src='/assets/horn.png'></image>
+    <text>商家公告</text>
+  </view>
+  <view class='drawer_details'>{{notice}}</view>
+</view>
+
+<!--mask--阴影-->
+ <view class="drawer_screen" bindtap="carpowerDrawer" data-statu="close" wx:if="{{showCarStatus}}"></view> 
+
+<!--content-->
+<!--使用animation属性指定需要执行的动画-->
+<view class="drawer_box" wx:if="{{showCarStatus}}">
+  <view animation="{{animationData}}" class='drawer_box1'>
+    <!--drawer content-->
+    <view class="drawer_title">{{info.name}}</view>
+    <view class='drawer_msg'>规格:{{info.attributes}}</view>
+    <view class='drawer_size'>
+      <text wx:for="{{info.cate}}" wx:for-index="key1" wx:for-item="pro" wx:key="key" 
+      class='dd {{select.cate_id == pro.cate_id ? "on":"ml25"}}' 
+      bindtap="changeCart" data-key="{{key1}}" 
+      data-parentId="{{info.id}}" 
+      data-Id="{{pro.cate_id}}">{{pro.characters}}</text>
+    </view>
+    <view class="btn_ok">
+      <text class='btn_price'>¥{{select.price}}</text>
+      <text class='btn_msg'>（{{select.characters}}）</text>
+      <button bindtap="addCart" data-statu="close" data-parentId="{{info.id}}" data-id="{{select.cate_id}}" >加入购物车</button>
+    </view>
+  </view>
+</view>

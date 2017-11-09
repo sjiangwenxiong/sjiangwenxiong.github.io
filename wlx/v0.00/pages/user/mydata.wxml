@@ -1,0 +1,17 @@
+<!--mydata.wxml-->
+<view   class='container'>
+        <view class='head'>
+            <text class='head_word'>头像</text>
+            <view class='head_rt'> 
+                    <image src='/assets/head.png' class='head_img'></image>
+                    <image src='/assets/lficon.png' class='head_img2'></image>
+            </view>
+        </view>
+        <view class='name'>
+            <text class='name_word'>用户名</text>
+            <view class='name_rt'> 
+                    <text class='name_word'>折耳的猫</text>
+                    <image src='/assets/lficon.png' class='head_img2'></image>
+            </view>
+        </view>
+</view>

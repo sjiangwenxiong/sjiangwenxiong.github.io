@@ -526,7 +526,7 @@ export default {
     padding: 0 2vw;
   }
   .footer p{
-    margin-top: 2vw;
+    margin-top: 1vw;
   }
 }
 </style>

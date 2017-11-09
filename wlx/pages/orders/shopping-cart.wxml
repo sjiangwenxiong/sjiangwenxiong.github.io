@@ -1,0 +1,35 @@
+<view class="main">
+    <view wx:if="{{hasList}}">
+        <view class="cart-box">
+            <view class="cart-list" wx:for="{{carts}}" wx:key="{{index}}">
+                <icon wx:if="{{item.selected}}" type="success" color="#0085e0" data-index="{{index}}"  class="cart-pro-select" bindtap="selectList"/>
+                <icon wx:else type="circle" class="cart-pro-select" data-index="{{index}}" bindtap="selectList"/>
+                <navigator url="../details/details?id={{item.id}}"><image class="cart-thumb" src="{{item.image}}"></image></navigator>
+                <text class="cart-pro-name">{{item.title}}</text>
+                <text class="cart-pro-price">￥{{item.price}}</text>
+                <view class="cart-count-box">
+                    <image class="cart-count-down" bindtap="minusCount" data-obj="{{obj}}" data-index="{{index}}" src='/assets/cart-count-down.png'></image>
+                    <text class="cart-count-num">{{item.num}}</text>
+                    <image class="cart-count-add" bindtap="addCount" data-index="{{index}}" src='/assets/cart-count-add.png'></image>
+                </view>
+            </view>
+        </view>
+
+        <view class="cart-footer">
+            <icon wx:if="{{selectAllStatus}}" type="success_circle" color="#0085e0" class="total-select" bindtap="selectAll"/>
+            <icon wx:else type="circle" color="#d5d5d5" class="total-select" bindtap="selectAll"/>
+            <view class="order-icon">
+                <navigator url="../orders/orders"><button class='order-settlement'>结算</button></navigator>
+            </view>
+            <button class="cart-del" bindtap="deleteList" data-index="{{index}}">清空</button>
+            <view class='check-all'>全选</view>
+            <view class='cart-msg'>
+                <view class="cart-toatl-price">合计：￥{{totalPrice}}元</view>
+                <view class="cart-toatl-freight">含运费</view>
+            </view>
+        </view>
+    </view>
+    <view wx:else>
+        <view class="cart-no-data">购物车是空的哦~</view>
+    </view>
+</view>

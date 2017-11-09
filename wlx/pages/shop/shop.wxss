@@ -1,0 +1,77 @@
+.shop_logo{
+    display: flex;
+    align-items:center;
+    text-align: center;
+    justify-content: center;
+    padding-top:28rpx;
+    padding-bottom:66rpx;
+}
+.shop_logo image{
+    width: 162rpx;
+    height: 162rpx;
+}
+.main1{
+    margin:0 25rpx;
+}
+.font-hide{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    display: block;
+}
+.msg{
+    color:#333;
+    font-size:25rpx;
+}
+.msg_icon{
+    width: 23rpx;
+    height: 18rpx;
+    margin-right:10rpx; 
+}
+.shop_img{
+    display: flex;
+    margin:35rpx 0;
+}
+.shop_img image{
+    width:222rpx;
+    height: 135rpx;
+}
+.shop_img image:nth-child(2) {
+    padding:0 17rpx;
+}
+.main2{
+    background-color:#f4f4f4;
+    padding:20rpx 0;
+}
+.list{
+    margin:20rpx 25rpx;
+    padding:0 15rpx;
+    background-color:#fff;
+    font-size:25rpx;
+    color:#333;
+    box-shadow:0px 2px 2px rgba(4, 0, 0, 0.2);
+}
+.list .title{
+    height:78rpx;
+    line-height: 78rpx;
+}
+.list .msg{
+    color:#aaa;
+    line-height: 35rpx;
+}
+.pdbtm{
+    padding-bottom:20rpx;
+}
+.time,.add,.tel{
+    height: 65rpx;
+    display: flex;
+    align-items:center;
+}
+.list_lf{
+    flex: 5;
+    text-align: left;
+}
+.right_lf{
+    flex: 5;
+    text-align: right;
+}

@@ -1,0 +1,123 @@
+page{
+    background-color:#efefef;
+}
+.log{
+    background-color:#fff;
+    margin-top:30rpx;
+    margin-bottom:15rpx;
+    border-top:1px solid #e5e9eb;
+    border-bottom: 1px solid #e5e9eb;
+}
+.log__bd{
+    display: flex;
+    padding:0 24rpx;
+    align-items: center;
+    height: 140rpx;
+}
+.log__image{
+    height: 94rpx;
+    width: 94rpx;
+    border-radius: 50%;
+}
+.log_image2{
+    width: 14rpx;
+    height: 25rpx;
+    margin-left: auto;
+}
+.order{
+    display: flex;
+    flex-direction: column;
+    margin-left: 33rpx;
+    justify-content:space-around;
+    height:70rpx;
+}
+.order__number{
+    font-size:28rpx;
+    color: #333;
+}
+.order__datetime{
+    font-size: 22rpx;
+    color: #aaa;
+}
+.order__datetime.ml48{
+    margin-left:48rpx;
+}
+.myorder{
+    background-color:#fff;
+}
+.myorder_title{
+    display: flex;
+    align-items: center;
+    height: 88rpx;
+}
+.myorder_title text{
+    font-size: 28rpx;
+    color:#333;
+}
+.order_img1{
+    width:34rpx;
+    height: 40rpx;
+    padding:0 53rpx;
+}
+.order_img2{
+    width: 14rpx;
+    height: 25rpx;
+    margin-left: auto;
+    margin-right: 24rpx;
+}
+.myorder_list{
+    margin-left:136rpx;
+    height: 100rpx;
+    display: flex;
+    align-items: center;
+    border-top:1px solid #d3d3d3;
+    padding-top: 25rpx;
+}
+.vessel{
+    flex: 2.5;
+    text-align: center;
+    position: relative;
+}
+.delivery{
+    width:40rpx;
+    height: 40rpx;
+}
+.list_word{
+    font-size: 22rpx;
+    color:#333;
+}
+.item { content: '0'; position: absolute; top: -9rpx;right:50rpx;background-color: #f39700; border-radius: 50%; font-size: 20rpx; color: white; width: 25rpx; height: 25rpx; line-height: 25rpx; text-align: center;  } 
+
+
+.foot{
+    position: fixed;
+    bottom: 0;
+    left:0;
+    width: 100%;
+    height:112rpx;
+    border-top:1px solid #e1e1e1;
+    background-color:#fff;
+}
+.foot .content{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 112rpx;
+}
+.foot .content .list{
+    flex: 5;
+    text-align: center;
+}
+.foot .content .list .foot_icon1{
+    width:46rpx;
+    height:40rpx;
+}
+.foot .content .list .foot_icon2{
+    width:40rpx;
+    height:40rpx;
+}
+.foot .content .list text{
+    font-size:30rpx;
+    color:#333;
+    margin-left:29rpx;
+}

@@ -1,0 +1,27 @@
+/* submit.wxss */
+.content{
+    background-color:#fff;
+    min-height: 100vh;
+}
+.code{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.img{
+    width:175rpx;
+    height:176rpx;
+    padding-top:258rpx;
+    text-align: center; 
+    margin-bottom: 56rpx;
+}
+.name{
+    font-size:36rpx;
+    color:#333;
+}
+.name2{
+    font-size:28rpx;
+    color:#aaaaaa;
+    margin-top:20rpx;
+}

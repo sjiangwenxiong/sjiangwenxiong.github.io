@@ -1,0 +1,25 @@
+<!--integral.wxml-->
+<view class='balance-main'>
+    <view class='balance-top'>
+        <image src='/assets/integral.png' class='balance-img'></image>
+        <text>可用积分：4845</text>
+    </view>
+    <view class="table">
+      <view class="table__hd">
+        <div class="table__row">
+          <text class="table__title">操作时间</text>
+          <text class="table__title">类型</text>
+          <text class="table__title">积分</text>
+          <text class="table__title">可用</text>
+        </div>
+      </view>
+      <view class="table__bd">
+        <view class="table__row" wx:for='{{logs}}' wx:for-index='key' wx:key='key1' wx:for-item='item'>
+          <text class="table__text">{{item.created_at}}</text>
+          <text class="table__text">{{item.type == 1 ? '奖励' : (item.type == 2 ? '消费' : '退回')}}</text>
+          <text class="table__text">{{item.type == 2 ? '-' : '+'}}{{item.number}}</text>
+          <text class="table__text">{{item.current}}</text>
+        </view>
+      </view>
+    </view>
+</view>

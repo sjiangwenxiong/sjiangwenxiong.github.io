@@ -1,0 +1,110 @@
+page{
+    background-color:#f0f0f0;
+}
+.table{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background-color: white;
+}
+.table__hd{
+  color: #aaaaaa;
+  height: 70rpx;
+  font-size: 28rpx;
+}
+.table__row{
+  height: 70rpx;
+  display: flex;
+  align-items: center;
+}
+.table__title{
+  flex: 1;
+  text-align: center;
+}
+.table__title.on{
+    color:#0085e0;
+}
+.log-list{
+    background-color:#fff;
+    padding-bottom:22rpx;
+    margin-top: 20rpx;
+}
+.log{
+    font-size: 30rpx;
+    margin-bottom: 22rpx;
+}
+.log__hd{
+    display: flex;
+    align-items: center;
+    background-color: #ffffff;
+    height: 70rpx;
+    border-bottom:1px solid #dcdcdc;
+    padding:0 22rpx;
+}
+.log__icon{
+    width: 32rpx;
+    height: 32rpx;
+}
+.log__shop-name{
+    font-size:28rpx;
+    color:#333;
+}
+.log__cost{
+    color: #aaa;
+    margin-left: auto;
+    font-size: 22rpx;
+}
+.log__bd{
+    display: flex;
+    align-items: flex-end;
+    height: 180rpx;
+    padding:0 22rpx;
+}
+.log__image{
+    height: 144rpx;
+    width: 144rpx;
+    border-radius: 5rpx;
+}
+.order{
+    display: flex;
+    flex-direction: column;
+    margin-left: 24rpx;
+    justify-content:space-around;
+    height:144rpx;
+}
+.order_number{
+    font-size:28rpx;
+    color:#333;
+}
+.order__datetime{
+    font-size: 22rpx;
+    color: #a2a2a2;
+}
+.order__datetime.on{
+    color:#ec6a2c;
+}
+.log__ft{
+    display: flex;
+    height: 144rpx;
+    background-color: #fff;
+    align-items: center;
+    margin-left: auto;
+}
+.order_btn{
+    font-size:22rpx;
+    padding:15rpx 27rpx;
+}
+.cancel{
+    color:#aaa;
+    border:1px solid #aaa;
+}
+.confirm{
+    color:#0085e0;
+    border:1px solid #0085e0;
+}
+.finish{
+    color:#333;
+}
+.abolish{
+    color:#aaa;
+}

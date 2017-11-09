@@ -1,0 +1,72 @@
+<!--mine.wxml-->
+<view class='container'>
+    <view class="log">
+        <navigator class="log__bd" url="../user/mydata">
+            <image class="log__image" src="/assets/head.png"></image>
+            <view class="order">
+                <text class="order__number">{{userData.name ? userData.name : '折耳的猫'}}</text>
+                <view>
+                    <text class="order__datetime">余额：{{userData.balance}}元</text>
+                    <text class="order__datetime ml48">积分：{{userData.integral}}分</text>
+                </view>
+            </view>
+            <image src="{{userData.avatar ? userData.avatar : '/assets/lficon.png'}}" class='log_image2'></image>
+        </navigator>
+    </view>
+    <view class='myorder'>
+        <navigator class='myorder_title' url="../orders/myorder?status=0">
+            <image src="/assets/order.png" class='order_img1'></image>
+            <text>我的订单</text>
+            <image src='/assets/lficon.png' class='order_img2'></image>
+        </navigator>
+        <view class='myorder_list'>
+            <navigator class='vessel' url="../orders/myorder?status=1">
+                <view class='{{counts[0] > 0 ? "item" : ""}}'>{{counts[0] > 0 ? counts[0] : ""}}</view>
+                <image src='/assets/delivery.png' class='delivery'></image>
+                <view class='list_word'>待付款</view>
+            </navigator>
+            <navigator class='vessel' url="../orders/myorder?status=2">
+                <view class='{{counts[1] > 0 ? "item" : ""}}'>{{counts[1] > 0 ? counts[1] : ""}}</view>
+                <image src='/assets/dispatching.png' class='delivery'></image>
+                <view class='list_word'>配送中</view>
+            </navigator>
+            <navigator class='vessel' url="../orders/myorder?status=4">
+                <view class='{{counts[2] > 0 ? "item" : ""}}'>{{counts[2] > 0 ? counts[0] : ""}}</view>
+                <image src='/assets/finish.png' class='delivery'></image>
+                <view class='list_word'>已完成</view>
+            </navigator>
+            <navigator class='vessel' url="../orders/myorder?status=3">
+                <view class='{{counts[3] > 0 ? "item" : ""}}'>{{counts[3] > 0 ? counts[3] : ""}}</view>
+                <image src='/assets/cancel.png' class='delivery'></image>
+                <view class='list_word'>已取消</view>
+            </navigator>
+        </view>
+        <navigator class='myorder_title' url="../recharge/topup">
+            <image src="/assets/balance.png" class='order_img1'></image>
+            <text>充值</text>
+            <image src='/assets/lficon.png' class='order_img2'></image>
+        </navigator>
+        <navigator class='myorder_title' url="../user/integral">
+            <image src="/assets/integral.png" class='order_img1'></image>
+            <text>积分明细</text>
+            <image src='/assets/lficon.png' class='order_img2'></image>
+        </navigator>
+        <navigator class='myorder_title' url="../address/manageadd">
+            <image src="/assets/add.png" class='order_img1'></image>
+            <text>我的地址</text>
+            <image src='/assets/lficon.png' class='order_img2'></image>
+        </navigator>
+    </view>
+    <view class='foot'>
+        <view class='content'>
+            <view class='list'>
+                <image src='/assets/wechat_icon.png' class='foot_icon1'></image>
+                <text>微信客服</text>
+            </view>
+            <view class='list'>
+                <image src='/assets/tel.png' class='foot_icon2'></image>
+                <text>电话客服</text>
+            </view>
+        </view>
+    </view>
+</view>

@@ -1,0 +1,8 @@
+/**app.wxss**/
+.clearfix{overflow:hidden;_zoom:1;}
+.main_btn{
+    background-color:#0085e0;
+    color:#fff;
+    margin:0 15px;
+    display: block;
+    }

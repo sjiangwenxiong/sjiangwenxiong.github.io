@@ -1,0 +1,35 @@
+<view class="table">
+    <view class="table__hd">
+    <div class="table__row">
+        <text class="table__title {{default_status == 0 ? 'on' : ''}}" data-status='0' bindtap='checkStatus'>全部</text>
+        <text class="table__title {{default_status == 1 ? 'on' : ''}}" data-status='1' bindtap='checkStatus'>待付款</text>
+        <text class="table__title {{default_status == 2 ? 'on' : ''}}" data-status='2' bindtap='checkStatus'>待确认</text>
+        <text class="table__title {{default_status == 4 ? 'on' : ''}}" data-status='4' bindtap='checkStatus'>已完成</text>
+        <text class="table__title {{default_status == 3 ? 'on' : ''}}" data-status='3' bindtap='checkStatus'>已取消</text>
+    </div>
+    </view>
+</view>
+<view class='container'>
+        <navigator class='log-list' wx:for='{{orders}}' wx:key='key' wx:for-index='index' wx:for-item='item' url='../orders/orderdetails?id={{item.id}}'>
+                <view  class="log log--back">
+                    <view class="log__hd">
+                        <text class="log__shop-name">订单编号：{{item.order_no}}</text>
+                        <text class="log__cost">{{item.created_at}}</text>
+                    </view>
+                    <view class="log__bd">
+                        <image class="log__image" src="{{item.product.image}}"></image>
+                        <view class="order">
+                            <text class="order__number">{{item.product.name}}</text>
+                            <text class="order__datetime on">¥{{item.amount}}</text>
+                            <text class="order__datetime">x{{item.product.number}}</text>
+                        </view>
+                        <view class="log__ft">
+                            <text wx:if='{{item.status == 1}}' class="cancel order_btn" bindtap="operateOrder" data-id="{{item.id}}" data-status='3'>取消订单</text>
+                            <text wx:if='{{item.status == 2}}' class="confirm order_btn" bindtap="operateOrder" data-id="{{item.id}}" data-status='4'>确认收货</text>                         
+                            <text wx:if='{{item.status == 3}}' class="abolish order_btn">已取消</text>
+                            <text wx:if='{{item.status == 4}}' class="finish order_btn">已完成</text>
+                        </view>
+                    </view>
+                </view>
+        </navigator>       
+</view>

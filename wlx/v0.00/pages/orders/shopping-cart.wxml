@@ -1,0 +1,35 @@
+<view class="main">
+    <view wx:if="{{hasList}}">
+        <view class="cart-box">
+            <view class="cart-list" wx:for="{{cartArray}}" wx:key="{{index}}">
+                <icon wx:if="{{item.selected || selectAllStatus}}" type="success" color="#0085e0" data-index="{{index}}"  class="cart-pro-select" bindtap="selectList" data-status="1"/>
+                <icon wx:else type="circle" class="cart-pro-select" data-index="{{index}}" bindtap="selectList" data-status="0"/>
+                <navigator url="../details/details?id={{item.options.shelf_id}}"><image class="cart-thumb" src="{{item.options.image}}"></image></navigator>
+                <text class="cart-pro-name">{{item.name}}</text>
+                <text class="cart-pro-price">￥{{item.price * item.qty}}.00</text>
+                <view class="cart-count-box">
+                    <image class="cart-count-down" bindtap="minusCount" data-parentId="{{item.options.shelf_id}}" data-Id="{{item.options.product_id}}" data-obj="{{obj}}" data-index="{{index}}" src='/assets/cart-count-down.png'></image>
+                    <text class="cart-count-num">{{item.qty}}</text>
+                    <image class="cart-count-add" bindtap="addCount" data-parentId="{{item.options.shelf_id}}" data-Id="{{item.options.product_id}}" data-index="{{index}}" src='/assets/cart-count-add.png'></image>
+                </view>
+            </view>
+        </view>
+
+        <view class="cart-footer">
+            <icon wx:if="{{selectAllStatus}}" type="success_circle" color="#0085e0" class="total-select" bindtap="selectAll" />
+            <icon wx:else type="circle" color="#d5d5d5" class="total-select" bindtap="selectAll" />
+            <view class="order-icon">
+                <button class='order-settlement' bindtap="account">结算</button>
+            </view>
+            <button class="cart-del" bindtap="empty">清空</button>
+            <view class='check-all'>全选</view>
+            <view class='cart-msg'>
+                <view class="cart-toatl-price">合计：￥{{totalPrice}}元</view>
+                <view class="cart-toatl-freight">含运费</view>
+            </view>
+        </view>
+    </view>
+    <view wx:else>
+        <view class="cart-no-data">购物车是空的哦~</view>
+    </view>
+</view>

@@ -1,0 +1,26 @@
+{
+  "pages": [  
+    "pages/shop/welcome",
+    "pages/shop/index",
+    "pages/user/mine",
+    "pages/address/manageadd",
+    "pages/address/addaddress",
+    "pages/address/editaddress",
+    "pages/shop/shop",
+    "pages/shop/shopdetails",
+    "pages/orders/shopping-cart",
+    "pages/recharge/topup",
+    "pages/orders/myorder",
+    "pages/orders/balance",
+    "pages/orders/submit",
+    "pages/orders/orderdetails",
+    "pages/user/mydata",
+    "pages/user/integral"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#0085e0",
+    "navigationBarTitleText": "美家配送",
+    "navigationBarTextStyle": "white"
+  }
+}

@@ -1,0 +1,24 @@
+/* addaddress.wxss */
+page{
+  background-color: #eee;
+}
+.container{
+  padding-left:42rpx;
+  background-color: #ffffff;
+}
+.container input, .container_img, .picker{
+  font-size:33rpx;
+  color:#aaaaaa;
+  height: 90rpx;
+  line-height: 90rpx;
+  border-bottom:1px solid #f4f4f4;
+}
+.main_btn{
+    margin-top:32px;
+}
+
+.order_img1{
+    width:34rpx;
+    height: 40rpx;
+    padding:0 53rpx 0 42rpx;
+}

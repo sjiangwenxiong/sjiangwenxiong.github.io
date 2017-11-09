@@ -1,0 +1,38 @@
+<!--manageadd.wxml-->
+<view class='container'>
+    <view  wx:for='{{addrLists}}' wx:key='index' wx:for-item='addr'>
+        <view class='list'>
+                <view class='content1' bindtap="addrInfo" data-id="{{addr.id}}">
+                        <text class='msg_name'>{{addr.receiver}}</text>
+                        <text class='msg_phone'>{{addr.phone}}</text>
+                </view>
+                <view class='content1' bindtap="addrInfo" data-id="{{addr.id}}">
+                        <text class='msg_add'>{{addr.areas}}{{addr.details}}</text>
+                </view>
+                <image src='/assets/add_btn_rt.png' class='msg_img' bindtap="addrInfo" data-id="{{addr.id}}"></image>
+                <view class='content2'>
+                    <view class='lf_btn'>
+                      <block wx:if="{{ addr.is_default == 1 }}">
+                        <image src='/assets/ok.png' class='msg_icon1'></image>
+                        <text  class='msg_word2'>默认地址</text>
+                      </block>
+                      <block wx:else>
+                        <image src='/assets/no_ok.png' class='msg_icon1' bindtap="setDefault" data-id="{{addr.id}}"></image>
+                        <text class='msg_word' bindtap="setDefault" data-id="{{addr.id}}">设为默认</text>
+                      </block>
+                    </view>
+                    <view class='rt_btn'>
+                        <image src='/assets/no_ok.png' class='msg_icon1 hide'></image>
+                        <image src='/assets/dustbin.png' class='msg_del' bindtap="addrDelete" data-id="{{addr.id}}"></image>
+                        <text class='msg_word' bindtap="addrDelete" data-id="{{addr.id}}">删除</text>
+                    </view>
+                
+                </view>
+        </view>
+    </view>
+    <view class='add_foot_view'>
+    </view> 
+    <view class='add_foot'>
+            <text bindtap="addrCreate">添加新地址</text>
+    </view>
+</view>

@@ -1,0 +1,70 @@
+<!--orderdetails.wxml -->
+<view class='container'>
+        <view class="main1">
+                <view class='list'>
+                        <label>订单号</label>
+                        <text>{{orderInfo.out_trade_no}}</text>
+                </view>
+                <view class='list'>
+                        <label>下单时间</label>
+                        <text>{{orderInfo.created_at}}</text>
+                </view>
+                <view class='list'>
+                        <label>预约时间</label>
+                        <text>{{orderInfo.created_at}}</text>
+                </view>
+                <view class='list'>
+                        <label>地址</label>
+                        <text>{{orderInfo.address}}</text>
+                </view>
+                <view class='list'>
+                        <label>收货人</label>
+                        <text>{{orderInfo.receiver}}</text>
+                </view>
+                <view class='list'>
+                        <label>联系电话</label>
+                        <text>{{orderInfo.phone}}</text>
+                </view>
+        </view>
+        <view class='main2'>
+                <view class='title'>商品</view>
+                <view class='line'></view>
+                <view class='pr25'>
+                    <view class='msg94'wx:for="{{orderInfo.items}}" wx:for-index="key" wx:key="index" wx:for-item="item">
+                        <text class='productorder__title'>{{item.name}}</text>
+                        <text class='productorder__quantity'>x{{item.number}}</text>
+                        <text class='productorder__money'>¥{{item.amount}}</text>
+                    </view>
+                      
+                    <view class='underline'> 
+                        <view class='msg64'>
+                            <text class='productorder__title'>总计</text>
+                            <text class='productorder__money on'>¥{{orderInfo.amount}}</text>
+                        </view>           
+                        <view class='msg64' >
+                            <text class='productorder__title'>积分抵扣</text>
+                            <text class='productorder__money'>- ¥{{orderInfo.discount}}</text>
+                        </view>                
+                        <view class='msg64'>
+                            <text class='productorder__title'>积分获取</text>
+                            <text class='productorder__money'>+{{orderInfo.reward}}</text>
+                        </view>   
+                        <view class='msg64'>
+                            <text class='productorder__title'>实付</text>
+                            <text class='productorder__money on'>¥{{orderInfo.total}}</text>
+                        </view>  
+                    </view>
+                    <view class='underline'>
+                        <view class='msg106'>
+                            <text class='productorder__title'>支付方式</text>
+                            <image  class='productorder__img' src='/assets/{{ orderInfo.pay_id == 1 ? "balance" : (orderInfo.pay_id == 2 ? "wechat" : "delivery")}}.png'></image>
+                            <text class='productorder__way'>{{ orderInfo.pay_id == 1 ? "余额支付" : (orderInfo.pay_id == 2 ? "微信支付" : "货到付款")}}</text>
+                        </view>                
+                    </view> 
+                    <view class='msg94'>
+                        <text class='productorder__remark'>备注</text>
+                        <text class='productorder__msg'>{{orderInfo.remarks ? orderInfo.remarks : ''}}</text>
+                    </view>
+                </view>              
+        </view>
+</view>        
